@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>每日金融簡報 · 2026-07-16</title>
+<title>每日金融簡報 · 2026-07-17</title>
 <style>
   :root{
     --bg:#0b0e14; --card:#141926; --card2:#1a2133; --text:#e8ecf4; --muted:#8b93a7;
@@ -37,116 +37,120 @@
   tr:last-child td{border-bottom:none}
   .tick{font-weight:700;color:var(--blue)}
   .tag{display:inline-block;background:var(--card2);border-radius:6px;padding:1px 7px;font-size:11px;color:var(--muted);white-space:nowrap}
-  .rank{display:inline-block;min-width:20px;text-align:center;background:var(--card2);border-radius:6px;padding:1px 6px;font-weight:700;font-size:12px}
-  .warn{background:linear-gradient(135deg,#1d1626,#141926);border:1px solid #3b2b4d}
-  .warn h2{color:var(--amber)}
-  .theme-row{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13px}
-  .bar{height:6px;border-radius:3px;margin-left:10px;flex:1;max-width:140px;background:var(--card2);overflow:hidden;position:relative}
-  .bar i{position:absolute;top:0;left:0;bottom:0;border-radius:3px;display:block}
-  footer{color:var(--muted);text-align:center;font-size:11.5px;margin-top:26px}
-  .subtle{font-size:12px;color:var(--muted);margin-top:8px}
+  .bar-row{display:flex;align-items:center;gap:8px;margin:4px 0;font-size:12.5px}
+  .bar-row .lbl{width:130px;color:#c9d1e0;text-align:right;flex-shrink:0}
+  .bar-row .bar{height:12px;border-radius:3px}
+  .bar-row .pct{width:60px;flex-shrink:0}
+  .warn{border-left:3px solid var(--red);background:var(--card);border-radius:0 12px 12px 0;padding:14px 18px;margin-top:16px}
+  .warn h2{font-size:15px;margin-bottom:8px;color:var(--red)}
+  footer{color:var(--muted);font-size:11.5px;text-align:center;margin-top:30px}
+  .full{grid-column:1/-1}
 </style>
 </head>
 <body>
 <div class="wrap">
-<header>
-  <h1>📈 每日金融簡報</h1>
-  <div class="date">2026年7月16日 · 星期四</div>
-  <div class="badge">晶片股連跌拖累納指 · 資金輪動：半導體 → 醫療/金融 · 恒指重上25,000</div>
-</header>
+  <header>
+    <h1>📈 每日金融簡報</h1>
+    <div class="date">2026年7月17日 · 星期五（收市後）</div>
+    <div class="badge">⚠️ Risk-Off：半導體入熊 · 伊朗戰事 · 9月加息機率 73%</div>
+  </header>
 
-<div class="kpis">
-  <div class="kpi"><div class="name">S&P 500</div><div class="val">—</div><div class="chg down">-0.5%</div></div>
-  <div class="kpi"><div class="name">納斯達克</div><div class="val">—</div><div class="chg down">-1.3%</div></div>
-  <div class="kpi"><div class="name">道瓊斯</div><div class="val">—</div><div class="chg down">-0.3%</div></div>
-  <div class="kpi"><div class="name">恒生指數</div><div class="val">25,008</div><div class="chg up">+1.33%</div></div>
-  <div class="kpi"><div class="name">BTC</div><div class="val">~$64.1K</div><div class="chg down">-0.4%</div></div>
-  <div class="kpi"><div class="name">ETH</div><div class="val">~$1,880</div><div class="chg up">5日 +7%</div></div>
-</div>
+  <div class="kpis">
+    <div class="kpi"><div class="name">S&P 500</div><div class="val down">-1.0%</div><div class="chg down">全週 -1.5%</div></div>
+    <div class="kpi"><div class="name">納斯達克</div><div class="val down">-1.4%</div><div class="chg down">全週 -2.9%</div></div>
+    <div class="kpi"><div class="name">道瓊斯</div><div class="val down">-0.7%</div><div class="chg down">全週 -1.0%</div></div>
+    <div class="kpi"><div class="name">恒生指數</div><div class="val down">-1.8%</div><div class="chg">24,562（-446點）</div></div>
+    <div class="kpi"><div class="name">BTC</div><div class="val down">$63.9K</div><div class="chg down">-1.0% · 失守 $65K</div></div>
+    <div class="kpi"><div class="name">ETH</div><div class="val down">$1,867</div><div class="chg down">-2.4% · 失守 $1,900</div></div>
+    <div class="kpi"><div class="name">布蘭特油</div><div class="val up">$85+</div><div class="chg up">週內 $70 → $85</div></div>
+  </div>
 
-<div class="grid">
-  <div class="card">
-    <h2><span class="dot" style="background:var(--blue)"></span>美股</h2>
+  <div class="grid">
+    <div class="card">
+      <h2><span class="dot" style="background:var(--blue)"></span>🇺🇸 美股</h2>
+      <ul>
+        <li>半導體再遭拋售，<span class="down">SOX 跌入熊市區域</span>——市場憂 hyperscaler 削減 AI 資本開支；Moonshot 開源 Kimi K3 加劇競爭疑慮。尾市見低吸盤。</li>
+        <li><span class="tick">NFLX</span> <span class="down">-11%</span>：再度預告收入增長放緩。</li>
+        <li>能源股隨油價逆市走強；荷姆茲海峽實質關閉。</li>
+        <li>宏觀：6月 CPI 短暫回軟，但油價急升令通脹反彈風險大增——<span class="hl">9月加息機率 73%</span>（月前僅 26%），7月約 50%，減息出局。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="dot" style="background:var(--amber)"></span>🪙 加密貨幣</h2>
+      <ul>
+        <li>中東局勢連續第 6 日升溫，crypto 與科技股同步受壓；總市值 $2.27T（<span class="down">-1.6%</span>），Fear &amp; Greed 27（恐懼）。</li>
+        <li>今日 19,000 張 BTC 期權（$1.2B）＋ 123,000 張 ETH 期權（$230M）到期。</li>
+        <li>一週計 Bitcoin 主題（Deepvue）仍 <span class="up">+3.1%</span>，惟礦股今日 -1.0%。</li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <h2><span class="dot" style="background:var(--red)"></span>🇭🇰 港股與中國市場</h2>
+      <ul>
+        <li>恒指 <span class="down">-446 點（-1.8%）</span>收 24,562，盤中曾跌逾 600 點；恒生科指 <span class="down">-4.4%</span>。</li>
+        <li>AI 股洗倉：<span class="tick">Z.ai</span> <span class="down">-28.5%</span>、<span class="tick">MiniMax</span> <span class="down">-15.6%</span>、<span class="tick">中芯</span> <span class="down">-10%</span> —— AI 估值憂慮＋全球半導體拋售。</li>
+        <li>Q2 GDP <span class="hl">+4.3% 遜預期</span>（2022Q4 以來最弱）；固投 -5.7%，工業 +5.3% 勝預期、零售 +1.0%；市場憧憬 7 月底政治局會議刺激。</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2><span class="dot" style="background:var(--green)"></span>📊 今日板塊（Deepvue）</h2>
+      <div class="bar-row"><span class="lbl">Cybersecurity</span><div class="bar" style="width:14%;background:var(--green)"></div><span class="pct up">+0.7%</span></div>
+      <div class="bar-row"><span class="lbl">Telecom</span><div class="bar" style="width:12%;background:var(--green)"></div><span class="pct up">+0.6%</span></div>
+      <div class="bar-row"><span class="lbl">Oil &amp; Gas</span><div class="bar" style="width:9%;background:var(--green)"></div><span class="pct up">+0.4%</span></div>
+      <div class="bar-row"><span class="lbl">Biotech</span><div class="bar" style="width:3%;background:var(--green)"></div><span class="pct up">+0.1%</span></div>
+      <div class="bar-row"><span class="lbl">Semiconductors</span><div class="bar" style="width:45%;background:var(--red)"></div><span class="pct down">-2.3%</span></div>
+      <div class="bar-row"><span class="lbl">China Internet</span><div class="bar" style="width:49%;background:var(--red)"></div><span class="pct down">-2.5%</span></div>
+      <div class="bar-row"><span class="lbl">Airlines</span><div class="bar" style="width:51%;background:var(--red)"></div><span class="pct down">-2.6%</span></div>
+      <div class="bar-row"><span class="lbl">Home Construction</span><div class="bar" style="width:55%;background:var(--red)"></div><span class="pct down">-2.8%</span></div>
+      <div class="bar-row"><span class="lbl">Robotics</span><div class="bar" style="width:63%;background:var(--red)"></div><span class="pct down">-3.2%</span></div>
+      <div class="bar-row"><span class="lbl">Medical</span><div class="bar" style="width:64%;background:var(--red)"></div><span class="pct down">-3.2%</span></div>
+      <p style="font-size:12px;color:var(--muted);margin-top:8px">一週最強：Banks +4.6% · Retail +4.0% · Bitcoin +3.1% · Transports +3.1% · Steel +3.0%</p>
+    </div>
+
+    <div class="card">
+      <h2><span class="dot" style="background:var(--purple)"></span>🏆 行業組別排名（1M）</h2>
+      <ul>
+        <li>#1 Pharmaceuticals <span class="up">▲6</span> · #2 Commercial &amp; Prof. Svcs <span class="up">▲8</span> · #3 Insurance · #4 HC Equipment <span class="up">▲4</span> · #5 Banks</li>
+        <li>快速上升：Real Estate Mgmt #6 <span class="up">▲14</span>、Consumer Discretionary #12 <span class="up">▲9</span>、Utilities #15 <span class="up">▲9</span></li>
+        <li class="hl">資金輪入醫藥／醫療設備、保險、地產防守類；AI／半導體持續流出。</li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <h2><span class="dot" style="background:var(--green)"></span>🎯 Pullback 候選（screen JUN · 按質素排列）</h2>
+      <table>
+        <tr><th>代號</th><th>行業</th><th>RS</th><th>回調支持位</th><th>成交量</th><th>理想入場區</th><th>備註</th></tr>
+        <tr><td class="tick">NTRA</td><td><span class="tag">Biotech $38.9B</span></td><td>1M 92 / 3M 91</td><td>10日SMA下方、20日SMA $266.6 上獲承接</td><td>RV 0.64 縮量✓</td><td>$268–276</td><td>重上10日SMA $275.5 確認；52週高 $288</td></tr>
+        <tr><td class="tick">MEDP</td><td><span class="tag">Life Sci $15.4B</span></td><td>1M 88</td><td>正坐 10日SMA $538.8；20日SMA $525 第二支持</td><td>RV 0.77 縮量✓</td><td>$525–540</td><td>⚠️ 7/22 放榜</td></tr>
+        <tr><td class="tick">GKOS</td><td><span class="tag">HC Equip $9.2B</span></td><td>1M 92</td><td>10日SMA $153.4 上窄幅整理</td><td>RV 0.49 縮量✓</td><td>$153–157</td><td>離52週高 $161.5 約3%；⚠️ 7/29 放榜</td></tr>
+        <tr><td class="tick">APGE</td><td><span class="tag">Biotech $8.3B</span></td><td>1M 97 / 3M 94</td><td>貼住 10日SMA $133.8 橫行</td><td>RV 0.36 極縮✓</td><td>$131–134</td><td>距52週高 $134.3 僅0.3%，突破可加碼</td></tr>
+        <tr><td class="tick">CRNX</td><td><span class="tag">Biotech $8.9B</span></td><td>1M 98</td><td>拋物線後於 10日SMA $79.5 整固</td><td>RV 0.82</td><td>觀察</td><td>遠離20日SMA（$58.3），過度伸展</td></tr>
+      </table>
+    </div>
+
+    <div class="card full">
+      <h2><span class="dot" style="background:var(--blue)"></span>👀 突破候選（參考）</h2>
+      <table>
+        <tr><th>代號</th><th>形態</th><th>Pivot</th><th>備註</th></tr>
+        <tr><td class="tick">TECH</td><td>高位極窄 flat base（WCR 99% / DCR 98%，RV 0.38）</td><td>~$72.2</td><td>RS 1M 94；⚠️ 8/5 放榜</td></tr>
+        <tr><td class="tick">VCYT</td><td>高位淺碟形整理</td><td>~$61</td><td>RS 3M 93；⚠️ 7/30 放榜</td></tr>
+        <tr><td class="tick">PTGX</td><td>今日 +6.8%、DCR 100%，突破已啟動</td><td>已離 pivot</td><td>追入風險高，回踩再考慮</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="warn">
+    <h2>⚠️ 風險提示</h2>
     <ul>
-      <li>三大指數齊跌：道指 <span class="down">-0.3%</span>、S&P 500 <span class="down">-0.5%</span>、納指 <span class="down">-1.3%</span>，晶片股連續第二日下挫。</li>
-      <li><span class="hl">TSMC</span> 業績強勁（6月收入 +68%）但「好消息出貨」，AI 高估值疑慮升溫。</li>
-      <li>通脹續降溫：6月 CPI 3.5%（預期 3.8%）、PPI 按月 <span class="down">-0.3%</span>；7月 FOMC 料按兵不動（~84%），9月減息機率 ~64%。</li>
-      <li><span class="hl">UNH、GE</span> 業績勝預期；Alphabet 下跌；<span class="hl">Netflix</span> 今晚放榜（預期收入 $12.6B、+13.5%）。</li>
-      <li>美伊戰事升級持續壓制情緒。</li>
+      <li>大市不利新開倉：指數連跌一週、半導體入熊、加息預期升溫、伊朗戰事＋油價急升——倉位宜輕、分注入場、嚴設止蝕。</li>
+      <li>候選全屬醫藥／生科：留意臨床數據／FDA binary event 及業績期（MEDP 7/22、GKOS 7/29、VCYT 7/30、TECH 8/5、NTRA 8/6）。</li>
+      <li>Biotech 為今日少數收紅主題，惟一週計仍 -3.4%，波動大。</li>
     </ul>
   </div>
 
-  <div class="card">
-    <h2><span class="dot" style="background:var(--amber)"></span>加密貨幣</h2>
-    <ul>
-      <li>BTC 本週曾破 <span class="hl">$65,000</span> 三週高位，今日回落至 ~$64,000–64,700。</li>
-      <li>ETH 領先：5日 <span class="up">+7%</span>（BTC ~+2%），機構指 ETH「吸引力日增」。</li>
-      <li>BlackRock 再增持 $139M BTC，IBIT 持倉 >733,000 BTC。</li>
-      <li>明日（7/17）眾議院 <span class="hl">Clarity Act 聽證會</span>，或主導短期方向。</li>
-      <li>Bitcoin Miners 本週 <span class="down">-8.4%</span>，礦股明顯弱於幣價。</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2><span class="dot" style="background:var(--red)"></span>港股與中國市場</h2>
-    <ul>
-      <li>恒指 <span class="up">+327點（+1.33%）</span> 收 25,008 重上關口；科指 <span class="up">+1.98%</span>、國指 <span class="up">+1.63%</span>。</li>
-      <li>領漲：<span class="hl">小米 +6%</span>（AI 大模型獲批）、美團、小鵬、比亞迪；瀾起科技被調查 <span class="down">-23%</span>，A股晶片獲利回吐。</li>
-      <li>Q2 GDP <span class="down">+4.3%</span> 三年多最弱；上半年固投 -5.7%、房地產投資 -18%，市場憧憬加碼刺激。</li>
-      <li>美 PPI 降溫令加息預期消退，資金回流風險資產利好港股。</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2><span class="dot" style="background:var(--green)"></span>📊 今日板塊重點（Deepvue）</h2>
-    <div class="theme-row"><span>Medical（今日最強）</span><span class="up">+4.70%</span></div>
-    <div class="theme-row"><span>Transports</span><span class="up">+2.83%</span></div>
-    <div class="theme-row"><span>Banks</span><span class="up">+2.45%</span></div>
-    <div class="theme-row"><span>Home Construction</span><span class="up">+2.35%</span></div>
-    <div class="theme-row"><span>China Internet（本週 +7.68%）</span><span class="up">+1.74%</span></div>
-    <div class="theme-row"><span>Semiconductors</span><span class="down">-3.72%</span></div>
-    <div class="theme-row"><span>AI</span><span class="down">-2.93%</span></div>
-    <div class="theme-row"><span>Bitcoin Miners</span><span class="down">-9.06%</span></div>
-    <div class="subtle">行業1個月排名：<span class="rank">1</span> 商業及專業服務（↑9）｜<span class="rank">2</span> 銀行｜<span class="rank">3</span> 醫療設備服務（↑3）｜<span class="rank">4</span> 製藥/生科（↑3）｜<span class="rank">5</span> 保險（↑4）<br>
-    急升：房地產管理 ↑14 → #6、消費零售 ↑11 → #7、公用 ↑9 → #14　|　轉弱：<span class="down">半導體 #1→#25（↓24）</span>、科技硬件 ↓17</div>
-  </div>
-</div>
-
-<div class="card" style="margin-bottom:16px">
-  <h2><span class="dot" style="background:var(--purple)"></span>🎯 Pullback 候選（按質素排列 · 來自「screen JUN」）</h2>
-  <table>
-    <tr><th>代號</th><th>行業</th><th>RS (1M/3M)</th><th>回調支持位</th><th>成交量</th><th>理想入場區</th><th>備註</th></tr>
-    <tr><td class="tick">KYMR</td><td><span class="tag">生物科技</span></td><td>95 / 91</td><td>20日SMA ~$109.6</td><td class="up">縮量 RV 0.61 ✓</td><td>$110–115</td><td>距高 -12%，現 $113.88</td></tr>
-    <tr><td class="tick">IMVT</td><td><span class="tag">生物科技</span></td><td>88 / 91</td><td>21EMA/20SMA ~$38.6</td><td class="up">縮量 RV 0.72 ✓</td><td>$38.5–40</td><td>U/D 4.29 強，現 $38.97</td></tr>
-    <tr><td class="tick">XENE</td><td><span class="tag">生物科技</span></td><td>94 / 86</td><td>10日EMA ~$66.4</td><td>RV 0.89</td><td>$65–67</td><td>深一層支持 20日 ~$61.6</td></tr>
-    <tr><td class="tick">GKOS</td><td><span class="tag">醫療設備</span></td><td>90 / 84</td><td>10日EMA ~$152.6</td><td>RV 0.97</td><td>$152–156</td><td>距高僅 -3.7%，淺回調</td></tr>
-    <tr><td class="tick">MEDP</td><td><span class="tag">CRO/生命科學</span></td><td>86 / 80</td><td>重上 10/20日均線</td><td>RV 0.91</td><td>$521–540</td><td>次選：RS 12M 僅 59</td></tr>
-  </table>
-</div>
-
-<div class="card" style="margin-bottom:16px">
-  <h2><span class="dot" style="background:var(--blue)"></span>👀 突破候選（參考）</h2>
-  <table>
-    <tr><th>代號</th><th>形態</th><th>Pivot 位</th><th>備註</th></tr>
-    <tr><td class="tick">APGE</td><td>高位窄幅旗形，極度縮量（RV 0.24）</td><td>~$134.3</td><td>RS 97、U/D 4.66，貼 52週高</td></tr>
-    <tr><td class="tick">CRNX</td><td>巨量跳空後高位橫行</td><td>~$84</td><td>RS 98，52週高 $84</td></tr>
-    <tr><td class="tick">VCYT</td><td>10/20日均線上窄幅整固</td><td>~$60.9</td><td>RS 91/93</td></tr>
-    <tr><td class="tick">ACHC</td><td>今日 +4.25% 已突破</td><td>52週高 $34.02</td><td>追入風險高，回踩 10日 ~$31.6 較佳</td></tr>
-  </table>
-</div>
-
-<div class="card warn">
-  <h2>⚠️ 風險提示</h2>
-  <ul>
-    <li>大市分化：納指 -1.3%、半導體/AI 連日重挫，領導權轉向醫療/金融/防守類——輪動初期宜細注、分段建倉。</li>
-    <li>市場寬度中性偏弱：Stage Analysis S2（上升期）41% vs S4（下跌期）43%。</li>
-    <li>Screener 內多隻生科股今日大跌（ERAS -10.6%、DYN -5.3%、GH -4.9%），板塊內部波動大，嚴守止蝕。</li>
-    <li>事件風險：Netflix 今晚業績、明日 Clarity Act 聽證會、美伊戰事、7月底 FOMC。</li>
-    <li>港股重上25,000後，留意 A股晶片獲利回吐會否蔓延；中國刺激政策落地節奏是關鍵。</li>
-  </ul>
-</div>
-
-<footer>資料來源：Yahoo Finance · CNBC · Bloomberg · Reuters · Cryptonews · BigGo Finance · Deepvue　|　僅供參考，不構成投資建議</footer>
+  <footer>資料來源：Yahoo Finance · CNBC · Bloomberg · RTHK · Reuters · Deepvue ｜ 生成於 2026-07-17 收市後 ｜ 僅供參考，非投資建議</footer>
 </div>
 </body>
 </html>
