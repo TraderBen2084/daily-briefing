@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Cycle Dashboard · 2026-07-26</title>
+<style>
+:root{--bg:#0a0e17;--panel:#111827;--panel2:#0f1522;--line:#1f2937;--tx:#e5e7eb;--mut:#9ca3af}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--tx);font-family:"Noto Sans TC",-apple-system,"PingFang TC",sans-serif;padding:22px 18px 40px;max-width:1200px;margin:auto}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}
+header{display:flex;flex-wrap:wrap;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:14px}
+h1{font-size:24px;letter-spacing:1px}
+h1 span{background:linear-gradient(90deg,#7c3aed,#e11d48,#f59e0b,#22c55e,#3b82f6);-webkit-background-clip:text;background-clip:text;color:transparent}
+.date{color:var(--mut);font-size:14px}
+.verdict{margin:16px 0 24px;background:var(--panel);border:1px solid var(--line);border-left:4px solid #22c55e;border-radius:8px;padding:14px 16px}
+.verdict .big{font-size:16px;font-weight:700;color:#22c55e}
+.verdict .bars{display:flex;gap:26px;margin-top:10px;font-size:13px;color:var(--mut)}
+.bar{flex:1;max-width:320px}.bar i{display:block;height:7px;border-radius:4px;background:var(--line);margin-top:5px;position:relative;overflow:hidden}
+.bar i b{position:absolute;left:0;top:0;bottom:0;border-radius:4px}
+h2{font-size:17px;margin:26px 0 12px;color:#cbd5e1;letter-spacing:2px}
+h2 small{color:var(--mut);font-weight:400;letter-spacing:0;margin-left:8px;font-size:12px}
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:12px}
+.icard{background:var(--panel);border:1px solid var(--line);border-top:3px solid var(--sc);border-radius:8px;padding:12px 14px}
+.icard-top{display:flex;align-items:center;gap:8px}.iname{font-weight:700;font-size:15px}
+.lead{margin-left:auto;color:#f59e0b;font-size:12px}
+.isub{color:var(--mut);font-size:12px;margin:3px 0 8px}
+.icard-mid{display:flex;align-items:center;gap:12px}
+.gauge{width:74px;flex:none}
+.ival{font-size:18px;font-weight:800}.ivtxt{font-size:12.5px;color:var(--mut)}
+.idesc{font-size:12.5px;margin-top:8px;line-height:1.5}
+.isrc{font-size:11px;color:#6b7280;margin-top:6px}
+.layer{display:flex;align-items:stretch;gap:10px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;margin-bottom:8px;overflow:hidden}
+.spine{width:34px;flex:none;display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff}
+.lmeta{width:128px;flex:none;padding:9px 0}
+.lname{font-weight:700;font-size:14px}.len{color:var(--mut);font-size:11px}
+.chips{flex:1;display:flex;flex-wrap:wrap;gap:6px;padding:8px 0;align-content:center}
+.chip{background:#151d2e;border:1px solid #263349;border-radius:6px;padding:3px 8px;font-size:11.5px;display:inline-flex;gap:6px;align-items:baseline}
+.chip b{font-family:ui-monospace,Menlo,monospace}.chip i{font-style:normal;color:var(--mut)}
+.chip em,.chip u{font-style:normal;text-decoration:none;font-family:ui-monospace,Menlo,monospace}
+.chip .g{color:#4ade80}.chip .r{color:#f87171}.chip.na{color:#4b5563}
+.llight{width:96px;flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:13px;font-weight:700;gap:2px;border-left:1px solid var(--line)}
+.dot{width:11px;height:11px;border-radius:50%;box-shadow:0 0 8px currentColor}
+.llight small{color:var(--mut);font-weight:400;font-size:11px}
+footer{margin-top:28px;color:#6b7280;font-size:12px;line-height:1.8;border-top:1px solid var(--line);padding-top:14px}
+@media(max-width:640px){.lmeta{width:86px}.llight{width:70px}}
+</style></head><body>
+<header><h1><span>AI 產業現金流循環</span> · 每日追蹤</h1>
+<span class="date mono">2026-07-26</span></header>
+
+<div class="verdict"><div class="big">領先 + 同步指標齊強 → 景氣與需求強勁,順勢操作上游硬件</div>
+<div class="bars">
+  <div class="bar">領先指標 (CapEx/HBM/GPU交期/ASML) 88<i><b style="width:88%;background:#22c55e"></b></i></div>
+  <div class="bar">同步指標 (TSMC/CoWoS/網通/電力) 90<i><b style="width:90%;background:#22c55e"></b></i></div>
+</div></div>
+
+<h2>9 大關鍵指標<small>★★★ 領先 6-12 月 · ★★ 領先 3-6 月 · 人手數據更新日:2026-07-25</small></h2>
+<div class="igrid">
+        <div class="icard" style="--sc:#22c55e">
+          <div class="icard-top"><span class="region">🇺🇸</span>
+            <span class="iname">Cloud CapEx</span>
+            <span class="lead" title="領先性">★★★</span></div>
+          <div class="isub">微軟/Google/Meta/亞馬遜/甲骨文</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(55 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#22c55e">強勁</div>
+            <div class="ivtxt">趨勢向上</div></div></div>
+          <div class="idesc">CapEx 持續上修,指引強勁</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#22c55e">
+          <div class="icard-top"><span class="region">🇰🇷</span>
+            <span class="iname">HBM 價格</span>
+            <span class="lead" title="領先性">★★★</span></div>
+          <div class="isub">SK hynix / Samsung / Micron</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(55 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#22c55e">強勁</div>
+            <div class="ivtxt">趨勢向上</div></div></div>
+          <div class="idesc">HBM 合約價上升,Lead time > 3-6月</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#eab308">
+          <div class="icard-top"><span class="region">🇰🇷</span>
+            <span class="iname">DDR / NAND 價格</span>
+            <span class="lead" title="領先性">★★☆</span></div>
+          <div class="isub">DRAM / NAND Spot</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(0 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#eab308">中性</div>
+            <div class="ivtxt">持平</div></div></div>
+          <div class="idesc">訊號混合,持續觀察</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#22c55e">
+          <div class="icard-top"><span class="region">🇹🇼</span>
+            <span class="iname">TSMC 月營收</span>
+            <span class="lead" title="領先性">★★★</span></div>
+          <div class="isub">AI 收入貢獻</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(55 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#22c55e">強勁</div>
+            <div class="ivtxt">YoY +67.9%</div></div></div>
+          <div class="idesc">YoY > 25% 持續成長,月增健康</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#22c55e">
+          <div class="icard-top"><span class="region">🇹🇼</span>
+            <span class="iname">CoWoS 產能利用率</span>
+            <span class="lead" title="領先性">★★★</span></div>
+          <div class="isub">先進封裝</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(55 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#22c55e">強勁</div>
+            <div class="ivtxt">利用率 100%</div></div></div>
+          <div class="idesc">接近滿載 (>90%),擴產持續</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#eab308">
+          <div class="icard-top"><span class="region">🇺🇸</span>
+            <span class="iname">GPU 交期</span>
+            <span class="lead" title="領先性">★★★</span></div>
+          <div class="isub">Blackwell / Rubin</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(0 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#eab308">中性</div>
+            <div class="ivtxt">交期 6 個月</div></div></div>
+          <div class="idesc">訊號混合,持續觀察</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#22c55e">
+          <div class="icard-top"><span class="region">🇺🇸</span>
+            <span class="iname">Networking 訂單</span>
+            <span class="lead" title="領先性">★★☆</span></div>
+          <div class="isub">Broadcom / Arista</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(55 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#22c55e">強勁</div>
+            <div class="ivtxt">趨勢向上</div></div></div>
+          <div class="idesc">資料中心收入強勁,新訂單增加</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#22c55e">
+          <div class="icard-top"><span class="region">🇳🇱</span>
+            <span class="iname">ASML 新訂單</span>
+            <span class="lead" title="領先性">★★★</span></div>
+          <div class="isub">Book-to-Bill</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(55 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#22c55e">強勁</div>
+            <div class="ivtxt">B/B 1.10</div></div></div>
+          <div class="idesc">B/B > 1,訂單持續增加</div>
+          <div class="isrc">來源:手動</div>
+        </div>
+        <div class="icard" style="--sc:#22c55e">
+          <div class="icard-top"><span class="region">🇺🇸</span>
+            <span class="iname">電力相關訂單</span>
+            <span class="lead" title="領先性">★★☆</span></div>
+          <div class="isub">Vertiv / Eaton / GE Vernova</div>
+          <div class="icard-mid"><svg viewBox="0 0 100 60" class="gauge"><path d="M10 52 A42 42 0 0 1 33 16" stroke="#ef4444" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M39 13 A42 42 0 0 1 61 13" stroke="#eab308" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M67 16 A42 42 0 0 1 90 52" stroke="#22c55e" stroke-width="9" fill="none" stroke-linecap="round"/><g transform="rotate(55 50 52)"><line x1="50" y1="52" x2="50" y2="20" stroke="#e2e8f0" stroke-width="3.5" stroke-linecap="round"/></g><circle cx="50" cy="52" r="5" fill="#e2e8f0"/></svg>
+            <div><div class="ival" style="color:#22c55e">強勁</div>
+            <div class="ivtxt">趨勢向上</div></div></div>
+          <div class="idesc">訂單爆滿/交期長,擴產計畫增加</div>
+          <div class="isrc">來源:手動</div>
+        </div></div>
+
+<h2>17 層供應鏈 × 資金流向<small>燈號 = 層內股票平均分 (>50MA / >20MA / RS20>0 / 當日升,各 1 分) · RS = 20日 vs SPY</small></h2>
+
+        <div class="layer">
+          <div class="spine" style="background:#6d28d9"><b>1</b></div>
+          <div class="lmeta"><div class="lname">算力晶片</div><div class="len">GPU / AI 加速器</div></div>
+          <div class="chips"><span class="chip"><b>NVDA</b><i>NVIDIA</i><em class="r">-0.9%</em><u class="r" title="Deepvue RS Rating">RS 58</u></span><span class="chip"><b>AMD</b><i>AMD</i><em class="r">-3.3%</em><u class="g" title="Deepvue RS Rating">RS 90</u></span><span class="chip"><b>INTC</b><i>Intel</i><em class="r">-7.9%</em><u class="r" title="Deepvue RS Rating">RS 34</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>1.0/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#7c3aed"><b>2</b></div>
+          <div class="lmeta"><div class="lname">記憶體</div><div class="len">HBM / DRAM</div></div>
+          <div class="chips"><span class="chip"><b>000660.KS</b><i>SK海力士</i><em class="r">-8.3%</em><u class="r">RS-40</u></span><span class="chip"><b>005930.KS</b><i>三星電子</i><em class="r">-7.6%</em><u class="r">RS-31</u></span><span class="chip"><b>MU</b><i>美光</i><em class="r">-7.0%</em><u class="g" title="Deepvue RS Rating">RS 90</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.3/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#8b5cf6"><b>3</b></div>
+          <div class="lmeta"><div class="lname">網通 / 交換器</div><div class="len">Networking</div></div>
+          <div class="chips"><span class="chip"><b>AVGO</b><i>博通</i><em class="r">-2.7%</em><u class="r" title="Deepvue RS Rating">RS 38</u></span><span class="chip"><b>MRVL</b><i>Marvell</i><em class="r">-7.2%</em><u class="r" title="Deepvue RS Rating">RS 34</u></span><span class="chip"><b>ANET</b><i>Arista</i><em class="r">-1.5%</em><u class="g" title="Deepvue RS Rating">RS 71</u></span><span class="chip"><b>CSCO</b><i>思科</i><em class="g">+1.2%</em><u class="r" title="Deepvue RS Rating">RS 67</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>1.2/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#a855f7"><b>4</b></div>
+          <div class="lmeta"><div class="lname">半導體設備</div><div class="len">Equipment</div></div>
+          <div class="chips"><span class="chip"><b>ASML</b><i>ASML</i><em class="r">-2.5%</em><u class="g" title="Deepvue RS Rating">RS 77</u></span><span class="chip"><b>AMAT</b><i>應用材料</i><em class="r">-4.7%</em><u class="g" title="Deepvue RS Rating">RS 81</u></span><span class="chip"><b>LRCX</b><i>Lam</i><em class="r">-4.6%</em><u class="r" title="Deepvue RS Rating">RS 42</u></span><span class="chip"><b>KLAC</b><i>KLA</i><em class="r">-3.8%</em><u class="r" title="Deepvue RS Rating">RS 59</u></span><span class="chip"><b>8035.T</b><i>東京威力</i><em class="r">-5.0%</em><u class="r">RS-17</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.6/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#c026d3"><b>5</b></div>
+          <div class="lmeta"><div class="lname">晶圓代工</div><div class="len">Foundry</div></div>
+          <div class="chips"><span class="chip"><b>TSM</b><i>台積電ADR</i><em class="r">-2.9%</em><u class="r" title="Deepvue RS Rating">RS 43</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.0/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#d946ef"><b>6</b></div>
+          <div class="lmeta"><div class="lname">先進封裝</div><div class="len">Packaging</div></div>
+          <div class="chips"><span class="chip"><b>3711.TW</b><i>日月光</i><em class="r">-5.5%</em><u class="r">RS-3</u></span><span class="chip"><b>AMKR</b><i>Amkor</i><em class="r">-0.6%</em><u class="r" title="Deepvue RS Rating">RS 24</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.5/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#db2777"><b>7</b></div>
+          <div class="lmeta"><div class="lname">材料供應</div><div class="len">Materials</div></div>
+          <div class="chips"><span class="chip"><b>6488.TWO</b><i>環球晶</i><em class="r">-8.0%</em><u class="g">RS+10</u></span><span class="chip"><b>3436.T</b><i>SUMCO</i><em class="r">-3.2%</em><u class="r">RS-5</u></span><span class="chip"><b>4063.T</b><i>信越化學</i><em class="r">-3.8%</em><u class="r">RS-7</u></span><span class="chip"><b>ENTG</b><i>Entegris</i><em class="r">-4.5%</em><u class="r" title="Deepvue RS Rating">RS 23</u></span><span class="chip"><b>4901.T</b><i>富士軟片</i><em class="r">-0.9%</em><u class="g">RS+6</u></span><span class="chip"><b>DD</b><i>杜邦</i><em class="g">+0.2%</em><u class="r" title="Deepvue RS Rating">RS 46</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>1.2/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#e11d48"><b>8</b></div>
+          <div class="lmeta"><div class="lname">數據中心基建</div><div class="len">Data Center Infra</div></div>
+          <div class="chips"><span class="chip"><b>VRT</b><i>Vertiv</i><em class="r">-4.5%</em><u class="r" title="Deepvue RS Rating">RS 32</u></span><span class="chip"><b>ETN</b><i>伊頓</i><em class="r">-2.7%</em><u class="r" title="Deepvue RS Rating">RS 46</u></span><span class="chip"><b>SU.PA</b><i>施耐德</i><em class="g">+1.0%</em><u class="r">RS-4</u></span><span class="chip"><b>6501.T</b><i>日立</i><em class="r">-0.1%</em><u class="g">RS+6</u></span><span class="chip"><b>DELL</b><i>Dell</i><em class="r">-0.4%</em><u class="g" title="Deepvue RS Rating">RS 94</u></span><span class="chip"><b>SMCI</b><i>美超微</i><em class="r">-3.5%</em><u class="r" title="Deepvue RS Rating">RS 38</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>1.5/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#f43f5e"><b>9</b></div>
+          <div class="lmeta"><div class="lname">散熱</div><div class="len">Cooling</div></div>
+          <div class="chips"><span class="chip"><b>MOD</b><i>Modine</i><em class="r">-3.1%</em><u class="r" title="Deepvue RS Rating">RS 30</u></span><span class="chip"><b>2308.TW</b><i>台達電</i><em class="r">-5.1%</em><u class="r">RS-2</u></span><span class="chip"><b>3324.TWO</b><i>雙鴻</i><em class="g">+2.2%</em><u class="r">RS-3</u></span><span class="chip"><b>3017.TW</b><i>奇鋐</i><em class="r">-2.5%</em><u class="g">RS+5</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>1.2/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#f97316"><b>10</b></div>
+          <div class="lmeta"><div class="lname">電力能源</div><div class="len">Power</div></div>
+          <div class="chips"><span class="chip"><b>GEV</b><i>GE Vernova</i><em class="r">-1.6%</em><u class="r" title="Deepvue RS Rating">RS 37</u></span><span class="chip"><b>CEG</b><i>Constellation</i><em class="r">-0.5%</em><u class="r" title="Deepvue RS Rating">RS 44</u></span><span class="chip"><b>VST</b><i>Vistra</i><em class="r">-3.3%</em><u class="r" title="Deepvue RS Rating">RS 59</u></span><span class="chip"><b>OKLO</b><i>Oklo</i><em class="r">-8.5%</em><u class="r" title="Deepvue RS Rating">RS 10</u></span><span class="chip"><b>KMI</b><i>Kinder Morgan</i><em class="g">+0.3%</em><u class="r" title="Deepvue RS Rating">RS 59</u></span><span class="chip"><b>WMB</b><i>Williams</i><em class="r">-1.7%</em><u class="r" title="Deepvue RS Rating">RS 50</u></span><span class="chip"><b>PWR</b><i>Quanta</i><em class="r">-4.3%</em><u class="r" title="Deepvue RS Rating">RS 32</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>1.0/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#f59e0b"><b>11</b></div>
+          <div class="lmeta"><div class="lname">雲端平台</div><div class="len">Cloud</div></div>
+          <div class="chips"><span class="chip"><b>MSFT</b><i>微軟</i><em class="g">+0.0%</em><u class="r" title="Deepvue RS Rating">RS 43</u></span><span class="chip"><b>AMZN</b><i>亞馬遜</i><em class="r">-0.7%</em><u class="r" title="Deepvue RS Rating">RS 34</u></span><span class="chip"><b>GOOGL</b><i>Google</i><em class="g">+0.7%</em><u class="r" title="Deepvue RS Rating">RS 30</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.7/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#eab308"><b>12</b></div>
+          <div class="lmeta"><div class="lname">基礎模型</div><div class="len">Foundation Model*</div></div>
+          <div class="chips"><span class="chip"><b>MSFT</b><i>微軟</i><em class="g">+0.0%</em><u class="r" title="Deepvue RS Rating">RS 43</u></span><span class="chip"><b>GOOGL</b><i>Google</i><em class="g">+0.7%</em><u class="r" title="Deepvue RS Rating">RS 30</u></span><span class="chip"><b>META</b><i>Meta</i><em class="r">-1.8%</em><u class="r" title="Deepvue RS Rating">RS 45</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.7/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#84cc16"><b>13</b></div>
+          <div class="lmeta"><div class="lname">AI 軟體/平台</div><div class="len">AI Software</div></div>
+          <div class="chips"><span class="chip"><b>PLTR</b><i>Palantir</i><em class="r">-0.4%</em><u class="r" title="Deepvue RS Rating">RS 43</u></span><span class="chip"><b>SNOW</b><i>Snowflake</i><em class="g">+1.1%</em><u class="g" title="Deepvue RS Rating">RS 94</u></span><span class="chip"><b>GTLB</b><i>GitLab</i><em class="g">+3.5%</em><u class="g" title="Deepvue RS Rating">RS 91</u></span><span class="chip"><b>CRM</b><i>Salesforce</i><em class="g">+4.3%</em><u class="r" title="Deepvue RS Rating">RS 47</u></span><span class="chip"><b>SAP</b><i>SAP</i><em class="g">+9.3%</em><u class="r" title="Deepvue RS Rating">RS 47</u></span><span class="chip"><b>NOW</b><i>ServiceNow</i><em class="g">+7.4%</em><u class="r" title="Deepvue RS Rating">RS 69</u></span><span class="chip"><b>MDB</b><i>MongoDB</i><em class="r">-0.3%</em><u class="r" title="Deepvue RS Rating">RS 66</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>1.6/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#22c55e"><b>14</b></div>
+          <div class="lmeta"><div class="lname">AI Agent</div><div class="len">Copilot / Agent</div></div>
+          <div class="chips"><span class="chip"><b>MSFT</b><i>微軟</i><em class="g">+0.0%</em><u class="r" title="Deepvue RS Rating">RS 43</u></span><span class="chip"><b>CRM</b><i>Salesforce</i><em class="g">+4.3%</em><u class="r" title="Deepvue RS Rating">RS 47</u></span><span class="chip"><b>NOW</b><i>ServiceNow</i><em class="g">+7.4%</em><u class="r" title="Deepvue RS Rating">RS 69</u></span><span class="chip"><b>ORCL</b><i>甲骨文</i><em class="r">-4.2%</em><u class="r" title="Deepvue RS Rating">RS 11</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.8/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#14b8a6"><b>15</b></div>
+          <div class="lmeta"><div class="lname">機器人/自動化</div><div class="len">Robotics</div></div>
+          <div class="chips"><span class="chip"><b>TSLA</b><i>Tesla</i><em class="r">-2.1%</em><u class="r" title="Deepvue RS Rating">RS 19</u></span><span class="chip"><b>ABBN.SW</b><i>ABB</i><em class="g">+0.2%</em><u class="r">RS-6</u></span><span class="chip"><b>ROK</b><i>Rockwell</i><em class="g">+0.3%</em><u class="r" title="Deepvue RS Rating">RS 65</u></span><span class="chip"><b>SYM</b><i>Symbotic</i><em class="r">-1.0%</em><u class="r" title="Deepvue RS Rating">RS 21</u></span><span class="chip"><b>SERV</b><i>Serve</i><em class="r">-4.6%</em><u class="r" title="Deepvue RS Rating">RS 10</u></span></div>
+          <div class="llight"><span class="dot" style="background:#ef4444"></span>
+            <span style="color:#ef4444">轉弱</span><small>0.6/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#0ea5e9"><b>16</b></div>
+          <div class="lmeta"><div class="lname">消費應用</div><div class="len">Consumer</div></div>
+          <div class="chips"><span class="chip"><b>AAPL</b><i>蘋果</i><em class="g">+3.5%</em><u class="g" title="Deepvue RS Rating">RS 84</u></span><span class="chip"><b>META</b><i>Meta</i><em class="r">-1.8%</em><u class="r" title="Deepvue RS Rating">RS 45</u></span><span class="chip"><b>GOOGL</b><i>Google</i><em class="g">+0.7%</em><u class="r" title="Deepvue RS Rating">RS 30</u></span><span class="chip"><b>ADBE</b><i>Adobe</i><em class="g">+6.1%</em><u class="r" title="Deepvue RS Rating">RS 60</u></span><span class="chip"><b>SPOT</b><i>Spotify</i><em class="g">+2.9%</em><u class="r" title="Deepvue RS Rating">RS 47</u></span><span class="chip"><b>NFLX</b><i>Netflix</i><em class="g">+1.7%</em><u class="r" title="Deepvue RS Rating">RS 25</u></span><span class="chip"><b>DUOL</b><i>多鄰國</i><em class="g">+1.3%</em><u class="g" title="Deepvue RS Rating">RS 72</u></span><span class="chip"><b>PINS</b><i>Pinterest</i><em class="g">+1.1%</em><u class="g" title="Deepvue RS Rating">RS 79</u></span></div>
+          <div class="llight"><span class="dot" style="background:#eab308"></span>
+            <span style="color:#eab308">中性</span><small>2.1/4</small></div>
+        </div>
+        <div class="layer">
+          <div class="spine" style="background:#3b82f6"><b>17</b></div>
+          <div class="lmeta"><div class="lname">企業/垂直產業</div><div class="len">Vertical (ETF Proxy)</div></div>
+          <div class="chips"><span class="chip"><b>IGV</b><i>軟體ETF</i><em class="g">+1.0%</em><u class="r" title="Deepvue RS Rating">RS 54</u></span><span class="chip"><b>XLF</b><i>金融ETF</i><em class="g">+0.9%</em><u class="g" title="Deepvue RS Rating">RS 83</u></span><span class="chip"><b>XLV</b><i>醫療ETF</i><em class="g">+0.7%</em><u class="g" title="Deepvue RS Rating">RS 85</u></span><span class="chip"><b>XLI</b><i>工業ETF</i><em class="g">+0.4%</em><u class="g" title="Deepvue RS Rating">RS 74</u></span></div>
+          <div class="llight"><span class="dot" style="background:#22c55e"></span>
+            <span style="color:#22c55e">強勁</span><small>3.2/4</small></div>
+        </div>
+
+<footer>觀察策略:當領先指標(★★★)轉弱時,資金將由上游硬件逐步輪動至軟件與應用;當同步指標轉弱,代表整體需求放緩。
+掌握上游變化,就能比市場早一步預測下一輪資金動力。<br>
+*基礎模型公司 (OpenAI/Anthropic/xAI) 未上市,用母公司/大股東股價代理。僅供個人研究,唔構成投資建議。</footer>
+</body></html>
