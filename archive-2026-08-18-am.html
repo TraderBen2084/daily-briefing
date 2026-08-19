@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日金融簡報 · 2026-08-18</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#fcd535; --primary-active:#f0b90b;
+  --ink:#181a20; --body:#eaecef; --muted:#707a8a; --muted-strong:#929aa5;
+  --hairline:#2b3139; --canvas:#0b0e11; --card:#1e2329; --elevated:#2b3139;
+  --up:#0ecb81; --down:#f6465d; --info:#3b82f6; --turquoise:#2dbdb6;
+  --soft-light:#fafafa;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--canvas);color:var(--body);
+  font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.num{font-family:"IBM Plex Sans",Inter,sans-serif;font-variant-numeric:tabular-nums}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+
+/* NAV */
+nav{height:64px;background:var(--canvas);border-bottom:1px solid var(--hairline);
+  display:flex;align-items:center;position:sticky;top:0;z-index:50}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;width:100%}
+.brand{color:var(--primary);font-size:20px;font-weight:700;letter-spacing:-.3px}
+.navmeta{color:var(--muted);font-size:14px;font-weight:500}
+.pill{background:var(--primary);color:var(--ink);font-size:12px;font-weight:600;
+  padding:6px 16px;border-radius:9999px}
+
+/* HERO */
+.hero{padding:64px 0 48px}
+.eyebrow{color:var(--muted);font-size:12px;font-weight:500;letter-spacing:1.5px;
+  text-transform:uppercase;margin-bottom:16px}
+h1{font-size:56px;font-weight:700;line-height:1.1;letter-spacing:-1px;color:#fff}
+h1 em{font-style:normal;color:var(--primary)}
+.sub{color:var(--muted-strong);font-size:16px;margin-top:16px;max-width:760px}
+
+/* TICKER STRIP */
+.ticker{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hairline);
+  border:1px solid var(--hairline);border-radius:12px;overflow:hidden;margin:32px 0 0}
+.tick{background:var(--card);padding:20px 24px}
+.tick .lbl{color:var(--muted);font-size:12px;font-weight:500;margin-bottom:8px}
+.tick .val{font-size:26px;font-weight:700;color:#fff;letter-spacing:-.3px}
+.tick .chg{font-size:14px;font-weight:500;margin-top:4px}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--muted-strong)}
+
+/* SECTIONS */
+section{padding:64px 0 0}
+.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:24px;
+  border-bottom:1px solid var(--hairline);padding-bottom:16px}
+.shead h2{font-size:32px;font-weight:600;color:#fff;letter-spacing:-.3px}
+.shead .tag{color:var(--primary);font-size:12px;font-weight:600;letter-spacing:1px;
+  text-transform:uppercase}
+
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.card{background:var(--card);border-radius:12px;padding:24px}
+.card h3{font-size:16px;font-weight:600;color:#fff;margin-bottom:16px;
+  display:flex;align-items:center;gap:8px}
+.card h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--primary)}
+.card ul{list-style:none}
+.card li{padding:10px 0;border-bottom:1px solid var(--hairline);font-size:13px;
+  color:var(--body);display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.card li:last-child{border-bottom:none}
+.card li .k{color:var(--muted-strong);flex:1}
+.card li .v{font-weight:600;white-space:nowrap}
+.note{color:var(--muted);font-size:13px;line-height:1.6;margin-top:12px}
+
+/* SECTOR BARS */
+.bars li{display:block;padding:8px 0;border:none}
+.bars .row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}
+.bars .track{height:6px;background:var(--elevated);border-radius:9999px;overflow:hidden}
+.bars .fill{height:100%;background:var(--primary);border-radius:9999px}
+.bars .fill.neg{background:var(--down)}
+
+.rankrow{display:flex;align-items:center;gap:12px;padding:12px 0;
+  border-bottom:1px solid var(--hairline)}
+.rankrow:last-child{border-bottom:none}
+.rk{width:28px;height:28px;border-radius:6px;background:var(--primary);color:var(--ink);
+  font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.rk.alt{background:var(--elevated);color:var(--primary)}
+.rname{flex:1;font-size:14px;font-weight:500;color:#fff}
+.rmeta{font-size:12px;color:var(--muted)}
+.badge{font-size:11px;font-weight:600;padding:3px 8px;border-radius:4px;
+  background:rgba(14,203,129,.12);color:var(--up)}
+.badge.flat{background:var(--elevated);color:var(--muted-strong)}
+
+/* STOCK TABLE */
+.tblcard{background:var(--card);border-radius:12px;padding:24px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:980px}
+th{text-align:left;color:var(--muted);font-size:12px;font-weight:500;padding:0 12px 12px 0;
+  border-bottom:1px solid var(--hairline);white-space:nowrap}
+td{padding:14px 12px 14px 0;border-bottom:1px solid var(--hairline);font-size:13px;vertical-align:top}
+tr:last-child td{border-bottom:none}
+.grouphd td{padding:22px 0 8px;border-bottom:1px solid var(--hairline);
+  color:var(--primary);font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+.sym{font-weight:700;color:#fff;font-size:15px}
+.ind{color:var(--muted);font-size:11px;margin-top:2px}
+.rs{font-weight:600}
+.rs .s{color:var(--muted);font-weight:400}
+.depth{font-size:12px;font-weight:600;padding:4px 8px;border-radius:4px;display:inline-block;white-space:nowrap}
+.d1{background:rgba(14,203,129,.12);color:var(--up)}
+.d2{background:rgba(252,213,53,.12);color:var(--primary)}
+.d3{background:rgba(45,189,182,.14);color:var(--turquoise)}
+.d4{background:rgba(246,70,93,.12);color:var(--down)}
+.d0{background:var(--elevated);color:var(--muted-strong)}
+.entry{font-weight:600;color:#fff;white-space:nowrap}
+.rem{color:var(--muted-strong);font-size:12px;max-width:280px}
+.healthy{color:var(--up);font-weight:600}
+.warn{color:var(--down);font-weight:600}
+.fire{font-size:13px}
+
+/* RISK */
+.risk{background:var(--card);border-radius:12px;padding:32px;
+  border-left:3px solid var(--primary)}
+.risk ol{margin-left:20px}
+.risk li{padding:10px 0;font-size:14px;color:var(--body);line-height:1.65}
+.risk li::marker{color:var(--primary);font-weight:700}
+
+/* BREAKOUT */
+.bo{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.bocard{background:var(--card);border-radius:8px;padding:20px;text-align:center}
+.bocard .s{font-size:20px;font-weight:700;color:#fff}
+.bocard .p{font-size:22px;font-weight:700;color:var(--primary);margin:10px 0 4px;
+  font-family:"IBM Plex Sans",Inter,sans-serif}
+.bocard .m{font-size:11px;color:var(--muted);line-height:1.6}
+
+/* DEPTH DIST */
+.dist{display:flex;height:32px;border-radius:6px;overflow:hidden;margin:12px 0 4px}
+.dist div{display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
+.dlegend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin-top:10px}
+.dlegend span i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+
+footer{background:var(--soft-light);color:var(--ink);margin-top:80px;padding:48px 0}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px}
+footer .src{color:#707a8a;font-size:13px;max-width:900px;line-height:1.7}
+footer .fb{color:var(--ink);font-weight:700;font-size:16px}
+
+@media(max-width:960px){
+  h1{font-size:36px}
+  .ticker{grid-template-columns:repeat(2,1fr)}
+  .grid3,.grid2{grid-template-columns:1fr}
+  .bo{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">DAILY BRIEF</span>
+  <span class="navmeta num">2026-08-18 · 星期二</span>
+  <span class="pill">美股 · 加密 · 港股</span>
+</div></nav>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">每日市場簡報 · Market Briefing</div>
+    <h1>30年孳息破 2007 年高、布蘭特逼近 $91,<br><em>晶片股成為提款機。</em></h1>
+    <p class="sub">今日只有一條主線:<strong style="color:var(--primary)">長息</strong>。美伊僵局推高油價 → 通脹預期升 → 30年期美債孳息創 19年新高 → 高估值成長股現值被壓縮。納指 -1.33% 遠差過道指 -0.22%,Micron 五日升 18% 後單日 -7%。中港市場早段跟跌、午後靠能源同創新藥翻身,恒指僅收 +0.07%,但 A股超過 3,200 隻個股下跌 —— 指數平穩掩蓋住廣度轉差。</p>
+
+    <div class="ticker">
+      <div class="tick"><div class="lbl">標普 500</div><div class="val num">7,691.76</div><div class="chg down num">▼ -0.69%</div></div>
+      <div class="tick"><div class="lbl">納斯達克綜合</div><div class="val num">26,289.71</div><div class="chg down num">▼ -1.33% · 今日最傷</div></div>
+      <div class="tick"><div class="lbl">道瓊斯</div><div class="val num">53,343.40</div><div class="chg down num">▼ -0.22%</div></div>
+      <div class="tick"><div class="lbl">30年美債孳息</div><div class="val num">&gt;5.3%</div><div class="chg down num">▲ 2007年以來最高</div></div>
+      <div class="tick"><div class="lbl">布蘭特原油</div><div class="val num">~$91</div><div class="chg down num">▲ 美伊僵局未解</div></div>
+      <div class="tick"><div class="lbl">恒生指數</div><div class="val num">25,471.15</div><div class="chg up num">▲ +0.07% · 低位翻身</div></div>
+      <div class="tick"><div class="lbl">恒生科技</div><div class="val num">4,739.18</div><div class="chg down num">▼ -0.90%</div></div>
+      <div class="tick"><div class="lbl">比特幣 BTC</div><div class="val num">$64,269</div><div class="chg up num">▲ +1.8% · 仍在熊市</div></div>
+    </div>
+  </div>
+
+  <!-- 新聞 -->
+  <section>
+    <div class="shead"><h2>市場新聞</h2><span class="tag">Part 01 · News</span></div>
+    <div class="grid3">
+
+      <div class="card">
+        <h3><span class="dot"></span>美股</h3>
+        <ul>
+          <li><span class="k">標普500 收市</span><span class="v num down">7,691.76 · -0.69%</span></li>
+          <li><span class="k">納指 / 道指</span><span class="v num down">-1.33% / -0.22%</span></li>
+          <li><span class="k">30年期美債孳息</span><span class="v num down">19年新高 · &gt;5.3%</span></li>
+          <li><span class="k">10年期美債孳息</span><span class="v num down">逼近 4.75%</span></li>
+          <li><span class="k">布蘭特 / WTI</span><span class="v num down">~$91 / ~$84</span></li>
+          <li><span class="k">FOMC 7月紀要</span><span class="v num">週三公佈</span></li>
+        </ul>
+        <p class="note">真正嘅壓力唔喺股市,喺債市。<strong style="color:var(--primary)">30年期孳息創 2007年以來最高</strong>,長息破頂直接壓縮成長股未來盈利現值,同時推高企業借貸成本 —— 呢個係估值框架嘅重設,唔係一日情緒。<br><br>導火線係中東:美伊和平預期消退,油價急升 → 通脹預期升 → 長息再升。所以今日「能源升 / 科技跌」其實係同一件事嘅兩面。<br><br>個股:Nvidia <span class="down">-2.3%</span>;Micron <span class="down">-7%</span>(此前 5 個交易日累升近 18%);Sandisk <span class="down">-9%</span>、Western Digital <span class="down">-7.4%</span>。<br><br>業績:Home Depot Q2 銷售 <span class="num">479 億美元</span>(按年增 26 億),同店銷售 <span class="up">+1.7%</span>,經調整盈利勝預期。注意 CEO Ted Decker 已於 8月12日宣佈暫時因病休假。本週餘下:週三 Target / Lowe's,週四 Walmart。</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="dot"></span>加密貨幣</h3>
+        <ul>
+          <li><span class="k">比特幣 BTC</span><span class="v num up">$64,269 · +1.8%</span></li>
+          <li><span class="k">以太幣 ETH</span><span class="v num flat">$1,895 – 1,912</span></li>
+          <li><span class="k">全市場總市值</span><span class="v num up">約 2.28 萬億 · +2.6%</span></li>
+          <li><span class="k">BTC 市佔率</span><span class="v num">56.5%</span></li>
+          <li><span class="k">BTC ETF 週流入</span><span class="v num up">+8.54 億美元</span></li>
+          <li><span class="k">CLARITY Act</span><span class="v num down">51 票 · 未過關</span></li>
+        </ul>
+        <p class="note">今日屬「反覆偏軟」而唔係趨勢反轉。BTC 同 ETH 仍處於延續中嘅熊市,分析員對見底與否意見分歧。<br><br><strong style="color:var(--primary)">最值得留意嘅矛盾:</strong>ETH 已連續<strong>五個星期</strong>錄得 ETF 淨流入,價格依然被 <span class="num">$1,900</span> 壓住 —— 資金進場但推唔動,係典型嘅供應消化階段。BitMine 現持有 ETH 總供應約 <span class="num">4.8%</span>。<br><br>資金面:美國現貨 BTC ETF 截至 8月7日一週淨流入 <span class="up">8.535 億美元</span>(IBIT 佔 6.93 億),係 4月以來最強;但<strong>年初至今整體仍係淨流出</strong>,反彈未改全年格局。<br><br>監管:參議院《Digital Asset Market Clarity Act》只取得約 51 票,未達 60 票門檻,9月14日先復會。預測市場已將年內立法機率下調至 <span class="down">20% 以下</span>。穩定幣規模截至 7月約 3,050 億美元。</p>
+      </div>
+
+      <div class="card">
+        <h3><span class="dot"></span>港股與中國</h3>
+        <ul>
+          <li><span class="k">恒生指數</span><span class="v num up">25,471.15 · +0.07%</span></li>
+          <li><span class="k">恒生科技 / 國企</span><span class="v num">-0.90% / +0.16%</span></li>
+          <li><span class="k">主板成交額</span><span class="v num">2,545.41 億港元</span></li>
+          <li><span class="k">上證 / 深成 / 創業板</span><span class="v num">+0.19% / -0.56% / -0.92%</span></li>
+          <li><span class="k">A股成交</span><span class="v num">2.42 萬億人民幣</span></li>
+          <li><span class="k">A股下跌家數</span><span class="v num down">超過 3,200 隻</span></li>
+        </ul>
+        <p class="note"><strong style="color:var(--primary)">先跌後回嘅一日。</strong>早市恒指一度跌 0.65%、科指跌 1.99%,科網股普跌(智譜盤中跌逾 16%);午後靠能源、醫藥、內房翻身,恒指僅以微升收市。<br><br>升:石油石化、煤炭、創新藥、內房、豬肉。跌:半導體、硬件設備、非銀金融、軟件服務、傳媒、有色。<br><br>個股:金斯瑞生物科技 <span class="up">+8%</span>,康龍化成 / 藥明生物 / 凱萊英 均 <span class="up">+5% 以上</span>;中國石油股份 <span class="up">+2.51%</span>(HK$9.80)、中國海洋石油 <span class="up">+2.09%</span>(HK$24.42)、中國石油化工 <span class="up">+0.47%</span>。內地記憶體股長鑫科技 <span class="down">-3.7%</span>,交還週一 +12% 升幅一部分。<br><br><strong style="color:var(--primary)">⚠️ 廣度警號:</strong>A股三大指數低開後探底回升,但超過 3,200 隻個股下跌、創業板 -0.92%。指數靠權重撐住,個股普遍向下 —— 呢種結構下選股容錯率大幅下降。</p>
+      </div>
+
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3><span class="dot"></span>今日傳導鏈:一條線解釋所有市場</h3>
+      <div class="grid3" style="gap:16px">
+        <div>
+          <p class="note" style="margin-top:0"><strong style="color:var(--primary)">① 地緣 → 油價</strong><br>
+          美伊諒解僵局未解,和平預期消退。<br>
+          布蘭特逼近 <span class="num">$91</span>,WTI 約 <span class="num">$84</span>。</p>
+        </div>
+        <div>
+          <p class="note" style="margin-top:0"><strong style="color:var(--primary)">② 油價 → 通脹 → 長息</strong><br>
+          通脹預期上升,30年期美債孳息創 <strong>2007年以來最高</strong>,10年期逼近 4.75%。</p>
+        </div>
+        <div>
+          <p class="note" style="margin-top:0"><strong style="color:var(--primary)">③ 長息 → 科技股</strong><br>
+          未來盈利現值被壓縮 + 借貸成本上升 → 晶片、大型成長股全線受壓,納指 <span class="down">-1.33%</span>。</p>
+        </div>
+      </div>
+      <p class="note">同一條鏈亦解釋咗港股同 A股:AI / 半導體回吐、能源同石化接力。呢個係<strong style="color:var(--primary)">全球性嘅利率 + 油價交易</strong>,唔係單一市場事件 —— 所以分散到唔同地區並唔能夠對沖呢個風險,分散到唔同<strong>資產類別</strong>先可以。</p>
+    </div>
+  </section>
+
+  <!-- Deepvue -->
+  <section>
+    <div class="shead"><h2>Deepvue 板塊 &amp; Pullback 掃描</h2><span class="tag">Part 02 · Screener</span></div>
+
+    <div class="risk" style="border-left-color:var(--down)">
+      <h3 style="font-size:20px;font-weight:600;color:#fff;margin-bottom:16px">⚠️ 本節今日無法產生 —— 技術原因,並非市場原因</h3>
+      <p class="note" style="font-size:14px;margin-top:0">
+        今次係<strong style="color:#fff">排程自動執行</strong>。執行時 Google Chrome 並未運行,而排程模式下無法取得 macOS「輔助使用」/「螢幕錄製」權限,所以無法啟動 Chrome,Claude in Chrome 擴充功能亦未連線,無法讀取 deepvue.com。
+      </p>
+      <div class="grid2" style="margin-top:24px">
+        <div>
+          <p class="note" style="margin-top:0"><strong style="color:#fff">未能完成嘅項目</strong><br>
+          ❌ 任務一 · 板塊 / 行業群組排名<br>
+          ❌ 任務二 · Pullback screener(RS 6M 排序頭 40 行)<br>
+          ❌ 突破候選名單<br><br>
+          <strong style="color:var(--primary)">為免誤導,以上內容一律不作估算、不沿用舊數據、不填充佔位資料。</strong></p>
+        </div>
+        <div>
+          <p class="note" style="margin-top:0"><strong style="color:#fff">下次排程前建議處理</strong><br>
+          ① 保持 Google Chrome 開啟並已登入 deepvue.com<br>
+          ② 喺 Claude 桌面應用程式授予「輔助使用(Accessibility)」同「螢幕錄製(Screen Recording)」權限<br>
+          ③ 確認 Claude in Chrome 擴充功能已安裝並登入同一帳戶<br><br>
+          <strong style="color:#fff">分頁清理狀態:</strong>偵測到一個殘留 deepvue.com 分頁記錄,但 Chrome 實際並未運行,無法執行關閉。本次亦未新開任何 deepvue.com 分頁。</p>
+        </div>
+      </div>
+      <p class="note" style="font-size:14px;margin-top:20px;padding-top:20px;border-top:1px solid var(--hairline)">
+        <strong style="color:var(--down)">重要:</strong>今日冇 pullback 候選、冇突破候選,係<strong style="color:#fff">工具故障</strong>,唔係「今日冇符合條件嘅股票」。兩者意義完全唔同 —— <strong style="color:#fff">唔應該解讀為大市轉弱訊號</strong>。如需即時補做,可以喺互動 session 手動觸發一次。
+      </p>
+    </div>
+  </section>
+
+  <!-- 風險 -->
+  <section>
+    <div class="shead"><h2>風險提示</h2><span class="tag">Part 03 · Risk</span></div>
+    <div class="risk">
+      <ol>
+        <li><strong style="color:#fff">利率係今日唯一主線。</strong>30年期美債孳息升到 2007年以來最高。呢個唔係一日事件,而係<strong>估值框架嘅重設</strong>。只要長息未見頂,任何高估值成長股嘅反彈都應該當作反彈,唔應該當作趨勢重啟。</li>
+
+        <li><strong style="color:#fff">油價 = 通脹 = 息口,呢條鏈今日全條打通。</strong>布蘭特逼近 <span class="num">$91</span>,源頭係美伊僵局。能源股升同科技股跌係同一件事嘅兩面。想對沖科技持倉,能源目前係最直接嘅工具 —— 但要明白呢個對沖嘅前提係地緣局勢持續緊張,一旦有和解訊號,方向會即刻反轉。</li>
+
+        <li><strong style="color:#fff">晶片股嘅回吐幅度值得警惕。</strong>Micron 五日升 <span class="num">18%</span> 後單日 <span class="down">-7%</span>,Sandisk <span class="down">-9%</span>、WDC <span class="down">-7.4%</span>。呢種「急升後急回」係典型嘅後段行情特徵 —— <strong>追高風險明顯高於低吸風險</strong>。</li>
+
+        <li><strong style="color:#fff">週三 FOMC 紀要係最大即時變數。</strong>市場對 9月已由「可能加息」急轉為「按兵不動」,並且唔再完全 price in 年底前加息 —— 對比一星期前係明顯反轉。如果紀要顯示鷹派委員比想像中多,長息會再推高一步;反之則可能觸發科技股報復性反彈。<strong>倉位宜留彈性</strong>。</li>
+
+        <li><strong style="color:#fff">中港係「指數平、個股跌」。</strong>恒指微升 <span class="num">0.07%</span>、上證微升 <span class="num">0.19%</span>,但 A股超過 <span class="num">3,200 隻</span>個股下跌、恒生科技跌 <span class="num">0.9%</span>。指數平穩掩蓋住廣度轉差。呢種結構下,買指數同買個股嘅風險完全唔同。</li>
+
+        <li><strong style="color:#fff">加密未脫熊。</strong>BTC 反彈到 <span class="num">$64,269</span> 但仍遠低於 2025年10月高位;ETH 被 <span class="num">$1,900</span> 壓住,連五週 ETF 淨流入都推唔上去。加上 CLARITY Act 表決失敗、年內立法機率跌穿 <span class="down">20%</span>,監管催化劑已推遲到 9月14日之後。呢個階段應該<strong>假設係區間震盪而唔係趨勢行情</strong>。</li>
+
+        <li><strong style="color:#fff">今日冇選股名單 ≠ 今日冇機會。</strong>Deepvue 未能存取係技術故障。唔好將「名單係空」誤讀成「市場冇符合條件嘅股票」—— 呢個誤讀會令人對大市狀態產生錯誤判斷。</li>
+      </ol>
+    </div>
+  </section>
+
+</div>
+
+<footer><div class="wrap">
+  <div>
+    <div class="fb">DAILY BRIEF · 2026-08-18</div>
+    <p class="src" style="margin-top:8px">
+      資料來源:Yahoo Finance · CNBC · Reuters · Bloomberg · TheStreet · Business Recorder · 新華網 · 新浪財經 · 東方財富網 · 京報網 · KuCoin Research · The Block · IG · Bitcoin Foundation · TIKR。<br>
+      註:本日 Deepvue 板塊排名及 Pullback screener 因 Chrome 未運行 / 排程模式權限限制而<strong>未能讀取</strong>,第二部分內容從缺,並未以估算或舊數據填補。<br>
+      市場數據截至 2026-08-18 美股收市 / 港股及 A股收市。本報告僅供參考,不構成任何投資建議,本人並非持牌投資顧問。所有價格及排名以產生時為準,入市前請自行核實。
+    </p>
+  </div>
+</div></footer>
+
+</body>
+</html>
