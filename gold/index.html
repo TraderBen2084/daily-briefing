@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>XAUUSD 短 swing 分析</title>
+<style>
+:root{
+  --ink:#12100C; --panel:#1A1712; --panel2:#221E17; --rule:#302A20;
+  --gold:#C9A227; --gold-hi:#E7C14B; --up:#3FA66A; --down:#C4453B;
+  --muted:#8A8172; --text:#EDE7DA;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ink);color:var(--text);
+  font-family:"PingFang TC","Noto Sans TC","Hiragino Sans TC",system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.55}
+.wrap{max-width:940px;margin:0 auto;padding:28px 18px 64px}
+.mono{font-family:ui-monospace,"SF Mono","JetBrains Mono",Menlo,monospace;
+  font-variant-numeric:tabular-nums}
+header{border-bottom:1px solid var(--rule);padding-bottom:18px;margin-bottom:26px}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:10px}
+h1{font-family:"Iowan Old Style",Georgia,"Songti TC",serif;font-weight:500;
+  font-size:30px;margin:0 0 6px;letter-spacing:.01em}
+.sub{color:var(--muted);font-size:13px}
+.px{font-size:15px;color:var(--text);margin-top:12px}
+.px b{font-size:26px;letter-spacing:-.01em}
+
+/* 三段判定 —— 呢張報告嘅核心 */
+.assay{border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:26px}
+.row{display:grid;grid-template-columns:96px 1fr 132px;gap:14px;align-items:center;
+  padding:16px 18px;border-bottom:1px solid var(--rule);background:var(--panel)}
+.row:last-child{border-bottom:none}
+.row .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.row .v{font-size:19px;font-weight:600}
+.row .n{text-align:right;font-size:13px;color:var(--muted)}
+.bar{height:5px;background:var(--panel2);border-radius:3px;position:relative;
+  margin-top:9px;overflow:hidden}
+.bar i{position:absolute;top:0;bottom:0;display:block}
+.bar .zero{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--rule)}
+.bull{color:var(--up)} .bear{color:var(--down)} .neutral{color:var(--muted)}
+.good{color:var(--up)} .fair{color:var(--gold-hi)} .poor{color:var(--down)}
+
+.flag{border-left:2px solid var(--gold);background:var(--panel);
+  padding:12px 16px;margin-bottom:22px;font-size:14px}
+.flag.warn{border-left-color:var(--down)}
+
+h2{font-family:"Iowan Old Style",Georgia,"Songti TC",serif;font-weight:500;font-size:16px;
+  margin:30px 0 12px;padding-bottom:8px;border-bottom:1px solid var(--rule);
+  display:flex;justify-content:space-between;align-items:baseline}
+h2 span{font-size:12px;color:var(--muted);letter-spacing:.05em}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+td{padding:11px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.p{width:52px;text-align:right;font-weight:600;white-space:nowrap}
+td.l{width:34%;padding-right:14px}
+.d{color:var(--muted);font-size:12.5px;margin-top:3px}
+.tag{display:inline-block;font-size:10px;letter-spacing:.1em;padding:1px 6px;
+  border:1px solid var(--rule);border-radius:2px;color:var(--muted);margin-left:6px;
+  vertical-align:1px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--rule);
+  color:var(--muted);font-size:11.5px}
+footer code{color:var(--gold);font-size:11px}
+@media(max-width:560px){
+  .row{grid-template-columns:1fr;gap:4px;padding:14px 15px}
+  .row .n{text-align:left}
+  td.l{width:46%}
+  h1{font-size:24px}
+}
+</style></head><body><div class="wrap">
+
+<header>
+  <div class="eyebrow">XAUUSD · 1–5 日短 SWING</div>
+  <h1>XAUUSD 短 swing 分析</h1>
+  <div class="sub mono">產生時間 2026-08-25 01:57 ET</div>
+  
+</header>
+
+<div class="assay">
+  <div class="row">
+    <div class="k">方向</div>
+    <div>
+      <div class="v neutral">觀望</div>
+      <div class="bar"><span class="zero"></span><i style="right:50%;width:9.4%;background:var(--down)"></i></div>
+    </div>
+    <div class="n mono">-3.0 / ±16</div>
+  </div>
+  <div class="row">
+    <div class="k">一致性</div>
+    <div>
+      <div class="v">高</div>
+      <div class="bar"><i style="left:0;width:83.8%;background:var(--gold)"></i></div>
+    </div>
+    <div class="n mono">模組一致 100%<br>數據齊 46%</div>
+  </div>
+  <div class="row">
+    <div class="k">入場</div>
+    <div>
+      <div class="v poor">數據不足　<span class="mono"
+        style="font-size:13px;color:var(--muted)">建議 唔好入</span></div>
+      <div class="bar"><i style="left:0;width:85.0%;background:var(--down)"></i></div>
+    </div>
+    <div class="n mono">風險 85 / 100</div>
+  </div>
+</div>
+
+<div class="flag">⚑ 投機倉極度擁擠，追多風險高</div><div class="flag">今日跳過嘅訊號：20EMA / 50EMA 排列、日線 RSI(14)、距離 20 日高低位（以 ATR 計）、SPDR 持倉 5 日變化、黃金 vs 宏觀背馳（宏觀逆風但金唔跌 = 強）、GDX／黃金比率斜率（礦業股領先）、XAG／XAU 比率斜率（貴金屬廣度）</div>
+
+<h2>技術<span class="mono">-2.0 / ±6</span></h2><table><tr><td class="l">20EMA / 50EMA 排列</td><td><div class="d">現貨數據缺失</div></td><td class="p mono neutral">—</td></tr><tr><td class="l">日線 RSI(14)</td><td><div class="d">現貨數據缺失</div></td><td class="p mono neutral">—</td></tr><tr><td class="l">4H MACD 柱狀圖</td><td><div class="d">柱狀圖為負並放大（-2.03）</div></td><td class="p mono bear">-1.0</td></tr><tr><td class="l">距離 20 日高低位（以 ATR 計）</td><td><div class="d">現貨數據不足</div></td><td class="p mono neutral">—</td></tr><tr><td class="l">突破亞洲區間後守得住</td><td><div class="d">未有守住嘅突破（區間 4,651.8 – 4,716.7）</div></td><td class="p mono neutral">+0.0</td></tr><tr><td class="l">假突破（穿完亞洲區間又跌返入）</td><td><div class="d">假突破：曾穿 4,716.7 但收返區間內</div></td><td class="p mono bear">-1.0</td></tr></table><h2>持倉<span class="mono">-1.0 / ±1</span></h2><table><tr><td class="l">COT 管理基金淨好倉擁擠度</td><td><div class="d">淨好倉 141,648（52週第 87 百分位，報告滯後 7 日） — 多頭擁擠警告</div></td><td class="p mono bear">-1.0</td></tr><tr><td class="l">GLD 期權 Max Pain（觀察中，未入分）<span class="tag">只顯示</span></td><td><div class="d">到期 2026-08-28｜Max Pain 205｜GLD 426.69（偏離 +108.1%）</div></td><td class="p mono neutral">·</td></tr></table><h2>資金流<span class="mono">+0.0 / ±1</span></h2><table><tr><td class="l">SPDR 持倉 5 日變化</td><td><div class="d">SPDR 數據缺失</div></td><td class="p mono neutral">—</td></tr><tr><td class="l">SPDR 持倉 20 日趨勢（背景）<span class="tag">只顯示</span></td><td><div class="d">SPDR 數據缺失</div></td><td class="p mono neutral">—</td></tr></table><h2>宏觀<span class="mono">+0.0 / ±6</span></h2><table><tr><td class="l">利率／美元綜合指標（實質利率＋DXY＋2年期合成一個）</td><td><div class="d">綜合壓力 z = -0.22 → 中性（+0／±3）｜實質利率 z=-0.28、DXY z=-0.76、2年期 z=+0.75</div></td><td class="p mono neutral">+0.0</td></tr><tr><td class="l">黃金 vs 宏觀背馳（宏觀逆風但金唔跌 = 強）</td><td><div class="d">宏觀或現貨數據缺失</div></td><td class="p mono neutral">—</td></tr><tr><td class="l">避險需求（VIX）</td><td><div class="d">VIX 5 日 +4.3%（15.9）</div></td><td class="p mono neutral">+0.0</td></tr></table><h2>跨市場<span class="mono">+0.0 / ±2</span></h2><table><tr><td class="l">GDX／黃金比率斜率（礦業股領先）</td><td><div class="d">GDX 或現貨數據缺失</div></td><td class="p mono neutral">—</td></tr><tr><td class="l">XAG／XAU 比率斜率（貴金屬廣度）</td><td><div class="d">白銀或現貨數據缺失</div></td><td class="p mono neutral">—</td></tr></table>
+
+<h2>入場風險細項<span class="mono">85 / 100</span></h2>
+<table><tr><td class="l">·</td><td><div class="d">數據完整度只有 46%，強制當高風險</div></td><td></td></tr><tr><td class="l">·</td><td><div class="d">GVZ 處於 90 日第 88 百分位</div></td><td></td></tr></table>
+
+<footer>
+  數據來源狀態：<span class="mono">stooq:xauusd✗ · stooq:xagusd✗ · yf1h:GC=F✓ · yf:GC=F✓ · yf:^GVZ✓ · yf:DX-Y.NYB✓ · yf:^VIX✓ · yf:GDX✓ · yf:GLD✓ · fred:DFII10✓ · fred:DGS2✓ · spdr✗ · cot✓ · gld_options✓</span><br>
+  三個判定各自獨立：方向唔會因為波幅高而變細，波幅高只會令入場風險上升。<br>
+  所有訊號為規則式計算，無 AI 判斷，同一日重跑結果一致。
+  權重同開關喺 <code>config.yaml</code>，目前全部係初始值，未經 backtest 驗證。
+</footer>
+</div></body></html>
