@@ -1,16 +1,16 @@
 {
  "schema": 1,
- "as_of": "2026-08-31 03:54:56",
+ "as_of": "2026-08-31 17:15:05",
  "session_date": "2026-08-31",
  "price": {
   "is_spot": false,
   "source": "GC=F",
-  "close": 4497.200195,
-  "chg_pct": 0.426522,
-  "spot": 4444.600098,
-  "basis": 52.600097,
-  "basis_pct": 1.183461,
-  "spot_quote_at_utc": "2026-08-31 07:54:37"
+  "close": 4497.299805,
+  "chg_pct": 0.428747,
+  "spot": 4449.100098,
+  "basis": 48.199707,
+  "basis_pct": 1.083359,
+  "spot_quote_at_utc": "2026-08-31 21:14:38"
  },
  "signals": {
   "a1_ema_stack": {
@@ -21,7 +21,7 @@
    "points": 1.0,
    "display_only": false,
    "skipped": false,
-   "detail": "價 > 20EMA > 50EMA，多頭排列（4,497.2 / 4,438.5 / 4,342.7）"
+   "detail": "價 > 20EMA > 50EMA，多頭排列（4,497.3 / 4,438.5 / 4,342.7）"
   },
   "a2_rsi": {
    "module": "A",
@@ -41,7 +41,7 @@
    "points": 0.0,
    "display_only": false,
    "skipped": false,
-   "detail": "柱狀圖為負但收窄（-21.48）"
+   "detail": "柱狀圖為負但收窄（-10.54）"
   },
   "a4_key_level": {
    "module": "A",
@@ -56,22 +56,22 @@
   "a5_asia_breakout_hold": {
    "module": "A",
    "label": "突破亞洲區間後守得住",
-   "raw": -1.0,
+   "raw": 0.0,
    "weight": 1.0,
-   "points": -1.0,
+   "points": 0.0,
    "display_only": false,
    "skipped": false,
-   "detail": "下破亞洲低位 4,623.0 並守住收市"
+   "detail": "未有守住嘅突破（區間 4,445.6 – 4,521.5）"
   },
   "a6_failed_breakout": {
    "module": "A",
    "label": "假突破（穿完亞洲區間又跌返入）",
-   "raw": -1.0,
+   "raw": 0.0,
    "weight": 1.0,
-   "points": -1.0,
+   "points": 0.0,
    "display_only": false,
    "skipped": false,
-   "detail": "假突破：曾穿 4,666.2 但收返區間內"
+   "detail": "冇假突破"
   },
   "b1_cot_crowding": {
    "module": "B",
@@ -86,12 +86,12 @@
   "b2_gld_max_pain": {
    "module": "B",
    "label": "GLD 期權 Max Pain（觀察中，未入分）",
-   "raw": null,
+   "raw": 0.0,
    "weight": 0.0,
    "points": 0.0,
    "display_only": true,
-   "skipped": true,
-   "detail": "期權數據缺失"
+   "skipped": false,
+   "detail": "到期 2026-09-03｜Max Pain 420｜GLD 408.42（偏離 -2.8%）｜未平倉 P/C 3.12"
   },
   "c1_spdr_5d": {
    "module": "C",
@@ -121,7 +121,7 @@
    "points": 0.0,
    "display_only": false,
    "skipped": false,
-   "detail": "綜合壓力 z = +0.05 → 中性（+0／±3）｜實質利率 z=-0.30、DXY z=+0.65、2年期 z=-0.01"
+   "detail": "綜合壓力 z = +0.44 → 中性（+0／±3）｜實質利率 z=+0.14、DXY z=+0.51、2年期 z=+1.11"
   },
   "d2_macro_divergence": {
    "module": "D",
@@ -131,7 +131,7 @@
    "points": 0.0,
    "display_only": false,
    "skipped": false,
-   "detail": "無明顯背馳（宏觀 z +0.05，黃金 -3.09%）"
+   "detail": "無明顯背馳（宏觀 z +0.44，黃金 -3.09%）"
   },
   "d3_risk_off": {
    "module": "D",
@@ -141,7 +141,7 @@
    "points": 0.0,
    "display_only": false,
    "skipped": false,
-   "detail": "VIX 5 日 -3.7%（15.3）"
+   "detail": "VIX 5 日 -5.9%（14.9）"
   },
   "e1_gdx_gold_ratio": {
    "module": "E",
@@ -151,7 +151,7 @@
    "points": 1.0,
    "display_only": false,
    "skipped": false,
-   "detail": "10 日斜率 +0.909%/日 — 礦業股領先"
+   "detail": "10 日斜率 +0.557%/日 — 礦業股領先"
   },
   "e2_silver_gold_ratio": {
    "module": "E",
@@ -161,22 +161,22 @@
    "points": 1.0,
    "display_only": false,
    "skipped": false,
-   "detail": "XAG/XAU 0.0151，10 日斜率 +0.214%/日 — 貴金屬廣度轉強"
+   "detail": "XAG/XAU 0.0149，10 日斜率 +0.173%/日 — 貴金屬廣度轉強"
   }
  },
  "direction": {
-  "score": 1.0,
+  "score": 3.0,
   "max": 16.0,
   "label": "觀望"
  },
  "conviction": {
-  "score": 76.7,
+  "score": 92.2,
   "label": "高",
-  "agreement": 66.7,
+  "agreement": 88.9,
   "completeness": 100.0,
   "skipped": [],
   "modules": {
-   "A": 0.0,
+   "A": 2.0,
    "B": -1.0,
    "C": 0.0,
    "D": 0.0,
@@ -184,15 +184,15 @@
   }
  },
  "execution": {
-  "score": 38.6,
-  "label": "一般",
-  "size": "半倉",
-  "gvz_pct": 31.111111,
+  "score": 33.9,
+  "label": "適合入場",
+  "size": "正常倉",
+  "gvz_pct": 15.555556,
   "range_ratio": 0.985116,
-  "ext_atr": 0.762182,
+  "ext_atr": 0.763352,
   "event_flag": null,
   "notes": [
-   "GVZ 處於 90 日第 31 百分位",
+   "GVZ 處於 90 日第 16 百分位",
    "當日真實波幅 = 0.99 × ATR20",
    "距離 20EMA 0.76 個 ATR"
   ]
@@ -208,11 +208,11 @@
   },
   "spot_quote": {
    "ok": true,
-   "note": "現貨 4,444.60"
+   "note": "現貨 4,449.10"
   },
   "yf1h:GC=F": {
    "ok": true,
-   "note": "557 支小時 K"
+   "note": "570 支小時 K"
   },
   "yf:GC=F@6mo": {
    "ok": true,
@@ -220,7 +220,7 @@
   },
   "yf:^GVZ@2y": {
    "ok": true,
-   "note": "501 日"
+   "note": "500 日"
   },
   "yf:DX-Y.NYB@3y": {
    "ok": true,
@@ -232,7 +232,7 @@
   },
   "yf:GDX@2y": {
    "ok": true,
-   "note": "501 日"
+   "note": "500 日"
   },
   "yf:GLD@6mo": {
    "ok": true,
@@ -240,11 +240,11 @@
   },
   "fred:DFII10": {
    "ok": true,
-   "note": "最新 2026-08-27 = 2.34"
+   "note": "最新 2026-08-28 = 2.42"
   },
   "fred:DGS2": {
    "ok": true,
-   "note": "最新 2026-08-27 = 4.20"
+   "note": "最新 2026-08-28 = 4.34"
   },
   "spdr": {
    "ok": true,
@@ -255,8 +255,8 @@
    "note": "報告日 2026-08-25，淨好倉 144,747"
   },
   "gld_options": {
-   "ok": false,
-   "note": "未平倉合約全部係空值，計唔到 Max Pain"
+   "ok": true,
+   "note": "2026-09-03，Max Pain 420.0"
   }
  }
 }
