@@ -1,0 +1,268 @@
+{
+ "schema": 1,
+ "as_of": "2026-09-02 17:28:02",
+ "session_date": "2026-09-02",
+ "price": {
+  "is_spot": false
+ },
+ "signals": {
+  "a1_ema_stack": {
+   "module": "A",
+   "label": "20EMA / 50EMA 排列",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "現貨數據缺失"
+  },
+  "a2_rsi": {
+   "module": "A",
+   "label": "日線 RSI(14)",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "現貨數據缺失"
+  },
+  "a3_macd_4h": {
+   "module": "A",
+   "label": "4H MACD 柱狀圖",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "小時線缺失"
+  },
+  "a4_key_level": {
+   "module": "A",
+   "label": "距離 20 日高低位（以 ATR 計）",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "現貨數據不足"
+  },
+  "a5_asia_breakout_hold": {
+   "module": "A",
+   "label": "突破亞洲區間後守得住",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "小時線缺失，切唔到時段"
+  },
+  "a6_failed_breakout": {
+   "module": "A",
+   "label": "假突破（穿完亞洲區間又跌返入）",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "小時線缺失，切唔到時段"
+  },
+  "b1_cot_crowding": {
+   "module": "B",
+   "label": "COT 管理基金淨好倉擁擠度",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "COT 數據缺失"
+  },
+  "b2_gld_max_pain": {
+   "module": "B",
+   "label": "GLD 期權 Max Pain（觀察中，未入分）",
+   "raw": null,
+   "weight": 0.0,
+   "points": 0.0,
+   "display_only": true,
+   "skipped": true,
+   "detail": "期權數據缺失"
+  },
+  "c1_spdr_5d": {
+   "module": "C",
+   "label": "SPDR 持倉 5 日變化",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "SPDR 數據缺失"
+  },
+  "c2_spdr_20d_regime": {
+   "module": "C",
+   "label": "SPDR 持倉 20 日趨勢（背景）",
+   "raw": null,
+   "weight": 0.0,
+   "points": 0.0,
+   "display_only": true,
+   "skipped": true,
+   "detail": "SPDR 數據缺失"
+  },
+  "d1_rates_usd_composite": {
+   "module": "D",
+   "label": "利率／美元綜合指標（實質利率＋DXY＋2年期合成一個）",
+   "raw": null,
+   "weight": 3.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "利率／美元數據全部缺失"
+  },
+  "d2_macro_divergence": {
+   "module": "D",
+   "label": "黃金 vs 宏觀背馳（宏觀逆風但金唔跌 = 強）",
+   "raw": null,
+   "weight": 2.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "宏觀或現貨數據缺失"
+  },
+  "d3_risk_off": {
+   "module": "D",
+   "label": "避險需求（VIX）",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "VIX 缺失"
+  },
+  "e1_gdx_gold_ratio": {
+   "module": "E",
+   "label": "GDX／黃金比率斜率（礦業股領先）",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "GDX 或現貨數據缺失"
+  },
+  "e2_silver_gold_ratio": {
+   "module": "E",
+   "label": "XAG／XAU 比率斜率（貴金屬廣度）",
+   "raw": null,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": true,
+   "detail": "白銀或現貨數據缺失"
+  }
+ },
+ "direction": {
+  "score": 0.0,
+  "max": 16.0,
+  "label": "觀望"
+ },
+ "conviction": {
+  "score": 0.0,
+  "label": "低",
+  "agreement": 0.0,
+  "completeness": 0.0,
+  "skipped": [
+   "20EMA / 50EMA 排列",
+   "日線 RSI(14)",
+   "4H MACD 柱狀圖",
+   "距離 20 日高低位（以 ATR 計）",
+   "突破亞洲區間後守得住",
+   "假突破（穿完亞洲區間又跌返入）",
+   "COT 管理基金淨好倉擁擠度",
+   "SPDR 持倉 5 日變化",
+   "利率／美元綜合指標（實質利率＋DXY＋2年期合成一個）",
+   "黃金 vs 宏觀背馳（宏觀逆風但金唔跌 = 強）",
+   "避險需求（VIX）",
+   "GDX／黃金比率斜率（礦業股領先）",
+   "XAG／XAU 比率斜率（貴金屬廣度）"
+  ],
+  "modules": {
+   "A": 0.0,
+   "B": 0.0,
+   "C": 0.0,
+   "D": 0.0,
+   "E": 0.0
+  }
+ },
+ "execution": {
+  "score": 85.0,
+  "label": "數據不足",
+  "size": "唔好入",
+  "gvz_pct": null,
+  "range_ratio": null,
+  "ext_atr": null,
+  "event_flag": null,
+  "notes": [
+   "數據完整度只有 0%，強制當高風險",
+   "GVZ 缺失，波幅項跳過"
+  ]
+ },
+ "sources": {
+  "yf:GC=F@2y": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "yf:SI=F@2y": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "spot_quote": {
+   "ok": false,
+   "note": "HTTPSConnectionPool(host='api.gold-api.com', port=443): Max retries exceeded with url: /price/XAU (Caused by NameResolut"
+  },
+  "yf1h:GC=F": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "yf:GC=F@6mo": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "yf:^GVZ@2y": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "yf:DX-Y.NYB@3y": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "yf:^VIX@2y": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "yf:GDX@2y": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "yf:GLD@6mo": {
+   "ok": false,
+   "note": "'NoneType' object is not subscriptable"
+  },
+  "fred:DFII10": {
+   "ok": false,
+   "note": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Max retries exceeded with url: /graph/fredgraph.csv?id=DFII10"
+  },
+  "fred:DGS2": {
+   "ok": false,
+   "note": "HTTPSConnectionPool(host='fred.stlouisfed.org', port=443): Max retries exceeded with url: /graph/fredgraph.csv?id=DGS2 ("
+  },
+  "spdr": {
+   "ok": false,
+   "note": "HTTPSConnectionPool(host='www.spdrgoldshares.com', port=443): Max retries exceeded with url: /gld/GLD_US_archive_EN.csv "
+  },
+  "cot": {
+   "ok": false,
+   "note": "HTTPSConnectionPool(host='publicreporting.cftc.gov', port=443): Max retries exceeded with url: /resource/kh3c-gbw2.json?"
+  },
+  "gld_options": {
+   "ok": false,
+   "note": "Failed to perform, curl: (28) Resolving timed out after 30003 milliseconds. See https://curl.se/libcurl/c/libcurl-errors"
+  }
+ }
+}
