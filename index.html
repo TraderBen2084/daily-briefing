@@ -1,414 +1,532 @@
 <!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>每日財經簡報 · 2026-09-07</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&family=Noto+Sans+HK:wght@400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>每日財經簡報 · 2026-09-08</title>
 <style>
 :root{
   --primary:#fcd535; --primary-active:#f0b90b;
   --ink:#181a20; --body:#eaecef; --muted:#707a8a; --muted-strong:#929aa5;
-  --hairline-dark:#2b3139;
-  --canvas-dark:#0b0e11; --card:#1e2329; --elevated:#2b3139;
-  --soft-light:#fafafa; --on-primary:#181a20; --on-dark:#ffffff;
-  --up:#0ecb81; --down:#f6465d; --info:#3b82f6;
-  --nova:'Inter','Noto Sans HK',-apple-system,BlinkMacSystemFont,sans-serif;
-  --plex:'IBM Plex Sans','Inter',sans-serif;
+  --hairline:#2b3139; --canvas:#0b0e11;
+  --card:#1e2329; --elevated:#2b3139;
+  --up:#0ecb81; --down:#f6465d; --turq:#2dbdb6; --info:#3b82f6;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--canvas-dark);color:var(--body);font-family:var(--nova);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased}
-.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
-.num{font-family:var(--plex);font-variant-numeric:tabular-nums}
-.up{color:var(--up)} .down{color:var(--down)}
+body{
+  background:var(--canvas); color:var(--body);
+  font-family:"BinanceNova",-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang TC","Microsoft JhengHei",sans-serif;
+  font-size:14px; line-height:1.5; -webkit-font-smoothing:antialiased;
+}
+.num{font-family:"BinancePlex","BinanceNova",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px 80px}
 
-/* nav */
-nav{height:64px;background:var(--canvas-dark);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--hairline-dark);position:sticky;top:0;z-index:20}
-.mark{color:var(--primary);font-weight:700;font-size:18px;letter-spacing:-.3px}
-.navlinks{display:flex;gap:24px;font-weight:500;font-size:14px;color:var(--body)}
-.navlinks a{color:var(--body);text-decoration:none}
-.navlinks a:hover{color:var(--primary)}
-.pill{background:var(--primary);color:var(--on-primary);font-weight:600;font-size:13px;padding:8px 20px;border-radius:9999px}
+/* HEADER */
+header{border-bottom:1px solid var(--hairline);padding:40px 0 32px;margin-bottom:36px}
+.eyebrow{font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--primary)}
+h1{font-size:48px;font-weight:700;line-height:1.1;letter-spacing:-.5px;margin:12px 0 10px}
+.sub{color:var(--muted-strong);font-size:14px}
+.riskbar{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:rgba(246,70,93,.1);
+  border:1px solid rgba(246,70,93,.35);color:var(--down);padding:8px 14px;border-radius:6px;font-size:13px;font-weight:600}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--down)}
 
-/* hero */
-.hero{padding:64px 0 48px}
-.eyebrow{color:var(--muted);font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
-h1{font-size:56px;font-weight:700;line-height:1.08;letter-spacing:-1px;color:var(--on-dark)}
-h1 .y{color:var(--primary)}
-.sub{color:var(--muted-strong);font-size:15px;margin-top:16px;max-width:640px}
-.notice{margin-top:24px;background:var(--card);border-left:3px solid var(--primary);border-radius:0 8px 8px 0;padding:16px 20px;font-size:13px;color:var(--body)}
-.notice b{color:var(--primary)}
+/* SECTION */
+section{margin-bottom:56px}
+h2{font-size:24px;font-weight:600;margin-bottom:6px}
+.h2rule{width:36px;height:3px;background:var(--primary);border-radius:2px;margin-bottom:22px}
+h3{font-size:16px;font-weight:600;margin:0 0 14px;color:var(--body)}
 
-/* index strip */
-.strip{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:40px 0 0}
-.idx{background:var(--card);border-radius:12px;padding:24px}
-.idx .lab{color:var(--muted);font-size:12px;font-weight:500;letter-spacing:.04em}
-.idx .val{font-family:var(--plex);font-size:32px;font-weight:700;color:var(--on-dark);letter-spacing:-.3px;margin-top:8px;line-height:1.1}
-.idx .chg{font-family:var(--plex);font-size:14px;font-weight:500;margin-top:6px}
+/* TICKER STRIP */
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;background:var(--hairline);
+  border:1px solid var(--hairline);border-radius:8px;overflow:hidden;margin-bottom:28px}
+.tick{background:var(--card);padding:16px 18px}
+.tick .lbl{font-size:12px;font-weight:500;color:var(--muted);margin-bottom:7px}
+.tick .val{font-size:22px;font-weight:700;letter-spacing:-.3px}
+.tick .chg{font-size:13px;font-weight:600;margin-top:3px}
+.neg{color:var(--down)} .pos{color:var(--up)} .flat{color:var(--muted-strong)}
 
-/* sections */
-section{padding:64px 0;border-top:1px solid var(--hairline-dark)}
-.shead{display:flex;align-items:baseline;gap:16px;margin-bottom:32px}
-h2{font-size:32px;font-weight:600;color:var(--on-dark);letter-spacing:-.2px}
-.shead .tag{color:var(--muted);font-size:13px;font-weight:500}
+/* CARDS */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--hairline);border-radius:10px;padding:22px}
+.card.accent{border-left:3px solid var(--primary)}
+ul{list-style:none}
+ul li{position:relative;padding-left:16px;margin-bottom:11px;font-size:13.5px;color:#d5d9de}
+ul li:last-child{margin-bottom:0}
+ul li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--muted)}
+ul li b{color:var(--primary);font-weight:600}
 
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.card{background:var(--card);border-radius:12px;padding:24px}
-.card h3{font-size:16px;font-weight:600;color:var(--on-dark);margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.card h3 .dot{width:8px;height:8px;border-radius:50%;background:var(--primary);flex:none}
-ul.pts{list-style:none}
-ul.pts li{padding:10px 0;border-bottom:1px solid var(--hairline-dark);font-size:13.5px;color:var(--body);display:flex;gap:12px}
-ul.pts li:last-child{border-bottom:0;padding-bottom:0}
-ul.pts li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--muted);flex:none;margin-top:8px}
-ul.pts b{color:var(--primary);font-weight:600}
+/* SECTOR BARS */
+.bars{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.bar{display:grid;grid-template-columns:1fr 62px;align-items:center;gap:10px;margin-bottom:9px}
+.bar .n{font-size:13px;color:#d5d9de;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar .t{height:6px;border-radius:3px;margin-top:5px}
+.bar .v{font-size:13px;font-weight:600;text-align:right}
 
-/* table */
-table{width:100%;border-collapse:collapse}
-th{text-align:left;color:var(--muted);font-size:12px;font-weight:500;padding:0 12px 12px 0;border-bottom:1px solid var(--hairline-dark);white-space:nowrap}
-td{padding:12px 12px 12px 0;border-bottom:1px solid var(--hairline-dark);font-size:13.5px;vertical-align:top}
-tr:last-child td{border-bottom:0}
-td.sym{font-weight:600;color:var(--on-dark);white-space:nowrap}
-td.n{font-family:var(--plex);font-variant-numeric:tabular-nums;white-space:nowrap}
-.badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:4px;white-space:nowrap}
-.b-hot{background:rgba(252,213,53,.14);color:var(--primary)}
-.b-up{background:rgba(14,203,129,.14);color:var(--up)}
-.b-n{background:var(--elevated);color:var(--muted-strong)}
-.b-ok{background:rgba(14,203,129,.14);color:var(--up)}
+/* RANK LIST */
+.rank{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--hairline)}
+.rank:last-child{border-bottom:none}
+.badge{flex:none;width:26px;height:26px;border-radius:6px;background:var(--primary);color:var(--ink);
+  display:grid;place-items:center;font-size:13px;font-weight:700}
+.badge.grey{background:var(--elevated);color:var(--primary)}
+.rank .nm{flex:1;font-size:13.5px}
+.rank .mv{font-size:12px;font-weight:600;color:var(--up)}
 
-/* rank bars */
-.rankrow{display:flex;align-items:center;gap:12px;padding:9px 0;border-bottom:1px solid var(--hairline-dark);font-size:13px}
-.rankrow:last-child{border-bottom:0}
-.rk{font-family:var(--plex);font-weight:700;color:var(--primary);width:28px;flex:none;font-size:15px}
-.rn{flex:1;color:var(--body)}
-.rmeta{font-family:var(--plex);font-size:12px;color:var(--muted);white-space:nowrap}
-.bar{height:4px;border-radius:9999px;background:var(--elevated);width:120px;flex:none;overflow:hidden}
-.bar i{display:block;height:100%;background:var(--primary)}
+/* TABLE */
+.tblwrap{border:1px solid var(--hairline);border-radius:10px;overflow-x:auto;background:var(--card)}
+table{width:100%;border-collapse:collapse;min-width:940px}
+thead th{background:#191d23;color:var(--muted);font-size:11.5px;font-weight:600;letter-spacing:.04em;
+  text-transform:uppercase;text-align:left;padding:12px 14px;border-bottom:1px solid var(--hairline);white-space:nowrap}
+tbody td{padding:13px 14px;border-bottom:1px solid rgba(43,49,57,.6);font-size:13px;vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(252,213,53,.03)}
+.sym{font-weight:700;font-size:14px;color:var(--primary)}
+.ind{color:var(--muted);font-size:11.5px;margin-top:2px}
+.rs{font-weight:600}
+.pill{display:inline-block;padding:3px 8px;border-radius:4px;font-size:11px;font-weight:600;white-space:nowrap}
+.p-shal{background:rgba(14,203,129,.14);color:var(--up)}
+.p-mid{background:rgba(252,213,53,.14);color:var(--primary)}
+.p-50{background:rgba(45,189,182,.16);color:var(--turq)}
+.p-deep{background:rgba(246,70,93,.14);color:var(--down)}
+.tag{font-size:11px;font-weight:700;margin-right:4px}
+.note{font-size:11.5px;color:var(--muted-strong);margin-top:4px;line-height:1.45}
+.healthy{color:var(--up);font-weight:600}
+.tier{display:flex;align-items:center;gap:10px;margin:30px 0 12px}
+.tier span:first-child{font-size:15px;font-weight:600}
+.tier .line{flex:1;height:1px;background:var(--hairline)}
+.tier .cnt{font-size:11.5px;color:var(--muted);font-weight:500}
 
-/* theme perf */
-.themes{display:grid;grid-template-columns:repeat(2,1fr);gap:0 32px}
-.trow{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--hairline-dark);font-size:13px}
-.trow .tn{color:var(--body)}
-.trow .tv{font-family:var(--plex);font-weight:500}
+/* RISK */
+.risk{background:var(--card);border:1px solid var(--hairline);border-left:3px solid var(--down);
+  border-radius:8px;padding:18px 20px;margin-bottom:12px}
+.risk .rt{font-size:14px;font-weight:600;color:var(--down);margin-bottom:7px}
+.risk p{font-size:13px;color:#d5d9de;line-height:1.55}
 
-/* stage */
-.stage{display:flex;height:36px;border-radius:6px;overflow:hidden;margin:20px 0 12px}
-.stage div{display:flex;align-items:center;justify-content:center;font-family:var(--plex);font-size:12px;font-weight:600;color:var(--ink)}
-.slegend{display:flex;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
-.slegend span i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+/* STAGE */
+.stage{display:flex;height:34px;border-radius:6px;overflow:hidden;margin:14px 0 10px}
+.stage div{display:grid;place-items:center;font-size:12px;font-weight:700;color:var(--ink)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--muted-strong)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:6px}
 
-/* risk */
-.risk{background:var(--card);border-radius:12px;padding:24px;border-top:3px solid var(--down)}
-.risk li{padding:12px 0;border-bottom:1px solid var(--hairline-dark);font-size:13.5px;display:flex;gap:12px;list-style:none}
-.risk li:last-child{border-bottom:0}
-.risk .ic{flex:none;font-size:14px}
-.risk b{color:var(--primary)}
-
-footer{background:var(--soft-light);color:var(--ink);padding:48px 0;margin-top:0}
-footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px}
-footer .fh{font-weight:600;font-size:14px;margin-bottom:10px}
-footer p,footer li{font-size:13px;color:#5b6673;list-style:none;line-height:1.9}
-
-@media(max-width:900px){
-  h1{font-size:36px}
-  .strip{grid-template-columns:repeat(2,1fr)}
-  .grid2{grid-template-columns:1fr}
-  .themes{grid-template-columns:1fr}
-  .navlinks{display:none}
-  .tblwrap{overflow-x:auto}
-  table{min-width:760px}
+footer{border-top:1px solid var(--hairline);padding-top:22px;color:var(--muted);font-size:12px;line-height:1.7}
+@media(max-width:820px){
+  h1{font-size:32px} .grid2,.grid3,.bars{grid-template-columns:1fr} .wrap{padding:0 16px 60px}
 }
 </style>
 </head>
 <body>
-
-<nav><div class="wrap" style="display:flex;align-items:center;justify-content:space-between;width:100%">
-  <div style="display:flex;align-items:center;gap:40px">
-    <span class="mark">DAILY BRIEF</span>
-    <div class="navlinks">
-      <a href="#us">美股</a><a href="#crypto">加密貨幣</a><a href="#hk">港股中國</a>
-      <a href="#sector">板塊</a><a href="#setup">Pullback</a><a href="#risk">風險</a>
-    </div>
-  </div>
-  <span class="pill">2026-09-07</span>
-</div></nav>
-
 <div class="wrap">
-  <div class="hero">
-    <div class="eyebrow">每日財經簡報 · 星期一</div>
-    <h1>非農爆數<br><span class="y">加息預期急轉</span></h1>
-    <p class="sub">8月新增職位 16.2 萬，遠超預期 5.3 萬。市場由押注減息一夜轉為押注加息，本週通脹數據成為 9/15-16 議息前最後訊號。板塊領導權同步由軟件科技轉向醫療保健、能源與實體資產。</p>
-    <div class="notice"><b>⚠ 數據說明：</b>美股今日（9月7日）因勞動節休市。以下美股報價及 Deepvue 技術數據均為 <span class="num">9月4日</span>（上週五）收市，9/8 開市後需重新確認。</div>
-  </div>
 
-  <div class="strip">
-    <div class="idx"><div class="lab">S&P 500</div><div class="val num">7,718.60</div><div class="chg num down">▼ 0.38%</div></div>
-    <div class="idx"><div class="lab">NASDAQ COMP</div><div class="val num">26,506.99</div><div class="chg num down">▼ 0.29%</div></div>
-    <div class="idx"><div class="lab">DOW JONES</div><div class="val num">53,414.25</div><div class="chg num down">▼ 0.51% · 271.86</div></div>
-    <div class="idx"><div class="lab">HANG SENG · 9/7</div><div class="val num">25,428</div><div class="chg num down">▼ 0.9% · 226 pts</div></div>
-  </div>
-</div>
+<header>
+  <div class="eyebrow">Daily Market Briefing</div>
+  <h1>每日財經簡報</h1>
+  <div class="sub num">2026 年 9 月 8 日(星期二) · 美股收市 / 港股收市 / 加密貨幣即時</div>
+  <div class="riskbar"><span class="dot"></span>風險偏高 — 油價連升六日近 $100,10年債息 4.80%,9/15-16 FOMC 加息機率 50-60%</div>
+</header>
 
 <!-- 美股 -->
-<div class="wrap"><section id="us">
-  <div class="shead"><h2>📈 美股</h2><span class="tag">9月4日收市 · 9月7日休市</span></div>
-  <div class="grid2">
-    <div class="card">
-      <h3><span class="dot"></span>宏觀與聯儲局</h3>
-      <ul class="pts">
-        <li>8月非農新增 <b>16.2 萬</b>職位，遠高於預期 5.3 萬；失業率維持 <span class="num">4.1%</span>。</li>
-        <li>數據後市場一度為 9/15-16 議息押注約 <b>60% 加息 25 基點</b>機會，短債孳息急升 —— 由「減息」轉「加息」嘅完整逆轉。</li>
-        <li>焦點轉向<b>本週通脹數據</b>，將係議息前最後決定性訊號。</li>
-        <li>就業增長主要來自餐飲業，資訊科技相關職位反而減少（或與 AI 投資有關）。</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3><span class="dot"></span>個股焦點</h3>
-      <ul class="pts">
-        <li><b>博通 AVGO</b> 績後回落 —— Q3 收入 <span class="num">$295.9 億</span>、EPS <span class="num">$3.32</span>，但 Q4 指引 <span class="num">$348 億</span>低於預期 <span class="num">$350.3 億</span>。</li>
-        <li>博通 <b>AI 晶片收入 $167 億</b>，按年 <span class="up num">+221%</span>、按季 <span class="up num">+54%</span>，已佔總收入 56%。</li>
-        <li><b>英偉達 NVDA</b> 微升約 <span class="up num">1%</span>，市場視博通 <span class="num">$3,500 億</span>兩年期超大規模客戶訂單為 AI 需求確認。</li>
-        <li>9/3（四）曾有強勢單日：標普 <span class="up num">+1.06%</span>、納指 <span class="up num">+1.4%</span>、道指 <span class="up num">+1.18%</span>，之後被就業數據打斷。</li>
-      </ul>
-    </div>
-  </div>
-</section></div>
-
-<!-- 加密 -->
-<div class="wrap"><section id="crypto">
-  <div class="shead"><h2>₿ 加密貨幣</h2><span class="tag">9月7日美東早段</span></div>
-  <div class="strip" style="margin:0 0 24px;grid-template-columns:repeat(4,1fr)">
-    <div class="idx"><div class="lab">BITCOIN · BTC</div><div class="val num">$79,350</div><div class="chg num up">開報 $80,351 ▲0.7%</div></div>
-    <div class="idx"><div class="lab">ETHEREUM · ETH</div><div class="val num">$2,497.60</div><div class="chg num up">開報 $2,514.80 ▲1.4%</div></div>
-    <div class="idx"><div class="lab">BTC 市值</div><div class="val num">$1.33T</div><div class="chg num" style="color:var(--muted)">全球最大加密資產</div></div>
-    <div class="idx"><div class="lab">ETH 市值</div><div class="val num">$233B</div><div class="chg num" style="color:var(--muted)">第二大</div></div>
+<section>
+  <h2>美股</h2><div class="h2rule"></div>
+  <div class="strip">
+    <div class="tick"><div class="lbl">道瓊斯工業指數</div><div class="val num">52,786.07</div><div class="chg neg num">−628.18 · −1.18%</div></div>
+    <div class="tick"><div class="lbl">標普 500</div><div class="val num">7,673.52</div><div class="chg neg num">−0.58%</div></div>
+    <div class="tick"><div class="lbl">納斯達克綜合</div><div class="val num">26,421.41</div><div class="chg neg num">−0.32%</div></div>
+    <div class="tick"><div class="lbl">10 年期美債息</div><div class="val num">4.80%</div><div class="chg neg num">2023 年底以來最高</div></div>
+    <div class="tick"><div class="lbl">WTI 原油</div><div class="val num">≈ $100</div><div class="chg pos num">連升第 6 日</div></div>
   </div>
   <div class="grid2">
-    <div class="card">
-      <h3><span class="dot"></span>資金流與 ETF</h3>
-      <ul class="pts">
-        <li>上週五 BTC 一度企穩 <span class="num">$81,000</span> 以上，受<b>九個月以來最大單日 ETF 淨流入</b>支持（聯儲局理事 Waller 言論刺激）。</li>
-        <li>美國現貨比特幣 ETF 累計淨流入約 <span class="num">$521.8 億</span>，總淨資產約 <span class="num">$795 億</span>。</li>
-        <li>8月 Solana ETF 吸資逾 <span class="num">$1.7 億</span>、XRP ETF 逾 <span class="num">$1.5 億</span>（今年最強單月）。</li>
+    <div class="card accent">
+      <h3>今日主導因素</h3>
+      <ul>
+        <li><b>油價</b>連升六日,受中東(美伊衝突)升溫推動,重新點燃通脹憂慮,成為股市最大壓力源。</li>
+        <li>三大指數齊跌,道指跌幅最深(−1.18%),投資者在關鍵通脹數據前減倉。</li>
+        <li>資金由成長股轉向能源、公用、電訊、海運等實體與防守資產。</li>
       </ul>
     </div>
-    <div class="card">
-      <h3><span class="dot"></span>監管動向</h3>
-      <ul class="pts">
-        <li>《Digital Asset Market Clarity Act》喺參議院只取得約 <span class="num">51</span> 票，未達 <span class="num">60</span> 票門檻，<b>暫時擱置</b>。</li>
-        <li>穩定幣框架 <b>GENIUS Act</b> 已通過參議院銀行委員會。</li>
-        <li>SEC 簡化上市標準，新加密 ETF 推出速度加快，2026 年發行商競爭激烈。</li>
-        <li><b>短線關鍵：</b>加密市場同美股一樣，完全跟隨本週通脹數據及加息預期走。</li>
+    <div class="card accent">
+      <h3>聯儲局與宏觀</h3>
+      <ul>
+        <li>9 月 15-16 日 FOMC <b>加息 25 基點機率約 50-60%</b>(各數據源有差異)。</li>
+        <li>主席 Kevin Warsh 於 Jackson Hole 的鷹派演說 + 供應面通脹壓力,徹底改變政策預期。</li>
+        <li>8 月非農新增 <span class="num">16.2 萬</span>,失業率維持 <span class="num">4.1%</span>,勞動市場仍有韌性。</li>
+        <li>本週 <b>8 月 CPI</b> 為決定性催化劑。</li>
       </ul>
     </div>
   </div>
-</section></div>
+</section>
 
-<!-- 港股 -->
-<div class="wrap"><section id="hk">
-  <div class="shead"><h2>🇭🇰 港股與中國市場</h2><span class="tag">9月7日收市</span></div>
+<!-- 加密貨幣 -->
+<section>
+  <h2>加密貨幣</h2><div class="h2rule"></div>
+  <div class="strip">
+    <div class="tick"><div class="lbl">Bitcoin (BTC)</div><div class="val num">$78,475</div><div class="chg neg num">−0.9% · 失守 $80,000</div></div>
+    <div class="tick"><div class="lbl">Ethereum (ETH)</div><div class="val num">$2,484</div><div class="chg neg num">−0.1% · 開盤 −1.0%</div></div>
+    <div class="tick"><div class="lbl">BTC 今日開盤</div><div class="val num">$79,094</div><div class="chg neg num">較週一 −1.6%</div></div>
+    <div class="tick"><div class="lbl">BTC 日內低</div><div class="val num">$78,371</div><div class="chg flat num">美東 07:20</div></div>
+  </div>
   <div class="grid2">
-    <div class="card">
-      <h3><span class="dot"></span>大市</h3>
-      <ul class="pts">
-        <li>恒生指數跌約 <span class="down num">226 點（-0.9%）</span>收 <span class="num">25,428</span>；早段一度平開報 <span class="num">25,652</span>，成交 <span class="num">112.5 億</span>港元。</li>
-        <li>恒生科技指數早段跌 <span class="down num">0.3%</span> 至 <span class="num">4,558</span>。</li>
-        <li>沽壓集中於<b>金融、科技、能源</b>，主因消化美國強勁就業數據及聯儲局或轉鷹。</li>
-        <li><b>A 股相對硬淨</b> —— 上證綜指幾乎平收 <span class="up num">+0.07%</span>，顯示沽壓主要集中喺離岸港股，內地資金情緒較穩。</li>
+    <div class="card accent">
+      <h3>下跌原因</h3>
+      <ul>
+        <li>美伊衝突持續,油價近 $100 推高通脹預期。</li>
+        <li>聯儲局加息機率突破 60%(部分預測平台),風險資產全面受壓。</li>
+        <li>上週五 BTC 仍站穩 $81,000 以上並錄大量 ETF 淨流入,本週急轉直下。</li>
       </ul>
     </div>
-    <div class="card">
-      <h3><span class="dot"></span>個股</h3>
-      <ul class="pts">
-        <li><b>小米 (1810)</b> 跌約 <span class="down num">3.3%</span> 至 <span class="num">HK$27.50</span>，為表現最差藍籌之一；同日再回購 <span class="num">36.2 萬</span>股 B 股、涉資約 <span class="num">HK$1,000 萬</span>。</li>
-        <li>小米 Q2 收入人民幣 <span class="num">1,089 億</span>、經調整淨利 <span class="num">62 億</span>，手機 ASP 創新高，惟市場已下調 2026 全年收入預測（<span class="num">5,446 億 → 5,011 億</span>人民幣）。</li>
-        <li><b>華虹半導體 (1347)</b> 正式染藍，早段反彈近 <span class="up num">2%</span>。</li>
-        <li>嗶哩嗶哩、網易各跌逾 <span class="down num">2%</span>，科技股整體受壓。</li>
+    <div class="card accent">
+      <h3>值得留意的背離</h3>
+      <ul>
+        <li>美股 <b>Bitcoin Miners 板塊今日 +4.70%</b>,為 Deepvue 主題清單中最強,與幣價方向相反。</li>
+        <li>Bitcoin 主題 ETF 則跌 1.84% —— 礦股獨強,可能屬短線資金輪動而非趨勢轉向。</li>
       </ul>
     </div>
   </div>
-</section></div>
+</section>
 
-<!-- 板塊 -->
-<div class="wrap"><section id="sector">
-  <div class="shead"><h2>📊 今日板塊重點</h2><span class="tag">Deepvue Industry Rank · 9/4 收市</span></div>
-  <div class="grid2">
+<!-- 港股與中國 -->
+<section>
+  <h2>港股與中國市場</h2><div class="h2rule"></div>
+  <div class="strip">
+    <div class="tick"><div class="lbl">恒生指數</div><div class="val num">25,283</div><div class="chg neg num">≈ −0.5% · 連跌兩日</div></div>
+    <div class="tick"><div class="lbl">上證綜指</div><div class="val num">3,940.6</div><div class="chg pos num">+0.20%</div></div>
+    <div class="tick"><div class="lbl">深證成指</div><div class="val num">13,703.2</div><div class="chg neg num">−0.52%</div></div>
+    <div class="tick"><div class="lbl">8 月出口(按年)</div><div class="val num">+25.0%</div><div class="chg pos num">$4,014 億 · 7月 +23.9%</div></div>
+    <div class="tick"><div class="lbl">8 月貿易順差</div><div class="val num">$1,191 億</div><div class="chg pos num">去年同期 $1,011 億</div></div>
+  </div>
+  <div class="grid3">
+    <div class="card accent">
+      <h3>科技股普遍偏軟(開市)</h3>
+      <ul>
+        <li>騰訊 <span class="neg num">−0.3%</span> · 阿里 <span class="neg num">−0.5%</span></li>
+        <li>美團 <span class="neg num">−0.8%</span> · 小米 <span class="neg num">−0.8%</span></li>
+        <li>京東 <span class="neg num">−0.8%</span> · 快手 <span class="neg num">−0.1%</span></li>
+        <li>美股 China Internet 主題 <span class="neg num">−2.57%</span>,今日最弱之一。</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h3>貿易數據強但未提振</h3>
+      <ul>
+        <li>進口升 <span class="num">28.2%</span> 至 $2,824 億,<b>連續第八個月雙位數增長</b>。</li>
+        <li>外需持續強勁,但 A 股仍收混合,顯示市場關注點在政策與地緣風險。</li>
+      </ul>
+    </div>
+    <div class="card accent">
+      <h3>政策風險</h3>
+      <ul>
+        <li>美國持續施壓中國削減貿易失衡。</li>
+        <li>中歐關係在 <b>10 月期限</b>前趨緊,歐盟視貿易失衡為戰略問題。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 板塊重點 -->
+<section>
+  <h2>今日板塊重點 · Deepvue</h2><div class="h2rule"></div>
+  <div class="grid2" style="margin-bottom:22px">
     <div class="card">
-      <h3><span class="dot"></span>最強板塊（1個月排名頭 10）</h3>
-      <div class="rankrow"><span class="rk num">1</span><span class="rn">Marine Transportation 航運</span><span class="bar"><i style="width:100%"></i></span><span class="rmeta">3M #4 · 12M #1</span></div>
-      <div class="rankrow"><span class="rk num">2</span><span class="rn">Health Care Technology 醫療科技</span><span class="bar"><i style="width:97%"></i></span><span class="rmeta">3M #2 · 12M #73</span></div>
-      <div class="rankrow"><span class="rk num">3</span><span class="rn">Life Sciences Tools &amp; Services</span><span class="bar"><i style="width:94%"></i></span><span class="rmeta">3M #1 · 12M #10</span></div>
-      <div class="rankrow"><span class="rk num">4</span><span class="rn">Oil, Gas &amp; Consumable Fuels 油氣</span><span class="bar"><i style="width:91%"></i></span><span class="rmeta">3M #20 · 12M #6</span></div>
-      <div class="rankrow"><span class="rk num">5</span><span class="rn">Diversified Telecom 綜合電訊</span><span class="bar"><i style="width:88%"></i></span><span class="rmeta">3M #55 · 12M #50</span></div>
-      <div class="rankrow"><span class="rk num">6</span><span class="rn">Metals &amp; Mining 金屬礦業</span><span class="bar"><i style="width:85%"></i></span><span class="rmeta">3M #13 · 12M #5</span></div>
-      <div class="rankrow"><span class="rk num">7</span><span class="rn">Energy Equipment &amp; Services</span><span class="bar"><i style="width:82%"></i></span><span class="rmeta">3M #42 · 12M #2</span></div>
-      <div class="rankrow"><span class="rk num">8</span><span class="rn">Tech Hardware, Storage &amp; Periph.</span><span class="bar"><i style="width:79%"></i></span><span class="rmeta">3M #29 · 12M #8</span></div>
-      <div class="rankrow"><span class="rk num">9</span><span class="rn">Biotechnology 生物科技</span><span class="bar"><i style="width:76%"></i></span><span class="rmeta">3M #3 · 12M #7</span></div>
-      <div class="rankrow"><span class="rk num">10</span><span class="rn">Water Utilities 水務</span><span class="bar"><i style="width:73%"></i></span><span class="rmeta">3M #23 · 12M #28</span></div>
+      <h3>最強板塊 — 行業群組 1 個月排名(共 73 組)</h3>
+      <div class="rank"><div class="badge">1</div><div class="nm">Marine Transportation 海運</div><div class="mv num">3M 排名 4</div></div>
+      <div class="rank"><div class="badge">2</div><div class="nm">Health Care Technology 醫療科技</div><div class="mv num">3M 排名 2</div></div>
+      <div class="rank"><div class="badge">3</div><div class="nm">Life Sciences Tools 生命科學工具</div><div class="mv num">3M 排名 1</div></div>
+      <div class="rank"><div class="badge">4</div><div class="nm">Oil, Gas &amp; Consumable Fuels 油氣</div><div class="mv num">20 → 4 · +16</div></div>
+      <div class="rank"><div class="badge">5</div><div class="nm">Diversified Telecom 綜合電訊</div><div class="mv num">55 → 5 · +50</div></div>
     </div>
     <div class="card">
-      <h3><span class="dot"></span>轉強中（排名快速上升 ↗）</h3>
-      <div class="rankrow"><span class="rn">Automobiles 汽車</span><span class="rmeta num">#63 → #11</span><span class="badge b-up num">+52</span></div>
-      <div class="rankrow"><span class="rn">Diversified Telecom 綜合電訊</span><span class="rmeta num">#55 → #5</span><span class="badge b-up num">+50</span></div>
-      <div class="rankrow"><span class="rn">Automobile Components 汽車零件</span><span class="rmeta num">#61 → #18</span><span class="badge b-up num">+43</span></div>
-      <div class="rankrow"><span class="rn">Energy Equipment &amp; Services</span><span class="rmeta num">#42 → #7</span><span class="badge b-up num">+35</span></div>
-      <div class="rankrow"><span class="rn">Independent Power / Renewables</span><span class="rmeta num">#71 → #37</span><span class="badge b-up num">+34</span></div>
-      <div class="rankrow"><span class="rn">Air Freight &amp; Logistics 空運</span><span class="rmeta num">#62 → #30</span><span class="badge b-up num">+32</span></div>
-      <div class="rankrow"><span class="rn">Mortgage REITs</span><span class="rmeta num">#54 → #23</span><span class="badge b-up num">+31</span></div>
-      <div class="rankrow"><span class="rn">Tech Hardware / Storage</span><span class="rmeta num">#29 → #8</span><span class="badge b-up num">+21</span></div>
-      <div class="rankrow"><span class="rn">Oil, Gas &amp; Consumable Fuels</span><span class="rmeta num">#20 → #4</span><span class="badge b-up num">+16</span></div>
-      <div class="rankrow"><span class="rn">Water Utilities 水務</span><span class="rmeta num">#23 → #10</span><span class="badge b-up num">+13</span></div>
-      <p style="color:var(--muted);font-size:12px;margin-top:14px">數字為「3個月排名 → 1個月排名」</p>
+      <h3>轉強中 — 排名快速上升 ↗</h3>
+      <div class="rank"><div class="badge grey">11</div><div class="nm">Automobiles 汽車</div><div class="mv num">63 → 11 · +52</div></div>
+      <div class="rank"><div class="badge grey">17</div><div class="nm">Automobile Components 汽車零部件</div><div class="mv num">61 → 17 · +44</div></div>
+      <div class="rank"><div class="badge grey">7</div><div class="nm">Energy Equipment &amp; Services</div><div class="mv num">42 → 7 · +35</div></div>
+      <div class="rank"><div class="badge grey">30</div><div class="nm">Air Freight &amp; Logistics 空運物流</div><div class="mv num">62 → 30 · +32</div></div>
+      <div class="rank"><div class="badge grey">8</div><div class="nm">Tech Hardware / Storage 科技硬件</div><div class="mv num">30 → 8 · +22</div></div>
+      <div class="rank"><div class="badge grey">12</div><div class="nm">Capital Markets 資本市場</div><div class="mv num">21 → 12 · +9</div></div>
+      <div class="rank"><div class="badge grey">13</div><div class="nm">Pharmaceuticals 製藥</div><div class="mv num">22 → 13 · +9</div></div>
     </div>
   </div>
 
-  <div class="grid2" style="margin-top:24px">
-    <div class="card">
-      <h3><span class="dot"></span>當日主題表現 · 9/4</h3>
-      <div class="themes">
-        <div>
-          <div class="trow"><span class="tn">Bitcoin Miners</span><span class="tv up num">+3.15%</span></div>
-          <div class="trow"><span class="tn">Semiconductors</span><span class="tv up num">+2.61%</span></div>
-          <div class="trow"><span class="tn">China Internet</span><span class="tv up num">+2.00%</span></div>
-          <div class="trow"><span class="tn">Airlines</span><span class="tv up num">+1.34%</span></div>
-          <div class="trow"><span class="tn">Quantum</span><span class="tv up num">+1.21%</span></div>
-          <div class="trow"><span class="tn">Retail</span><span class="tv up num">+0.99%</span></div>
-        </div>
-        <div>
-          <div class="trow"><span class="tn">Bitcoin</span><span class="tv down num">−2.42%</span></div>
-          <div class="trow"><span class="tn">Software</span><span class="tv down num">−2.23%</span></div>
-          <div class="trow"><span class="tn">Gold Miners</span><span class="tv down num">−2.20%</span></div>
-          <div class="trow"><span class="tn">Silver Miners</span><span class="tv down num">−2.04%</span></div>
-          <div class="trow"><span class="tn">HealthCare</span><span class="tv down num">−0.97%</span></div>
-          <div class="trow"><span class="tn">Biotechnology</span><span class="tv down num">−0.88%</span></div>
-        </div>
+  <div class="card" style="margin-bottom:22px">
+    <h3>今日主題板塊漲跌</h3>
+    <div class="bars">
+      <div>
+        <div class="bar"><div><div class="n">Bitcoin Miners</div><div class="t" style="width:100%;background:var(--up)"></div></div><div class="v pos num">+4.70%</div></div>
+        <div class="bar"><div><div class="n">Solar 太陽能</div><div class="t" style="width:49%;background:var(--up)"></div></div><div class="v pos num">+2.31%</div></div>
+        <div class="bar"><div><div class="n">Semiconductors 半導體</div><div class="t" style="width:25%;background:var(--up)"></div></div><div class="v pos num">+1.19%</div></div>
+        <div class="bar"><div><div class="n">Telecom 電訊</div><div class="t" style="width:22%;background:var(--up)"></div></div><div class="v pos num">+1.05%</div></div>
+        <div class="bar"><div><div class="n">Utilities 公用</div><div class="t" style="width:18%;background:var(--up)"></div></div><div class="v pos num">+0.86%</div></div>
+        <div class="bar"><div><div class="n">Quantum 量子</div><div class="t" style="width:15%;background:var(--up)"></div></div><div class="v pos num">+0.71%</div></div>
+        <div class="bar"><div><div class="n">Oil &amp; Gas 油氣</div><div class="t" style="width:5%;background:var(--up)"></div></div><div class="v pos num">+0.20%</div></div>
+      </div>
+      <div>
+        <div class="bar"><div><div class="n">Medical 醫療</div><div class="t" style="width:76%;background:var(--down)"></div></div><div class="v neg num">−3.57%</div></div>
+        <div class="bar"><div><div class="n">Home Construction 房建</div><div class="t" style="width:64%;background:var(--down)"></div></div><div class="v neg num">−2.99%</div></div>
+        <div class="bar"><div><div class="n">China Internet 中概互聯網</div><div class="t" style="width:55%;background:var(--down)"></div></div><div class="v neg num">−2.57%</div></div>
+        <div class="bar"><div><div class="n">Biotechnology 生物科技</div><div class="t" style="width:47%;background:var(--down)"></div></div><div class="v neg num">−2.21%</div></div>
+        <div class="bar"><div><div class="n">HealthCare 醫療保健</div><div class="t" style="width:47%;background:var(--down)"></div></div><div class="v neg num">−2.19%</div></div>
+        <div class="bar"><div><div class="n">Software 軟件</div><div class="t" style="width:37%;background:var(--down)"></div></div><div class="v neg num">−1.73%</div></div>
+        <div class="bar"><div><div class="n">Banks 銀行</div><div class="t" style="width:29%;background:var(--down)"></div></div><div class="v neg num">−1.37%</div></div>
       </div>
     </div>
-    <div class="card">
-      <h3><span class="dot"></span>市場結構 · Stage Analysis</h3>
-      <p style="color:var(--muted-strong);font-size:13px">全市場 <span class="num">5,587</span> 隻股票階段分布</p>
-      <div class="stage">
-        <div style="width:3%;background:var(--muted)"></div>
-        <div style="width:38%;background:var(--up);color:#042e1d">S2 38%</div>
-        <div style="width:17%;background:var(--primary)">S3 17%</div>
-        <div style="width:42%;background:var(--down);color:#fff">S4 42%</div>
-      </div>
-      <div class="slegend">
-        <span><i style="background:var(--muted)"></i>S1 築底 3% (160)</span>
-        <span><i style="background:var(--up)"></i>S2 上升 38% (2,148)</span>
-        <span><i style="background:var(--primary)"></i>S3 派發 17% (953)</span>
-        <span><i style="background:var(--down)"></i>S4 下降 42% (2,326)</span>
-      </div>
-      <p style="margin-top:20px;font-size:13.5px;line-height:1.65">板塊領導權明顯由<b style="color:var(--primary)">軟件／科技成長</b>轉向<b style="color:var(--primary)">醫療保健 + 能源 + 實體資產</b>。Software 一個月排名 #15（三個月 #8）持續退位；Semiconductors 一個月排名跌至 #44。Stage 4 佔比（42%）高於 Stage 2（38%），屬<b style="color:var(--primary)">中性偏弱</b>環境，選股需更嚴謹。</p>
+  </div>
+
+  <div class="card">
+    <h3>市場階段分佈(Weinstein Stages · 全市場 5,580 隻)</h3>
+    <div class="stage">
+      <div style="width:3%;background:var(--up)"></div>
+      <div style="width:36%;background:var(--primary)">S2 · 36%</div>
+      <div style="width:18%;background:var(--turq)">S3 · 18%</div>
+      <div style="width:43%;background:var(--down)">S4 · 43%</div>
     </div>
+    <div class="legend">
+      <span><i style="background:var(--up)"></i>S1 築底 151 隻 · 3%</span>
+      <span><i style="background:var(--primary)"></i>S2 上升 2,002 隻 · 36%</span>
+      <span><i style="background:var(--turq)"></i>S3 派發 1,024 隻 · 18%</span>
+      <span><i style="background:var(--down)"></i>S4 下跌 2,403 隻 · 43%</span>
+    </div>
+    <p style="margin-top:14px;font-size:13px;color:#d5d9de;line-height:1.55">
+      S3 + S4 合計超過 <b style="color:var(--primary)">61%</b>,屬後期市場結構,新突破失敗率偏高。
+      資金明顯由成長股轉向能源、公用、電訊、海運等防守資產,與油價急升及加息預期升溫一致。
+      但領先板塊並非高動能成長股的主場 —— 對做 pullback setup 的人,代表可選標的質素正在下降。
+    </p>
   </div>
-</section></div>
+</section>
 
-<!-- pullback -->
-<div class="wrap"><section id="setup">
-  <div class="shead"><h2>🎯 Pullback 候選</h2><span class="tag">Screener「Daily Brief」· 34 隻結果 · 按 RS 6M 排序 · 按板塊強弱重排</span></div>
-  <div class="card tblwrap">
-    <table>
-      <thead><tr>
-        <th>代號</th><th>板塊</th><th>行業</th><th class="n">RS 6M</th><th class="n">RS 3M</th><th class="n">股價</th>
-        <th class="n">vs 10D</th><th class="n">vs 21D</th><th class="n">vs 50D</th><th>回調深度</th>
-        <th class="n">RV 20d</th><th class="n">U/D 20d</th><th>備註</th>
-      </tr></thead>
-      <tbody>
-        <tr><td class="sym">TXG</td><td><span class="badge b-hot">🔥</span></td><td>Life Sciences Tools</td><td class="n">98</td><td class="n">97</td><td class="n">$62.65</td><td class="n down">−0.42%</td><td class="n up">+3.19%</td><td class="n up">+23.2%</td><td>中度回調</td><td class="n">0.56</td><td class="n">1.39</td><td><span class="badge b-ok">量縮健康回調</span> 距高位僅 −6.4%，本組首選</td></tr>
-        <tr><td class="sym">ILMN</td><td><span class="badge b-hot">🔥</span></td><td>Life Sciences Tools</td><td class="n">92</td><td class="n">87</td><td class="n">$218.22</td><td class="n down">−0.37%</td><td class="n up">+5.15%</td><td class="n up">+10.1%</td><td>中度回調</td><td class="n">1.30</td><td class="n">1.80</td><td>U/D 強、承接足；量未縮</td></tr>
-        <tr><td class="sym">RGEN</td><td><span class="badge b-hot">🔥</span></td><td>Life Sciences Tools</td><td class="n">89</td><td class="n">85</td><td class="n">$167.60</td><td class="n down">−4.94%</td><td class="n down">−2.98%</td><td class="n up">+7.69%</td><td>跌穿21日 · 企穩50日</td><td class="n">1.04</td><td class="n">1.91</td><td>U/D 1.91 極強</td></tr>
-        <tr><td class="sym">DK</td><td><span class="badge b-hot">🔥</span></td><td>Oil, Gas &amp; Fuels</td><td class="n">94</td><td class="n">93</td><td class="n">$71.86</td><td class="n up">+0.87%</td><td class="n up">+5.24%</td><td class="n up">+13.3%</td><td>淺回調</td><td class="n">1.23</td><td class="n">1.51</td><td>兩個 RS 一致，趨勢完好</td></tr>
-        <tr><td class="sym">P</td><td><span class="badge b-up">↗</span></td><td>Tech Hardware</td><td class="n">90</td><td class="n">90</td><td class="n">$99.51</td><td class="n up">+1.37%</td><td class="n down">−4.60%</td><td class="n up">+13.4%</td><td>中度回調 · 反彈中</td><td class="n">0.72</td><td class="n">1.27</td><td><span class="badge b-ok">量縮健康回調</span> 等重上21日確認</td></tr>
-        <tr><td class="sym">AMLX</td><td><span class="badge b-up">↗</span></td><td>Pharmaceuticals</td><td class="n">98</td><td class="n">98</td><td class="n">$34.10</td><td class="n down">−3.87%</td><td class="n up">+7.72%</td><td class="n up">+40.8%</td><td>中度回調</td><td class="n">0.30</td><td class="n">1.89</td><td><span class="badge b-ok">量縮健康回調</span> RV 全單最低；惟距50日 +40.8% 偏延伸</td></tr>
-        <tr><td class="sym">RVMD</td><td><span class="badge b-up">↗</span></td><td>Biotechnology</td><td class="n">94</td><td class="n">86</td><td class="n">$210.02</td><td class="n down">−0.61%</td><td class="n up">+0.11%</td><td class="n up">+6.72%</td><td>中度回調 · 貼實21日</td><td class="n">0.64</td><td class="n">1.10</td><td><span class="badge b-ok">量縮健康回調</span> 距高位 −6.4%，風險回報佳</td></tr>
-        <tr><td class="sym">BMNR</td><td><span class="badge b-up">↗</span></td><td>Capital Markets</td><td class="n">92</td><td class="n">97</td><td class="n">$24.97</td><td class="n up">+1.31%</td><td class="n up">+14.6%</td><td class="n up">+35.3%</td><td>淺回調</td><td class="n">1.31</td><td class="n">2.08</td><td>距高位 −61.9%，波幅大，倉位要細</td></tr>
-        <tr><td class="sym">SNOW</td><td><span class="badge b-up">↗</span></td><td>IT Services</td><td class="n">96</td><td class="n">90</td><td class="n">$337.18</td><td class="n up">+3.33%</td><td class="n up">+2.69%</td><td class="n up">+13.4%</td><td>淺回調</td><td class="n">1.98</td><td class="n">0.74</td><td>量增而 U/D&lt;1 → 派發傾向，觀察</td></tr>
-        <tr><td class="sym">HOOD</td><td><span class="badge b-up">↗</span></td><td>Capital Markets</td><td class="n">91</td><td class="n">93</td><td class="n">$122.11</td><td class="n up">+10.97%</td><td class="n up">+18.8%</td><td class="n up">+19.2%</td><td>延伸 · 非回調</td><td class="n">1.33</td><td class="n">1.55</td><td>⚠️ 距均線過遠，暫不追高</td></tr>
-        <tr><td class="sym">ASST</td><td><span class="badge b-up">↗</span></td><td>Capital Markets</td><td class="n">98</td><td class="n">98</td><td class="n">$27.14</td><td class="n up">+15.99%</td><td class="n up">+48.5%</td><td class="n up">+84.6%</td><td>嚴重延伸</td><td class="n">1.15</td><td class="n">4.15</td><td>⚠️ 垂直上升，非 pullback 型態</td></tr>
-        <tr><td class="sym">LTH</td><td><span class="badge b-n">—</span></td><td>Hotels, Rest. &amp; Leisure</td><td class="n">88</td><td class="n">77</td><td class="n">$43.23</td><td class="n down">−0.98%</td><td class="n down">−1.89%</td><td class="n up">+0.04%</td><td>⭐ 回到 50日SMA</td><td class="n">0.80</td><td class="n">1.18</td><td><span class="badge b-ok">量縮健康回調</span> 全單最精準50日測試；惟板塊 #51 弱</td></tr>
-        <tr><td class="sym">GH</td><td><span class="badge b-n">—</span></td><td>HC Providers</td><td class="n">92</td><td class="n">75</td><td class="n">$161.41</td><td class="n down">−1.46%</td><td class="n down">−1.59%</td><td class="n up">+1.19%</td><td>⭐ 回到 50日SMA</td><td class="n">1.62</td><td class="n">1.06</td><td>典型「長線強短線弱」目標型態；惟回調帶量，等縮量止跌</td></tr>
-        <tr><td class="sym">HTFL</td><td><span class="badge b-n">—</span></td><td>HC Providers</td><td class="n">97</td><td class="n">98</td><td class="n">$48.91</td><td class="n down">−1.06%</td><td class="n up">+12.3%</td><td class="n up">+44.2%</td><td>中度回調</td><td class="n">0.71</td><td class="n">2.17</td><td><span class="badge b-ok">量縮健康回調</span> U/D 2.17 全單最高</td></tr>
-        <tr><td class="sym">MANH</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">93</td><td class="n">92</td><td class="n">$213.77</td><td class="n down">−2.01%</td><td class="n up">+2.37%</td><td class="n up">+17.2%</td><td>中度回調</td><td class="n">0.73</td><td class="n">1.08</td><td><span class="badge b-ok">量縮健康回調</span> 距高位 −5.8%，形態緊湊</td></tr>
-        <tr><td class="sym">ANET</td><td><span class="badge b-n">—</span></td><td>Comms Equipment</td><td class="n">86</td><td class="n">74</td><td class="n">$193.78</td><td class="n up">+0.19%</td><td class="n down">−0.23%</td><td class="n up">+5.93%</td><td>均線收窄整固</td><td class="n">0.92</td><td class="n">1.14</td><td><span class="badge b-ok">量縮健康回調</span> 三均線重疊，見突破候選</td></tr>
-        <tr><td class="sym">ESTC</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">96</td><td class="n">96</td><td class="n">$91.81</td><td class="n up">+2.70%</td><td class="n up">+7.15%</td><td class="n up">+27.8%</td><td>淺回調</td><td class="n">0.72</td><td class="n">1.64</td><td><span class="badge b-ok">量縮健康回調</span></td></tr>
-        <tr><td class="sym">CAKE</td><td><span class="badge b-n">—</span></td><td>Hotels, Rest. &amp; Leisure</td><td class="n">95</td><td class="n">92</td><td class="n">$107.58</td><td class="n down">−2.80%</td><td class="n down">−2.69%</td><td class="n up">+10.8%</td><td>跌穿21日 · 企穩50日</td><td class="n">0.86</td><td class="n">1.21</td><td><span class="badge b-ok">量縮健康回調</span></td></tr>
-        <tr><td class="sym">PAYC</td><td><span class="badge b-n">—</span></td><td>Professional Services</td><td class="n">96</td><td class="n">96</td><td class="n">$231.67</td><td class="n down">−1.61%</td><td class="n up">+2.29%</td><td class="n up">+27.2%</td><td>中度回調</td><td class="n">1.27</td><td class="n">1.43</td><td>距高位 −5.4%</td></tr>
-        <tr><td class="sym">GKOS</td><td><span class="badge b-n">—</span></td><td>HC Equipment</td><td class="n">90</td><td class="n">86</td><td class="n">$177.47</td><td class="n down">−1.57%</td><td class="n down">−2.85%</td><td class="n up">+6.48%</td><td>跌穿21日 · 企穩50日</td><td class="n">1.25</td><td class="n">1.30</td><td>—</td></tr>
-        <tr><td class="sym">EAT</td><td><span class="badge b-n">—</span></td><td>Hotels, Rest. &amp; Leisure</td><td class="n">94</td><td class="n">91</td><td class="n">$230.22</td><td class="n down">−2.43%</td><td class="n down">−2.24%</td><td class="n up">+9.74%</td><td>跌穿21日 · 企穩50日</td><td class="n">1.04</td><td class="n">0.67</td><td>U/D 偏弱</td></tr>
-        <tr><td class="sym">BAX</td><td><span class="badge b-n">—</span></td><td>HC Equipment</td><td class="n">89</td><td class="n">79</td><td class="n">$25.83</td><td class="n down">−0.62%</td><td class="n down">−2.24%</td><td class="n up">+4.51%</td><td>跌穿21日 · 企穩50日</td><td class="n">0.81</td><td class="n">0.86</td><td>量縮但 U/D&lt;1</td></tr>
-        <tr><td class="sym">U</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">95</td><td class="n">90</td><td class="n">$41.66</td><td class="n down">−3.08%</td><td class="n down">−5.84%</td><td class="n up">+13.96%</td><td>跌穿21日 · 企穩50日</td><td class="n">0.59</td><td class="n">0.97</td><td>量縮，U/D 略低於 1</td></tr>
-        <tr><td class="sym">QLYS</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">95</td><td class="n">86</td><td class="n">$171.65</td><td class="n down">−3.93%</td><td class="n down">−6.02%</td><td class="n up">+4.99%</td><td>接近 50日SMA</td><td class="n">0.99</td><td class="n">0.62</td><td>回調較深且 U/D 低，等止跌</td></tr>
-        <tr><td class="sym">SN</td><td><span class="badge b-n">—</span></td><td>Household Durables</td><td class="n">92</td><td class="n">84</td><td class="n">$173.38</td><td class="n down">−5.29%</td><td class="n down">−5.63%</td><td class="n up">+3.92%</td><td>接近 50日SMA</td><td class="n">1.08</td><td class="n">0.93</td><td>—</td></tr>
-        <tr><td class="sym">RBRK</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">91</td><td class="n">84</td><td class="n">$93.67</td><td class="n down">−0.49%</td><td class="n down">−3.06%</td><td class="n up">+8.22%</td><td>跌穿21日 · 企穩50日</td><td class="n">0.66</td><td class="n">0.59</td><td>量縮但 U/D 弱</td></tr>
-        <tr><td class="sym">NTNX</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">93</td><td class="n">88</td><td class="n">$68.06</td><td class="n up">+0.72%</td><td class="n up">+2.29%</td><td class="n up">+13.2%</td><td>淺回調</td><td class="n">0.87</td><td class="n">0.95</td><td>—</td></tr>
-        <tr><td class="sym">ZBRA</td><td><span class="badge b-n">—</span></td><td>Electronic Equipment</td><td class="n">93</td><td class="n">91</td><td class="n">$362.74</td><td class="n up">+1.61%</td><td class="n down">−0.59%</td><td class="n up">+15.2%</td><td>淺回調</td><td class="n">0.89</td><td class="n">0.72</td><td>板塊 #61 偏弱</td></tr>
-        <tr><td class="sym">CRWD</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">94</td><td class="n">81</td><td class="n">$213.10</td><td class="n up">+2.00%</td><td class="n up">+1.12%</td><td class="n up">+6.12%</td><td>淺回調</td><td class="n">1.02</td><td class="n">0.76</td><td>50日就喺腳下</td></tr>
-        <tr><td class="sym">DUOL</td><td><span class="badge b-n">—</span></td><td>Div. Consumer Services</td><td class="n">91</td><td class="n">92</td><td class="n">$154.46</td><td class="n up">+2.85%</td><td class="n up">+7.20%</td><td class="n up">+14.3%</td><td>淺回調</td><td class="n">1.09</td><td class="n">1.62</td><td>距高位 −56.2%，深傷後反彈</td></tr>
-        <tr><td class="sym">ELF</td><td><span class="badge b-n">—</span></td><td>Personal Care</td><td class="n">95</td><td class="n">97</td><td class="n">$109.67</td><td class="n up">+2.69%</td><td class="n up">+8.68%</td><td class="n up">+25.0%</td><td>淺回調</td><td class="n">1.13</td><td class="n">0.93</td><td>RS 3M &gt; 6M，屬加速轉強</td></tr>
-        <tr><td class="sym">DAVE</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">91</td><td class="n">82</td><td class="n">$380.69</td><td class="n up">+3.63%</td><td class="n up">+9.45%</td><td class="n up">+0.61%</td><td>均線收斂</td><td class="n">0.99</td><td class="n">1.86</td><td>50日貼腳下，見突破候選</td></tr>
-        <tr><td class="sym">DOCU</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">92</td><td class="n">94</td><td class="n">$68.41</td><td class="n up">+6.74%</td><td class="n up">+9.61%</td><td class="n up">+22.8%</td><td>業績跳空</td><td class="n">3.20</td><td class="n">1.66</td><td>⚠️ RV 3.20 爆量，等整固</td></tr>
-        <tr><td class="sym">GTLB</td><td><span class="badge b-n">—</span></td><td>Software</td><td class="n">97</td><td class="n">96</td><td class="n">$49.83</td><td class="n up">+9.51%</td><td class="n up">+14.7%</td><td class="n up">+33.7%</td><td>延伸 · 非回調</td><td class="n">1.07</td><td class="n">1.82</td><td>⚠️ 暫觀望</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <p style="color:var(--muted);font-size:12px;margin-top:16px">🔥 = 屬今日最強 3-5 個板塊｜↗ = 屬排名快速上升板塊｜— = 其餘。均線距離採 Deepvue 之 10日/21日/50日 SMA。<b style="color:var(--primary)">名單內沒有任何一隻跌穿 50日 SMA，故無「深度回調 ⚠️」個案。</b></p>
-</section></div>
+<!-- Pullback 候選 -->
+<section>
+  <h2>Pullback 候選</h2><div class="h2rule"></div>
+  <p style="color:var(--muted-strong);font-size:13px;margin-bottom:8px">
+    來源:已儲存 screener「Daily Brief」,共 <span class="num">36</span> 隻結果(無行業過濾),
+    按 Relative Strength − 6 Month 由高至低排序,全部 36 行已讀取。
+  </p>
+  <p style="color:var(--muted);font-size:12px;margin-bottom:20px">
+    註:Deepvue 提供欄位為 Price vs 10d / 21d / 50d / 200d <b style="color:var(--muted-strong)">SMA</b>(非 EMA),
+    以下距離百分比及回調分類均以 SMA 為準。均線價位由「現價 ÷ (1 + 距離%)」推算。
+  </p>
 
-<!-- breakout -->
-<div class="wrap"><section>
-  <div class="shead"><h2>👀 突破候選</h2><span class="tag">參考用 · 接近 pivot 嘅 base 形態</span></div>
-  <div class="card tblwrap">
-    <table>
-      <thead><tr><th>代號</th><th>形態</th><th class="n">距 52 週高位</th><th class="n">RV 20d</th><th class="n">Pivot 位</th></tr></thead>
-      <tbody>
-        <tr><td class="sym">ANET</td><td>三均線收斂平台（10/21/50日相距 &lt;6%）</td><td class="n down">−9.82%</td><td class="n">0.92</td><td class="n">$196–198</td></tr>
-        <tr><td class="sym">DAVE</td><td>高位緊縮旗形，50日 SMA 貼近腳下</td><td class="n down">−16.93%</td><td class="n">0.99</td><td class="n">$390–395</td></tr>
-        <tr><td class="sym">TXG</td><td>回調至 10日 SMA，量能萎縮至 0.56</td><td class="n down">−6.41%</td><td class="n">0.56</td><td class="n">$65–66</td></tr>
-        <tr><td class="sym">MANH</td><td>窄幅整固於 21日 SMA 上</td><td class="n down">−5.84%</td><td class="n">0.73</td><td class="n">$220–222</td></tr>
-        <tr><td class="sym">RVMD</td><td>坐穩 21日 SMA，緊縮 base</td><td class="n down">−6.37%</td><td class="n">0.64</td><td class="n">$218–220</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section></div>
+  <div class="tier"><span style="color:var(--primary)">🔥 第一級 — 屬今日最強板塊</span><span class="line"></span><span class="cnt">2 隻</span></div>
+  <div class="tblwrap"><table>
+    <thead><tr><th>代號 / 行業</th><th>RS 6M / 3M</th><th>股價</th><th>回調深度</th><th>關鍵均線</th><th>入場區域</th><th>量能 RV / U&#8202;/&#8202;D</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="sym">ILMN <span class="tag" style="color:var(--primary)">🔥</span></div><div class="ind">生命科學工具(排名 3)</div></td>
+        <td class="num rs"><span style="color:var(--up)">92</span> / <span style="color:var(--primary)">87</span></td>
+        <td class="num">$211.11</td>
+        <td><span class="pill p-mid">中度回調</span></td>
+        <td class="num" style="font-size:12px">10日 $217.82<br>21日 $208.65 ✓<br>50日 距 +6.16%</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$208 – 211</td>
+        <td class="num">1.06 / 1.80<div class="note">承接良好,量能中性</div></td>
+      </tr>
+      <tr>
+        <td><div class="sym">RGEN <span class="tag" style="color:var(--primary)">🔥</span></div><div class="ind">生命科學工具(排名 3)</div></td>
+        <td class="num rs"><span style="color:var(--up)">90</span> / <span style="color:var(--primary)">86</span></td>
+        <td class="num">$168.55</td>
+        <td><span class="pill p-50">回到 50日 SMA</span></td>
+        <td class="num" style="font-size:12px">21日 $172.98 ✗<br>50日 $156.06<br>距 +8.00%</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$156 – 169</td>
+        <td class="num">0.88 / 1.91<div class="note healthy">量縮健康回調 · 最佳組合</div></td>
+      </tr>
+    </tbody>
+  </table></div>
 
-<!-- risk -->
-<div class="wrap"><section id="risk" style="padding-bottom:64px">
-  <div class="shead"><h2>⚠️ 風險提示</h2><span class="tag">大市環境與需留意事項</span></div>
-  <div class="risk">
-    <ul>
-      <li><span class="ic">🔴</span><div><b>最大變數 — 聯儲局。</b>8月非農遠超預期，市場由「押注減息」急轉為「押注加息」（9/15-16 議息，約 60% 加息機會）。本週通脹數據將係決定性訊號。任何新倉都應考慮呢個事件風險，建議控制倉位或等數據公布後再加碼。</div></li>
-      <li><span class="ic">🟠</span><div><b>市場結構偏弱。</b>全市場 Stage 4（下降期）佔 <span class="num">42%</span>，高於 Stage 2（上升期）<span class="num">38%</span>。即使指數處於高位，市場闊度（breadth）已經惡化。</div></li>
-      <li><span class="ic">🟠</span><div><b>板塊輪動明顯。</b>領導權由 Software / Semiconductor 轉向醫療保健 + 能源 + 實體資產。Software 一個月排名 #15（三個月 #8）持續退位，Semiconductors 一個月排名跌至 #44。持有大量軟件股嘅組合需要留意。</div></li>
-      <li><span class="ic">🟡</span><div><b>候選股數量。</b>Screener 只返回 <span class="num">34</span> 隻（少於預期 40 隻）。當中 <span class="num">12</span> 隻符合「量縮健康回調」，數量算充足；但整體結果數偏低，配合 Stage 4 佔 42%，兩者一齊睇係<b>大市轉弱嘅早期訊號</b>，唔應該過度進取。</div></li>
-      <li><span class="ic">🟢</span><div><b>好消息。</b>今次掃描結果中沒有任何一隻股票跌穿 50日 SMA，即暫無「深度回調 ⚠️」個案 —— 名單內強勢股嘅回調仍屬正常範圍，結構未破壞。</div></li>
-      <li><span class="ic">🟡</span><div><b>延伸股警告。</b>ASST（距50日 <span class="num">+84.6%</span>）、AMLX（<span class="num">+40.8%</span>）、GTLB（<span class="num">+33.7%</span>）、HOOD（<span class="num">+19.2%</span>）距離 50日 SMA 過遠，即使 RS 高亦唔屬 pullback 買入型態，追高風險大。</div></li>
-      <li><span class="ic">⏱</span><div><b>數據時效。</b>美股今日休市，所有價格及技術數據為 <span class="num">9/4</span> 收市。<span class="num">9/8</span>（二）開市後需重新確認。</div></li>
-    </ul>
-  </div>
-</section></div>
+  <div class="tier"><span style="color:var(--turq)">↗ 第二級 — 屬排名快速上升的板塊</span><span class="line"></span><span class="cnt">7 隻</span></div>
+  <div class="tblwrap"><table>
+    <thead><tr><th>代號 / 行業</th><th>RS 6M / 3M</th><th>股價</th><th>回調深度</th><th>關鍵均線</th><th>入場區域</th><th>量能 RV / U&#8202;/&#8202;D</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="sym">AMLX <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">製藥(22 → 13)</div></td>
+        <td class="num rs"><span style="color:var(--up)">98</span> / <span style="color:var(--up)">98</span></td>
+        <td class="num">$33.91</td>
+        <td><span class="pill p-mid">中度回調</span></td>
+        <td class="num" style="font-size:12px">10日 $35.05<br>21日 $32.18 ✓<br>50日 距 +38.1%</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$32 – 34</td>
+        <td class="num">0.33 / 1.89<div class="note healthy">量縮健康回調 · 極度縮量,兩個 RS 皆 98</div></td>
+      </tr>
+      <tr>
+        <td><div class="sym">P <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">科技硬件 / 儲存(30 → 8)</div></td>
+        <td class="num rs"><span style="color:var(--up)">91</span> / <span style="color:var(--up)">92</span></td>
+        <td class="num">$101.18</td>
+        <td><span class="pill p-shal">淺回調</span></td>
+        <td class="num" style="font-size:12px">10日 $98.23 ✓<br>21日 $104.84 ✗<br>10/21 之間震盪</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$98 – 101</td>
+        <td class="num">0.97 / 1.27<div class="note healthy">量縮健康回調</div></td>
+      </tr>
+      <tr>
+        <td><div class="sym">NTRA <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">生物科技(排名 9)</div></td>
+        <td class="num rs"><span style="color:var(--up)">93</span> / <span style="color:var(--up)">90</span></td>
+        <td class="num">$324.36</td>
+        <td><span class="pill p-mid">中度回調</span></td>
+        <td class="num" style="font-size:12px">10日 $328.83<br>21日 $323.39 ✓(剛企穩)</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$320 – 325</td>
+        <td class="num">0.96 / 0.91<div class="note">承接略弱</div></td>
+      </tr>
+      <tr>
+        <td><div class="sym">RVMD <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">生物科技</div></td>
+        <td class="num rs"><span style="color:var(--up)">94</span> / <span style="color:var(--primary)">86</span></td>
+        <td class="num">$207.08</td>
+        <td><span class="pill p-50">回到 50日 SMA</span></td>
+        <td class="num" style="font-size:12px">21日 $209.87 ✗<br>50日 $197.29<br>距 +4.96%</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$197 – 207</td>
+        <td class="num">1.07 / 1.10</td>
+      </tr>
+      <tr>
+        <td><div class="sym">TWST <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">生物科技</div></td>
+        <td class="num rs"><span style="color:var(--up)">98</span> / <span style="color:var(--up)">96</span></td>
+        <td class="num">$128.03</td>
+        <td><span class="pill p-50">回到 50日 SMA</span></td>
+        <td class="num" style="font-size:12px">21日 $133.43 ✗<br>50日 $111.49<br>距 +14.84%</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$111 – 128</td>
+        <td class="num">1.08 / 0.85<div class="note">承接偏弱,需觀察</div></td>
+      </tr>
+      <tr>
+        <td><div class="sym">HOOD <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">資本市場(21 → 12)</div></td>
+        <td class="num rs"><span style="color:var(--up)">90</span> / <span style="color:var(--up)">91</span></td>
+        <td class="num">$117.32</td>
+        <td><span class="pill p-shal">淺回調 · 伸展中</span></td>
+        <td class="num" style="font-size:12px">10日 $111.42 ✓<br>距 21日 +12.85%</td>
+        <td class="num" style="color:var(--primary);font-weight:600">$104 – 111</td>
+        <td class="num">1.21 / 1.55<div class="note">需等回 10/21日</div></td>
+      </tr>
+      <tr>
+        <td><div class="sym">ASST <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">資本市場(21 → 12)</div></td>
+        <td class="num rs"><span style="color:var(--up)">98</span> / <span style="color:var(--up)">98</span></td>
+        <td class="num">$27.19</td>
+        <td><span class="pill p-shal">淺回調</span></td>
+        <td class="num" style="font-size:12px">10日 $24.14 ✓<br>21日 $18.98<br>50日 距 <b style="color:var(--down)">+81%</b></td>
+        <td class="num" style="color:var(--down);font-weight:600">不宜追入<br><span style="color:var(--primary)">等回 $19</span></td>
+        <td class="num">1.02 / 4.15<div class="note">⚠️ 距 200日 +84.5%,極度伸展,風險回報極差</div></td>
+      </tr>
+    </tbody>
+  </table></div>
 
-<footer><div class="wrap">
-  <div>
-    <div class="fh">每日財經簡報</div>
-    <p>2026年9月7日（星期一）· 自動產生</p>
-    <p>美股數據為 9月4日收市 · 港股為 9月7日收市</p>
-  </div>
-  <div>
-    <div class="fh">資料來源</div>
-    <ul>
-      <li>CNBC · Yahoo Finance · Reuters / TradingView</li>
-      <li>U.S. Bureau of Labor Statistics</li>
-      <li>Sunday Guardian · Dimsum Daily</li>
-      <li>Deepvue（app.deepvue.com）</li>
-    </ul>
-  </div>
-  <div>
-    <div class="fh">免責聲明</div>
-    <p style="max-width:320px">本簡報僅供資訊參考，不構成任何投資建議或買賣要約。<br>所有數據以官方來源為準，投資決定請自行判斷及承擔風險。</p>
-  </div>
-</div></footer>
+  <div class="tier"><span style="color:var(--down)">⚠️ 深度回調 — 跌穿 50日 SMA,需等止跌訊號</span><span class="line"></span><span class="cnt">3 隻</span></div>
+  <div class="tblwrap"><table>
+    <thead><tr><th>代號 / 行業</th><th>RS 6M / 3M</th><th>股價</th><th>回調深度</th><th>距 200日 SMA</th><th>建議</th><th>量能 RV / U&#8202;/&#8202;D</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="sym">SYRE <span class="tag" style="color:var(--turq)">↗</span></div><div class="ind">生物科技</div></td>
+        <td class="num rs"><span style="color:var(--up)">92</span> / <span style="color:var(--down)">59</span></td>
+        <td class="num">$90.84</td>
+        <td><span class="pill p-deep">深度回調 ⚠️</span></td>
+        <td class="num" style="color:var(--up)">+45.77%<div class="note">200日 $62.32</div></td>
+        <td style="font-size:12px;color:var(--down)">RS 3M 僅 59,3 個月已明顯轉弱。須等放量反轉日 + 重返 21日 SMA $98.90</td>
+        <td class="num">1.27 / 0.81</td>
+      </tr>
+      <tr>
+        <td><div class="sym">PANW</div><div class="ind">軟件</div></td>
+        <td class="num rs"><span style="color:var(--up)">93</span> / <span style="color:var(--down)">69</span></td>
+        <td class="num">$336.85</td>
+        <td><span class="pill p-deep">深度回調 ⚠️</span></td>
+        <td class="num" style="color:var(--up)">+44.11%<div class="note">200日 $233.75</div></td>
+        <td style="font-size:12px;color:var(--down)">跌穿 50日 SMA $349.97,RS 3M 跌至 69,需等止跌訊號</td>
+        <td class="num">0.84 / 0.68</td>
+      </tr>
+      <tr>
+        <td><div class="sym">LTH</div><div class="ind">餐飲 / 健身(排名 51)</div></td>
+        <td class="num rs"><span style="color:var(--primary)">86</span> / <span style="color:var(--down)">75</span></td>
+        <td class="num">$42.52</td>
+        <td><span class="pill p-deep">深度回調 ⚠️</span></td>
+        <td class="num" style="color:var(--up)">+30.81%<div class="note">200日 $32.51</div></td>
+        <td style="font-size:12px;color:var(--down)">跌穿 50日 SMA $43.24,板塊亦弱,需等止跌訊號</td>
+        <td class="num">1.05 / 1.18</td>
+      </tr>
+    </tbody>
+  </table></div>
 
+  <div class="tier"><span style="color:var(--muted-strong)">第三級 — 其餘板塊(照列)</span><span class="line"></span><span class="cnt">24 隻</span></div>
+  <div class="tblwrap"><table>
+    <thead><tr><th>代號 / 行業</th><th>RS 6M / 3M</th><th>股價</th><th>回調深度</th><th>關鍵均線</th><th>入場區域</th><th>量能 RV / U&#8202;/&#8202;D</th></tr></thead>
+    <tbody>
+      <tr><td><div class="sym">TEAM</div><div class="ind">軟件(8 → 15,轉弱)</div></td><td class="num rs">98 / 97</td><td class="num">$176.42</td><td><span class="pill p-mid">中度回調</span></td><td class="num" style="font-size:12px">10日 $183.92<br>21日 $173.44 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$173 – 176</td><td class="num">0.91 / 2.43<div class="note healthy">量縮健康回調 · 軟件股最佳</div></td></tr>
+      <tr><td><div class="sym">HTFL</div><div class="ind">醫療服務(排名 16)</div></td><td class="num rs">97 / 98</td><td class="num">$47.74</td><td><span class="pill p-mid">中度回調</span></td><td class="num" style="font-size:12px">10日 $49.19<br>21日 $44.44 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$44 – 48</td><td class="num">1.25 / 2.17<div class="note">量偏高,承接極強</div></td></tr>
+      <tr><td><div class="sym">GTLB</div><div class="ind">軟件</div></td><td class="num rs">97 / 95</td><td class="num">$47.14</td><td><span class="pill p-shal">淺回調</span></td><td class="num" style="font-size:12px">10日 $46.02 ✓<br>21日 $43.82</td><td class="num" style="color:var(--primary);font-weight:600">$44 – 47</td><td class="num">0.72 / 1.82<div class="note healthy">量縮健康回調</div></td></tr>
+      <tr><td><div class="sym">ESTC</div><div class="ind">軟件</div></td><td class="num rs">96 / 94</td><td class="num">$88.48</td><td><span class="pill p-mid">中度回調</span></td><td class="num" style="font-size:12px">10日 $89.93<br>21日 $86.32 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$86 – 88</td><td class="num">0.80 / 1.64<div class="note healthy">量縮健康回調</div></td></tr>
+      <tr><td><div class="sym">U</div><div class="ind">軟件</div></td><td class="num rs">96 / 92</td><td class="num">$42.77</td><td><span class="pill p-shal">淺回調</span></td><td class="num" style="font-size:12px">10日 $42.65 ✓(剛企穩)<br>21日 $44.24 ✗</td><td class="num" style="color:var(--primary);font-weight:600">$42 – 43</td><td class="num">0.91 / 0.97<div class="note">中性</div></td></tr>
+      <tr><td><div class="sym">SNOW</div><div class="ind">IT 服務(排名 20)</div></td><td class="num rs">96 / 89</td><td class="num">$335.66</td><td><span class="pill p-shal">淺回調</span></td><td class="num" style="font-size:12px">10日 $327.60 ✓<br>21日 $328.60 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$328 – 336</td><td class="num">1.04 / 0.74<div class="note">承接弱</div></td></tr>
+      <tr><td><div class="sym">CHYM</div><div class="ind">金融服務(排名 29)</div></td><td class="num rs">95 / 96</td><td class="num">$32.29</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $32.52 ✗<br>50日 $26.72</td><td class="num" style="color:var(--primary);font-weight:600">$27 – 32</td><td class="num">0.77 / 1.71<div class="note healthy">量縮健康回調 · 兩 RS 皆 95+</div></td></tr>
+      <tr><td><div class="sym">QLYS</div><div class="ind">軟件</div></td><td class="num rs">95 / 87</td><td class="num">$170.28</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $182.02 ✗<br>50日 $164.43 距 +3.56%</td><td class="num" style="color:var(--primary);font-weight:600">$164 – 170</td><td class="num">0.96 / 0.62<div class="note">承接弱</div></td></tr>
+      <tr><td><div class="sym">PAYC</div><div class="ind">專業服務(排名 25)</div></td><td class="num rs">95 / 94</td><td class="num">$219.18</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $226.68 ✗<br>50日 $183.91</td><td class="num" style="color:var(--primary);font-weight:600">$184 – 219</td><td class="num">1.54 / 1.43<div class="note">放量下跌,需謹慎</div></td></tr>
+      <tr><td><div class="sym">ELF</div><div class="ind">個人護理(排名 14)</div></td><td class="num rs">95 / 96</td><td class="num">$104.30</td><td><span class="pill p-mid">中度回調</span></td><td class="num" style="font-size:12px">10日 $106.64<br>21日 $101.18 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$101 – 104</td><td class="num">0.90 / 0.93</td></tr>
+      <tr><td><div class="sym">CAKE</div><div class="ind">餐飲(排名 51,弱)</div></td><td class="num rs">95 / 93</td><td class="num">$107.26</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $110.58 ✗<br>50日 $97.65</td><td class="num" style="color:var(--primary);font-weight:600">$98 – 107</td><td class="num">0.76 / 1.21<div class="note healthy">量縮健康回調(但板塊弱)</div></td></tr>
+      <tr><td><div class="sym">CRWD</div><div class="ind">軟件</div></td><td class="num rs">94 / 80</td><td class="num">$209.97</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $210.54 ✗<br>50日 $201.51 距 +4.20%</td><td class="num" style="color:var(--primary);font-weight:600">$202 – 210</td><td class="num">0.61 / 0.76<div class="note">縮量但承接弱</div></td></tr>
+      <tr><td><div class="sym">EAT</div><div class="ind">餐飲</div></td><td class="num rs">94 / 89</td><td class="num">$222.52</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $235.37 ✗<br>50日 $210.82</td><td class="num" style="color:var(--primary);font-weight:600">$211 – 222</td><td class="num">1.12 / 0.67</td></tr>
+      <tr><td><div class="sym">GH</div><div class="ind">醫療服務</div></td><td class="num rs">93 / 74</td><td class="num">$161.11</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">50日 $159.75<br>僅距 +0.85%(貼近)</td><td class="num" style="color:var(--primary);font-weight:600">$158 – 161</td><td class="num">1.07 / 1.06<div class="note">正在測試 50日支撐</div></td></tr>
+      <tr><td><div class="sym">ZBRA</div><div class="ind">電子設備(排名 61,弱)</div></td><td class="num rs">93 / 90</td><td class="num">$352.82</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $363.77 ✗<br>50日 $316.86</td><td class="num" style="color:var(--primary);font-weight:600">$317 – 353</td><td class="num">0.88 / 0.72</td></tr>
+      <tr><td><div class="sym">SN</div><div class="ind">家庭耐用品(排名 42)</div></td><td class="num rs">93 / 87</td><td class="num">$175.25</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $183.24 ✗<br>50日 $167.45</td><td class="num" style="color:var(--primary);font-weight:600">$167 – 175</td><td class="num">1.54 / 0.93<div class="note">放量下跌</div></td></tr>
+      <tr><td><div class="sym">MANH</div><div class="ind">軟件</div></td><td class="num rs">93 / 91</td><td class="num">$208.04</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $209.42 ✗<br>50日 $183.85</td><td class="num" style="color:var(--primary);font-weight:600">$184 – 208</td><td class="num">0.95 / 1.08<div class="note healthy">量縮健康回調</div></td></tr>
+      <tr><td><div class="sym">DAVE</div><div class="ind">軟件</div></td><td class="num rs">91 / 87</td><td class="num">$376.94</td><td><span class="pill p-shal">淺回調</span></td><td class="num" style="font-size:12px">10日 $369.59 ✓<br>50日 $378.95 ✗ 均線糾纏</td><td class="num" style="color:var(--primary);font-weight:600">$370 – 377</td><td class="num">0.89 / 1.86<div class="note healthy">量縮健康回調,但結構較差</div></td></tr>
+      <tr><td><div class="sym">RBRK</div><div class="ind">軟件</div></td><td class="num rs">91 / 81</td><td class="num">$91.62</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">21日 $96.71 ✗<br>50日 $86.94</td><td class="num" style="color:var(--primary);font-weight:600">$87 – 92</td><td class="num">0.46 / 0.59<div class="note">極縮量但承接弱</div></td></tr>
+      <tr><td><div class="sym">JHX</div><div class="ind">建材(排名 62,弱)</div></td><td class="num rs">91 / 86</td><td class="num">$29.86</td><td><span class="pill p-shal">淺回調</span></td><td class="num" style="font-size:12px">10日 $29.68 ✓<br>21日 $30.08 ✗</td><td class="num" style="color:var(--primary);font-weight:600">$29.7 – 30.1</td><td class="num" style="color:var(--down)">2.65 / 0.81<div class="note">⚠️ 極度放量(RV 5d 2.16),入場前務必查清消息</div></td></tr>
+      <tr><td><div class="sym">DOCU</div><div class="ind">軟件</div></td><td class="num rs">91 / 91</td><td class="num">$65.09</td><td><span class="pill p-shal">淺回調</span></td><td class="num" style="font-size:12px">10日 $64.34 ✓<br>21日 $62.64 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$62 – 65</td><td class="num">1.35 / 1.66<div class="note">量偏高但承接強</div></td></tr>
+      <tr><td><div class="sym">BOX</div><div class="ind">軟件</div></td><td class="num rs">89 / 85</td><td class="num">$34.31</td><td><span class="pill p-mid">中度回調</span></td><td class="num" style="font-size:12px">10日 $34.71<br>21日 $33.78 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$33.8 – 34.3</td><td class="num">0.72 / 1.61<div class="note healthy">量縮健康回調</div></td></tr>
+      <tr><td><div class="sym">BAX</div><div class="ind">醫療設備(排名 22)</div></td><td class="num rs">88 / 75</td><td class="num">$24.87</td><td><span class="pill p-50">回到 50日 SMA</span></td><td class="num" style="font-size:12px">50日 $24.77<br>僅距 +0.39%(貼近)</td><td class="num" style="color:var(--primary);font-weight:600">$24.8 – 25</td><td class="num">1.15 / 0.86<div class="note">正在測試 50日支撐</div></td></tr>
+      <tr><td><div class="sym">EQH</div><div class="ind">金融服務</div></td><td class="num rs">83 / 80</td><td class="num">$52.05</td><td><span class="pill p-shal">淺回調</span></td><td class="num" style="font-size:12px">10日 $50.87 ✓<br>21日 $50.91 ✓</td><td class="num" style="color:var(--primary);font-weight:600">$49 – 52</td><td class="num">1.10 / 1.38<div class="note">均線密集向上排列</div></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- 突破候選 -->
+<section>
+  <h2>突破候選(參考)</h2><div class="h2rule"></div>
+  <div class="grid3">
+    <div class="card accent"><h3>GTLB · 軟件</h3><ul>
+      <li>形態:淺回調後重上 10日 SMA,量縮整理</li>
+      <li>RV 0.72 · U/D 1.82,距 52週高 −15.14%</li>
+      <li><b>pivot 位 ≈ $48.5</b>(近期高點上緣)</li></ul></div>
+    <div class="card accent"><h3>EQH · 金融服務</h3><ul>
+      <li>形態:均線密集向上排列(10/21日 ≈ $50.9),基底最緊</li>
+      <li>距 52週高只 −5.62%</li>
+      <li><b>pivot 位 ≈ $52.8</b></li></ul></div>
+    <div class="card accent"><h3>DOCU · 軟件</h3><ul>
+      <li>形態:站穩 10日 / 21日 SMA 之上,U/D 1.66 承接強</li>
+      <li>距 52週高 −24.88%,基底較深</li>
+      <li><b>pivot 位 ≈ $66.5</b></li></ul></div>
+    <div class="card accent"><h3>P · 科技硬件 ↗</h3><ul>
+      <li>形態:10日之上、21日之下的窄幅整理,RV 0.97</li>
+      <li>板塊排名 30 → 8,快速轉強</li>
+      <li><b>pivot 位 ≈ $105</b>(重上 21日 SMA 即訊號)</li></ul></div>
+    <div class="card accent"><h3>HOOD · 資本市場 ↗</h3><ul>
+      <li>形態:高於所有均線,正築右側</li>
+      <li>距 52週高 −23.75%,需等縮量整理</li>
+      <li><b>pivot 位 ≈ $120</b></li></ul></div>
+  </div>
+</section>
+
+<!-- 風險提示 -->
+<section>
+  <h2>風險提示</h2><div class="h2rule"></div>
+  <div class="risk"><div class="rt">1 · 大市環境轉差</div><p>
+    道指 −1.18% 屬顯著跌幅,油價連升六日近 $100,10 年債息 4.80%(2023 年底以來最高)。
+    這是「利率上行 + 成本推動通脹」組合,對高估值成長股最不利 —— 而本次 screener 結果中有 <b class="num">12 隻</b>是軟件股。
+  </p></div>
+  <div class="risk"><div class="rt">2 · 9 月 15-16 日 FOMC 是最大不確定性</div><p>
+    加息機率在 50-60% 之間搖擺,本週 CPI 將是決定性催化劑。在此之前建議減小倉位、縮小試單金額,避免在數據前建立重倉。
+  </p></div>
+  <div class="risk"><div class="rt">3 · 領先板塊與可選標的錯配</div><p>
+    今日行業排名前列是海運、油氣、電訊、公用、金屬採礦 —— 傳統上不是高動能 pullback setup 的來源。
+    而 screener 中的高 RS 股票集中在軟件、生物科技、醫療,這些板塊今日主題表現全部為負
+    (Software −1.73%、Biotech −2.21%、Medical −3.57%)。
+    <b style="color:var(--primary)">意味著:單看 RS 排名的名單,可能跟真正的資金流向相反。</b>
+  </p></div>
+  <div class="risk"><div class="rt">4 · 階段分佈警號</div><p>
+    43%(2,403 隻)個股處於第 4 階段(下跌期),只有 3% 在第 1 階段,S3 佔 18%。
+    S3 + S4 合計超過 61%,屬後期市場結構,新突破的失敗率會偏高。
+  </p></div>
+  <div class="risk"><div class="rt">5 · 符合條件股票數量偏少 — 大市轉弱訊號</div><p>
+    36 隻 screener 結果中,同時符合「高 RS 6M + 健康回調位置 + 量縮健康(RV&lt;1 且 U/D&gt;1)」的有 11 隻:
+    RGEN、AMLX、P、TEAM、GTLB、ESTC、MANH、BOX、CHYM、CAKE、DAVE。
+    <b style="color:var(--down)">但當中屬強勢或轉強板塊的僅 RGEN、AMLX、P 三隻 —— 少於 5 隻,這本身就是大市轉弱的訊號。</b>
+    建議只做最高質素的 1-2 個試單,並嚴守停損。
+  </p></div>
+  <div class="risk"><div class="rt">6 · 個別注意</div><p>
+    <b>JHX</b> 的 RV 20d 高達 2.65(RV 5d 2.16),異常放量,入場前務必查清是否有公司消息或指數調整。
+    <b>ASST</b> 距 50日 SMA +81%、距 200日 SMA +84.5%,屬極度伸展,現價風險回報極差。
+  </p></div>
+</section>
+
+<footer>
+  資料來源:Yahoo Finance · CNBC · Bloomberg · Trading Economics · Business Standard · Sunday Guardian · Motley Fool · Deepvue(app.deepvue.com)<br>
+  報告生成時間:2026-09-08 · 本報告為資訊整理,並非投資建議。所有價位為推算值,交易前請自行核對圖表。
+</footer>
+
+</div>
 </body>
 </html>
