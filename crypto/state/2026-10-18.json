@@ -1,0 +1,78 @@
+{
+ "date": "2026-10-18",
+ "generated": "2026-10-18 20:06",
+ "risk": {
+  "label": "Risk-off",
+  "sum": -2,
+  "votes": {
+   "nasdaq_trend": -1,
+   "dxy": -1,
+   "real_yield": 0,
+   "stablecoin_mcap": 0,
+   "btc_etf_flow": null
+  },
+  "coverage": "覆蓋 4/5"
+ },
+ "alt": {
+  "label": "BTC 主導",
+  "sum": -3,
+  "votes": {
+   "btc_dominance": -1,
+   "eth_btc": -1,
+   "alt_vs_btc_mcap": -1,
+   "breadth": 0,
+   "alt_volume_share": 0
+  },
+  "coverage": "覆蓋 5/5"
+ },
+ "btc": {
+  "label": "擴張",
+  "fundamental_avg": 65.9,
+  "factors": {
+   "valuation": 74.3,
+   "holder": 55.0,
+   "liquidity": 68.5,
+   "flows": null
+  },
+  "trend": 87.5,
+  "coverage": "覆蓋 4/5"
+ },
+ "coins": {
+  "ETH": {
+   "direction": "做空",
+   "dir_score": -2.5,
+   "trend_score": -2.0,
+   "crowd_score": -0.5,
+   "setup": "回調至 4H EMA21",
+   "quality": 80
+  },
+  "NEAR": {
+   "direction": "做多",
+   "dir_score": 3.0,
+   "trend_score": 3.0,
+   "crowd_score": 0.0,
+   "setup": "回調至 4H EMA21",
+   "quality": 74
+  },
+  "DOGE": {
+   "direction": "做空",
+   "dir_score": -3.0,
+   "trend_score": -3.0,
+   "crowd_score": 0.0,
+   "setup": null,
+   "quality": null
+  },
+  "SAND": {
+   "direction": "做多",
+   "dir_score": 3.0,
+   "trend_score": 3.0,
+   "crowd_score": 0.0,
+   "setup": null,
+   "quality": null
+  }
+ },
+ "coverage_pct": 87.0,
+ "warnings": [
+  "跨市場風險偏好 = Risk-off：唔開新全倉，只做已有倉位管理。"
+ ]
+}
