@@ -1,17 +1,17 @@
 {
  "date": "2026-10-19",
- "generated": "2026-10-19 22:40",
+ "generated": "2026-10-19 23:13",
  "risk": {
   "label": "Risk-off",
-  "sum": -2,
+  "sum": -3,
   "votes": {
    "nasdaq_trend": -1,
    "dxy": -1,
    "real_yield": 0,
    "stablecoin_mcap": 0,
-   "btc_etf_flow": null
+   "btc_etf_flow": -1
   },
-  "coverage": "覆蓋 4/5"
+  "coverage": "覆蓋 5/5"
  },
  "alt": {
   "label": "BTC 主導",
@@ -27,15 +27,15 @@
  },
  "btc": {
   "label": "擴張",
-  "fundamental_avg": 64.4,
+  "fundamental_avg": 57.2,
   "factors": {
    "valuation": 74.3,
    "holder": 54.4,
    "liquidity": 64.5,
-   "flows": null
+   "flows": 35.6
   },
   "trend": 87.5,
-  "coverage": "覆蓋 4/5"
+  "coverage": "覆蓋 5/5"
  },
  "coins": {
   "NEAR": {
@@ -53,6 +53,14 @@
    "crowd_score": -1.0,
    "setup": "回調至 4H EMA21",
    "quality": 62
+  },
+  "ARB": {
+   "direction": "做多",
+   "dir_score": 2.0,
+   "trend_score": 1.0,
+   "crowd_score": 1.0,
+   "setup": "收斂（區間收窄）",
+   "quality": 61
   },
   "DOGE": {
    "direction": "做空",
@@ -79,7 +87,7 @@
    "quality": null
   }
  },
- "coverage_pct": 87.0,
+ "coverage_pct": 100.0,
  "warnings": [
   "跨市場風險偏好 = Risk-off：唔開新全倉，只做已有倉位管理。"
  ]
