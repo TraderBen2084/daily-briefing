@@ -1,6 +1,6 @@
 {
  "date": "2026-10-19",
- "generated": "2026-10-19 20:06",
+ "generated": "2026-10-19 22:40",
  "risk": {
   "label": "Risk-off",
   "sum": -2,
@@ -27,11 +27,11 @@
  },
  "btc": {
   "label": "擴張",
-  "fundamental_avg": 65.2,
+  "fundamental_avg": 64.4,
   "factors": {
    "valuation": 74.3,
    "holder": 54.4,
-   "liquidity": 66.8,
+   "liquidity": 64.5,
    "flows": null
   },
   "trend": 87.5,
