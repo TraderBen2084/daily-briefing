@@ -1,0 +1,94 @@
+{
+ "date": "2026-10-27",
+ "generated": "2026-10-27 20:06",
+ "risk": {
+  "label": "Neutral",
+  "sum": -1,
+  "votes": {
+   "nasdaq_trend": -1,
+   "dxy": 0,
+   "real_yield": 1,
+   "stablecoin_mcap": -1,
+   "btc_etf_flow": 0
+  },
+  "coverage": "覆蓋 5/5"
+ },
+ "alt": {
+  "label": "BTC 主導",
+  "sum": -4,
+  "votes": {
+   "btc_dominance": -1,
+   "eth_btc": -1,
+   "alt_vs_btc_mcap": -1,
+   "breadth": -1,
+   "alt_volume_share": 0
+  },
+  "coverage": "覆蓋 5/5"
+ },
+ "btc": {
+  "label": "派貨",
+  "fundamental_avg": 47.9,
+  "factors": {
+   "valuation": 74.6,
+   "holder": 48.7,
+   "liquidity": 33.9,
+   "flows": 34.5
+  },
+  "trend": 62.5,
+  "coverage": "覆蓋 5/5"
+ },
+ "coins": {
+  "ARB": {
+   "direction": "做空",
+   "dir_score": -2.5,
+   "trend_score": -2.0,
+   "crowd_score": -0.5,
+   "setup": "回調至 4H EMA21",
+   "quality": 80
+  },
+  "PEPE": {
+   "direction": "做多",
+   "dir_score": 2.0,
+   "trend_score": 2.0,
+   "crowd_score": 0.0,
+   "setup": "前突破位回測",
+   "quality": 78
+  },
+  "SOL": {
+   "direction": "做空",
+   "dir_score": -3.5,
+   "trend_score": -3.0,
+   "crowd_score": -0.5,
+   "setup": "回調至 4H EMA21",
+   "quality": 74
+  },
+  "XRP": {
+   "direction": "做空",
+   "dir_score": -3.0,
+   "trend_score": -3.0,
+   "crowd_score": 0.0,
+   "setup": "收斂（區間收窄）",
+   "quality": 73
+  },
+  "DOGE": {
+   "direction": "做空",
+   "dir_score": -3.0,
+   "trend_score": -3.0,
+   "crowd_score": 0.0,
+   "setup": "收斂（區間收窄）",
+   "quality": 67
+  },
+  "ETH": {
+   "direction": "做空",
+   "dir_score": -3.5,
+   "trend_score": -3.0,
+   "crowd_score": -0.5,
+   "setup": null,
+   "quality": null
+  }
+ },
+ "coverage_pct": 100.0,
+ "warnings": [
+  "24 小時內有事件（FOMC 議息 2026-10-28 14:00）：唔開全倉新倉。"
+ ]
+}
