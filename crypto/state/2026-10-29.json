@@ -1,0 +1,95 @@
+{
+ "date": "2026-10-29",
+ "generated": "2026-10-29 20:06",
+ "risk": {
+  "label": "Risk-off",
+  "sum": -2,
+  "votes": {
+   "nasdaq_trend": -1,
+   "dxy": 0,
+   "real_yield": 1,
+   "stablecoin_mcap": -1,
+   "btc_etf_flow": -1
+  },
+  "coverage": "覆蓋 5/5"
+ },
+ "alt": {
+  "label": "BTC 主導",
+  "sum": -3,
+  "votes": {
+   "btc_dominance": -1,
+   "eth_btc": -1,
+   "alt_vs_btc_mcap": -1,
+   "breadth": -1,
+   "alt_volume_share": 1
+  },
+  "coverage": "覆蓋 5/5"
+ },
+ "btc": {
+  "label": "派貨",
+  "fundamental_avg": 37.8,
+  "factors": {
+   "valuation": 75.7,
+   "holder": 41.6,
+   "liquidity": 0.5,
+   "flows": 33.5
+  },
+  "trend": 50.0,
+  "coverage": "覆蓋 5/5"
+ },
+ "coins": {
+  "SOL": {
+   "direction": "做空",
+   "dir_score": -3.5,
+   "trend_score": -3.0,
+   "crowd_score": -0.5,
+   "setup": null,
+   "quality": null
+  },
+  "XRP": {
+   "direction": "做空",
+   "dir_score": -3.5,
+   "trend_score": -3.0,
+   "crowd_score": -0.5,
+   "setup": null,
+   "quality": null
+  },
+  "ETH": {
+   "direction": "做空",
+   "dir_score": -3.0,
+   "trend_score": -3.0,
+   "crowd_score": 0.0,
+   "setup": null,
+   "quality": null
+  },
+  "DOGE": {
+   "direction": "做空",
+   "dir_score": -2.5,
+   "trend_score": -3.0,
+   "crowd_score": 0.5,
+   "setup": null,
+   "quality": null
+  },
+  "PEPE": {
+   "direction": "做多",
+   "dir_score": 2.5,
+   "trend_score": 3.0,
+   "crowd_score": -0.5,
+   "setup": null,
+   "quality": null
+  },
+  "UNI": {
+   "direction": "做空",
+   "dir_score": -2.5,
+   "trend_score": -2.0,
+   "crowd_score": -0.5,
+   "setup": null,
+   "quality": null
+  }
+ },
+ "coverage_pct": 100.0,
+ "warnings": [
+  "跨市場風險偏好 = Risk-off：唔開新全倉，只做已有倉位管理。",
+  "24 小時內有事件（Deribit 月尾期權結算 2026-10-30 04:00）：唔開全倉新倉。"
+ ]
+}
