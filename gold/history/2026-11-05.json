@@ -1,0 +1,262 @@
+{
+ "schema": 1,
+ "as_of": "2026-11-05 17:15:05",
+ "session_date": "2026-11-05",
+ "price": {
+  "is_spot": false,
+  "source": "GC=F",
+  "close": 4097.899902,
+  "chg_pct": 0.611341,
+  "spot": 4089.199951,
+  "basis": 8.699951,
+  "basis_pct": 0.212754,
+  "spot_quote_at_utc": "2026-11-05 22:14:33"
+ },
+ "signals": {
+  "a1_ema_stack": {
+   "module": "A",
+   "label": "20EMA / 50EMA 排列",
+   "raw": 0.0,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "均線交纏，方向未明（4,097.9 / 4,081.6 / 4,182.9）"
+  },
+  "a2_rsi": {
+   "module": "A",
+   "label": "日線 RSI(14)",
+   "raw": 0.0,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "RSI(14) = 48.9"
+  },
+  "a3_macd_4h": {
+   "module": "A",
+   "label": "4H MACD 柱狀圖",
+   "raw": 0.0,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "柱狀圖為正但收窄（+12.36）"
+  },
+  "a4_key_level": {
+   "module": "A",
+   "label": "距離 20 日高低位（以 ATR 計）",
+   "raw": 0.0,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "處於區間中段（3,879.3 – 4,242.3）"
+  },
+  "a5_asia_breakout_hold": {
+   "module": "A",
+   "label": "突破亞洲區間後守得住",
+   "raw": 0.0,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "未有守住嘅突破（區間 4,093.6 – 4,155.8）"
+  },
+  "a6_failed_breakout": {
+   "module": "A",
+   "label": "假突破（穿完亞洲區間又跌返入）",
+   "raw": 1.0,
+   "weight": 1.0,
+   "points": 1.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "假跌破：曾穿 4,093.6 但收返區間內"
+  },
+  "b1_cot_crowding": {
+   "module": "B",
+   "label": "COT 管理基金淨好倉擁擠度",
+   "raw": 0.0,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "淨好倉 105,562（52週第 40 百分位，報告滯後 9 日） — 中性"
+  },
+  "b2_gld_max_pain": {
+   "module": "B",
+   "label": "GLD 期權 Max Pain（觀察中，未入分）",
+   "raw": 0.0,
+   "weight": 0.0,
+   "points": 0.0,
+   "display_only": true,
+   "skipped": false,
+   "detail": "到期 2026-11-09｜Max Pain 360｜GLD 375.49（偏離 +4.3%）｜未平倉 P/C 0.22"
+  },
+  "c1_spdr_5d": {
+   "module": "C",
+   "label": "SPDR 持倉 5 日變化",
+   "raw": 0.0,
+   "weight": 1.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "5 日持倉變化 -0.27%（門檻 ±0.5%）"
+  },
+  "c2_spdr_20d_regime": {
+   "module": "C",
+   "label": "SPDR 持倉 20 日趨勢（背景）",
+   "raw": 0.0,
+   "weight": 0.0,
+   "points": 0.0,
+   "display_only": true,
+   "skipped": false,
+   "detail": "20 日 -1.94% — 資金持續流出（背景，唔計分）"
+  },
+  "d1_rates_usd_composite": {
+   "module": "D",
+   "label": "利率／美元綜合指標（實質利率＋DXY＋2年期合成一個）",
+   "raw": 0.0,
+   "weight": 3.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "綜合壓力 z = -0.74 → 中性（+0／±3）｜實質利率 z=-0.60、DXY z=-0.64、2年期 z=-1.21"
+  },
+  "d2_macro_divergence": {
+   "module": "D",
+   "label": "黃金 vs 宏觀背馳（宏觀逆風但金唔跌 = 強）",
+   "raw": 0.0,
+   "weight": 2.0,
+   "points": 0.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "無明顯背馳（宏觀 z -0.74，黃金 +1.65%）"
+  },
+  "d3_risk_off": {
+   "module": "D",
+   "label": "避險需求（VIX）",
+   "raw": 1.0,
+   "weight": 1.0,
+   "points": 1.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "VIX 5 日 +63.8%（28.2）"
+  },
+  "e1_gdx_gold_ratio": {
+   "module": "E",
+   "label": "GDX／黃金比率斜率（礦業股領先）",
+   "raw": 1.0,
+   "weight": 1.0,
+   "points": 1.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "10 日斜率 +0.204%/日 — 礦業股領先"
+  },
+  "e2_silver_gold_ratio": {
+   "module": "E",
+   "label": "XAG／XAU 比率斜率（貴金屬廣度）",
+   "raw": -1.0,
+   "weight": 1.0,
+   "points": -1.0,
+   "display_only": false,
+   "skipped": false,
+   "detail": "XAG/XAU 0.0126，10 日斜率 -0.762%/日 — 廣度轉弱"
+  }
+ },
+ "direction": {
+  "score": 2.0,
+  "max": 16.0,
+  "label": "觀望"
+ },
+ "conviction": {
+  "score": 100.0,
+  "label": "高",
+  "agreement": 100.0,
+  "completeness": 100.0,
+  "skipped": [],
+  "modules": {
+   "A": 1.0,
+   "B": 0.0,
+   "C": 0.0,
+   "D": 1.0,
+   "E": 0.0
+  }
+ },
+ "execution": {
+  "score": 58.9,
+  "label": "一般",
+  "size": "半倉",
+  "gvz_pct": 71.111111,
+  "range_ratio": 1.012649,
+  "ext_atr": 0.185572,
+  "event_flag": "非農就業 喺 15 小時後（11-06 08:30 ET）— 唔好開新嘅足額倉",
+  "notes": [
+   "GVZ 處於 90 日第 71 百分位",
+   "當日真實波幅 = 1.01 × ATR20",
+   "距離 20EMA 0.19 個 ATR"
+  ]
+ },
+ "sources": {
+  "yf:GC=F@2y": {
+   "ok": true,
+   "note": "504 日"
+  },
+  "yf:SI=F@2y": {
+   "ok": true,
+   "note": "504 日"
+  },
+  "spot_quote": {
+   "ok": true,
+   "note": "現貨 4,089.20"
+  },
+  "yf1h:GC=F": {
+   "ok": true,
+   "note": "571 支小時 K"
+  },
+  "yf:GC=F@6mo": {
+   "ok": true,
+   "note": "129 日"
+  },
+  "yf:^GVZ@2y": {
+   "ok": true,
+   "note": "501 日"
+  },
+  "yf:DX-Y.NYB@3y": {
+   "ok": true,
+   "note": "755 日"
+  },
+  "yf:^VIX@2y": {
+   "ok": true,
+   "note": "504 日"
+  },
+  "yf:GDX@2y": {
+   "ok": true,
+   "note": "501 日"
+  },
+  "yf:GLD@6mo": {
+   "ok": true,
+   "note": "128 日"
+  },
+  "fred:DFII10": {
+   "ok": true,
+   "note": "最新 2026-11-04 = 2.64"
+  },
+  "fred:DGS2": {
+   "ok": true,
+   "note": "最新 2026-11-04 = 4.58"
+  },
+  "spdr": {
+   "ok": true,
+   "note": "最新 2026-11-04 = 1,040.5 噸"
+  },
+  "cot": {
+   "ok": true,
+   "note": "報告日 2026-10-27，淨好倉 105,562"
+  },
+  "gld_options": {
+   "ok": true,
+   "note": "2026-11-09，Max Pain 360.0"
+  }
+ }
+}
