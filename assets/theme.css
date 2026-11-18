@@ -1,0 +1,63 @@
+/* Quantimes 共用風格 · D Heatmap
+   所有頁面用 <link rel="stylesheet" href="/daily-briefing/assets/theme.css">
+   顏色規則：綠升紅跌；顏色深淺 = 訊號強度 */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap');
+
+:root{
+  --bg:#08090b; --panel:#121418; --line:#22262d;
+  --text:#f1f2f4; --muted:#a1a7b0; --faint:#7d848e;
+  --up:#2fd48f; --down:#ff6577; --flat:#a9afb8;
+  --heat-dn2:#6b1d29; --heat-dn1:#3a1a20; --heat-0:#1c1f24; --heat-up1:#12352a; --heat-up2:#0f5a3e;
+  --heat-dn-text:#ffcdd3; --heat-up-text:#c4f5dd;
+  --font:'Noto Sans TC',-apple-system,'PingFang TC',sans-serif;
+  --num:'Space Grotesk','Noto Sans TC',sans-serif;
+  --radius:6px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--text);font-family:var(--font);-webkit-text-size-adjust:100%}
+a{color:var(--text)}
+.num{font-family:var(--num);font-variant-numeric:tabular-nums}
+.up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--flat)}
+.muted{color:var(--muted)}
+
+/* 頂部導航（每頁共用） */
+.qt-nav{position:sticky;top:0;z-index:50;background:rgba(8,9,11,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.qt-nav-in{max-width:1100px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:8px 12px;scrollbar-width:none}
+.qt-nav-in::-webkit-scrollbar{display:none}
+.qt-nav a{flex:none;text-decoration:none;color:var(--muted);font-size:13px;padding:8px 12px;border-radius:999px;min-height:36px;display:inline-flex;align-items:center}
+.qt-nav a.on{background:var(--text);color:var(--bg);font-weight:700}
+.qt-nav a.home{font-family:var(--num);font-weight:700;letter-spacing:.08em;color:var(--text)}
+
+/* 熱力格 */
+.wrap{max-width:1100px;margin:0 auto;padding:22px 14px 40px;display:flex;flex-direction:column;gap:14px}
+.hd{display:flex;justify-content:space-between;align-items:flex-end;padding:0 2px}
+.kicker{font-family:var(--num);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--muted)}
+h1{margin:4px 0 0;font-size:26px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+@media(min-width:760px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.tile{display:flex;flex-direction:column;gap:6px;min-height:172px;padding:14px;border-radius:var(--radius);text-decoration:none;color:var(--text);background:var(--heat-0)}
+.tile .t-name{font-size:13px;font-weight:700}
+.tile .t-big{font-family:var(--num);font-size:26px;font-weight:700;line-height:1.1;color:#fff;word-break:break-word}
+.tile .t-sub{font-size:12px;line-height:1.45;color:var(--flat)}
+.tile .t-time{margin-top:auto;font-family:var(--num);font-size:11px;color:var(--flat);display:flex;justify-content:space-between;gap:6px}
+.tile.dn2{background:var(--heat-dn2)} .tile.dn1{background:var(--heat-dn1)}
+.tile.up1{background:var(--heat-up1)} .tile.up2{background:var(--heat-up2)}
+.tile.dn1 .t-sub,.tile.dn2 .t-sub,.tile.dn1 .t-time,.tile.dn2 .t-time{color:var(--heat-dn-text)}
+.tile.up1 .t-sub,.tile.up2 .t-sub,.tile.up1 .t-time,.tile.up2 .t-time{color:var(--heat-up-text)}
+.tile.hero{min-height:150px}
+.tile.hero .t-big{font-size:36px}
+.tile.hero p{margin:0;font-size:14px;line-height:1.6}
+.tile .t-head{font-size:22px;font-weight:700;line-height:1.35;color:#fff}
+.stale{font-size:10px;font-weight:700;padding:1px 6px;border-radius:3px;background:#f5c451;color:#1a1400}
+.legend{display:flex;gap:6px;align-items:center;font-size:11px;color:var(--muted);padding:0 2px;flex-wrap:wrap}
+.legend i{width:14px;height:10px;display:inline-block}
+.ft{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:var(--faint);padding:8px 2px 0;border-top:1px solid var(--line)}
+.ft a{color:var(--muted)}
+
+/* 通用：卡片、表格（俾各模組頁用） */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.tbl-box{overflow-x:auto}
+table.qt{width:100%;border-collapse:collapse;font-size:13px}
+table.qt th{text-align:left;color:var(--muted);font-weight:500;font-size:11px;padding:8px;border-bottom:1px solid var(--line)}
+table.qt td{padding:8px;border-bottom:1px solid #16191e;font-variant-numeric:tabular-nums}
+.list a{display:flex;justify-content:space-between;gap:10px;padding:12px 2px;border-bottom:1px solid var(--line);text-decoration:none;min-height:44px;align-items:center}

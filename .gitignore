@@ -1,2 +1,5 @@
 .DS_Store
 crypto/demo.html
+.venv/
+.fuse_hidden*
+_to_delete/

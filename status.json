@@ -1,0 +1,77 @@
+{
+ "generated": "2026-11-18T10:15",
+ "modules": [
+  {
+   "key": "us",
+   "name": "美股簡報",
+   "href": "us/",
+   "big": "−1.03%",
+   "sub": "S&P 7,340.53 · 三大指數四連跌",
+   "sig": -2,
+   "date": "2026-11-17",
+   "updated": "2026-11-17 18:24:50.821790",
+   "stale": false,
+   "scored": true
+  },
+  {
+   "key": "hsi",
+   "name": "恒指收市",
+   "href": "hsi/",
+   "big": "−4.8",
+   "sub": "23,295 · 半倉做空",
+   "sig": -1,
+   "date": "2026-11-18",
+   "updated": "2026-11-18 10:00:25.659818",
+   "stale": false,
+   "scored": true
+  },
+  {
+   "key": "gold",
+   "name": "黃金 XAUUSD",
+   "href": "gold/",
+   "big": "−8.0",
+   "sub": "強烈看淡 · 入場一般 · 半倉 · ±16 分制",
+   "sig": -2,
+   "date": "2026-11-17",
+   "updated": "2026-11-17 17:15:08.369186",
+   "stale": false,
+   "scored": true
+  },
+  {
+   "key": "crypto",
+   "name": "Crypto",
+   "href": "crypto/",
+   "big": "Risk-off",
+   "sub": "BTC 熊市 · BTC 主導",
+   "sig": -2,
+   "date": "2026-11-17",
+   "updated": "2026-11-17 20:06:30.379706",
+   "stale": false,
+   "scored": true
+  },
+  {
+   "key": "ai",
+   "name": "AI Cycle",
+   "href": "ai-cycle/",
+   "big": "17 層",
+   "sub": "AI 產業現金流循環 · 供應鏈追蹤",
+   "sig": 0,
+   "date": "2026-11-17",
+   "updated": "2026-11-17 20:00:10.424777",
+   "stale": false,
+   "scored": false
+  },
+  {
+   "key": "news",
+   "name": "X 新聞",
+   "href": "news/",
+   "big": "17 條",
+   "sub": "經 Grok 讀取 X",
+   "sig": 0,
+   "date": "2026-11-18",
+   "updated": "2026-11-18 02:01:17.860618",
+   "stale": false,
+   "scored": false
+  }
+ ]
+}
