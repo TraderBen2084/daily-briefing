@@ -26,7 +26,7 @@ a{color:var(--text)}
 .qt-nav-in::-webkit-scrollbar{display:none}
 .qt-nav a{flex:none;text-decoration:none;color:var(--muted);font-size:13px;padding:8px 12px;border-radius:999px;min-height:36px;display:inline-flex;align-items:center}
 .qt-nav a.on{background:var(--text);color:var(--bg);font-weight:700}
-.qt-nav a.home{font-family:var(--num);font-weight:700;letter-spacing:.08em;color:var(--text)}
+.qt-nav a.home{font-family:var(--num);font-weight:700;letter-spacing:.08em;color:var(--text);gap:8px;padding-left:4px}
 
 /* 熱力格 */
 .wrap{max-width:1100px;margin:0 auto;padding:22px 14px 40px;display:flex;flex-direction:column;gap:14px}

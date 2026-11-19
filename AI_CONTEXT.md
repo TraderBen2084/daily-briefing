@@ -13,8 +13,8 @@ Ben（獨立交易員，多倫多，美東時間）嘅每日市場報告網站�
 | 頁 | 網址 | 產生方式 | 主要數據 |
 |---|---|---|---|
 | 總頁 | `/` | `scripts/build_portal.py` 自動砌 | 讀各頁最新數據 |
-| 美股簡報 | `/us/` | Claude Cowork 排程（Deepvue + WebSearch） | `briefing.txt` |
-| 恒指收市 | `/hsi/` | `hsi-analysis/main.py`（10:00 ET） | `hsi-analysis/data/日期.json` |
+| 美股簡報 | `/us/` | Cowork 18:15（Deepvue + WebSearch），只寫美股；順手寫 Crypto 新聞 | `briefing.txt`、`modules/web-news/crypto/` |
+| 恒指收市 | `/hsi/` | `hsi-analysis/main.py`（10:00 ET）；港股新聞由 Cowork 04:07 寫 | `hsi-analysis/data/日期.json`、`modules/web-news/hk/` |
 | 黃金 XAUUSD | `/gold/` | `gold-analysis/main.py` | `site/gold/history/日期.json` |
 | Crypto | `/crypto/` | `crypto-analysis/main.py` | `site/crypto/state/日期.json` |
 | AI Cycle | `/ai-cycle/` | `ai_cycle/main.py` + Cowork 讀 Deepvue | `ai_cycle/deepvue_data.json` |
@@ -23,6 +23,11 @@ Ben（獨立交易員，多倫多，美東時間）嘅每日市場報告網站�
 | 歷史存檔 | `/archive/` | 自動 | `site/us/archive/`、`site/ai-cycle/日期.html` |
 
 各模組詳細設計：`hsi-analysis/README.md`、`gold-analysis/HANDOFF.md`、`crypto-analysis/HANDOFF.md`（喺 Ben 部 Mac，唔喺 repo）。
+
+### Earnings Gap 候選（美股頁入面嘅區塊）
+- `scripts/earnings_gap.py`（17:30 ET 一至五）：TradingView 篩選器股票池（美國普通股、市值 > $2B、唔要 REIT/SPAC、業績喺 2026-09-15 後）+ yfinance 日線 → 業績反應日 gap up ≥ 5% → 旗形四組（已突破 / 近旗頂 / 旗形下半 / 已破位）→ `modules/earnings-gap/latest.json`
+- Gap 原因：美股 Cowork 排程用 WebSearch 寫入 `modules/earnings-gap/reasons.json`（key = `代號|gap日期`，查過唔再查）
+- `scripts/build_earnings_gap.py`：發佈時插入 `site/us/index.html`（`<!-- EG-START -->` 至 `<!-- EG-END -->`）
 
 ## 3. 本機 folder（`~/Documents/dailyreport/`）
 ```
