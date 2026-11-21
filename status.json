@@ -1,17 +1,17 @@
 {
- "generated": "2026-11-20T20:30",
+ "generated": "2026-11-20T21:18",
  "modules": [
   {
    "key": "us",
    "name": "美股簡報",
    "href": "us/",
-   "big": "—",
-   "sub": "美股收市簡報",
-   "sig": 0,
-   "date": "2026-11-19",
-   "updated": "2026-11-20 20:30:00.597141",
+   "big": "−3.70%",
+   "sub": "S&P 6,910.39 · 連跌第七日",
+   "sig": -2,
+   "date": "2026-11-20",
+   "updated": "2026-11-20 21:18:08.752495",
    "stale": false,
-   "scored": false
+   "scored": true
   },
   {
    "key": "hsi",
