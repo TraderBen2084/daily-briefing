@@ -62,3 +62,10 @@ _to_delete/        ← 待 Ben 自己刪嘅舊檔
 - [x] 總括評論頁（`scripts/build_summary.py`；Cowork 20:15 跟 `modules/summary/PROMPT.md` 寫 markdown）
 - [x] HSI 圖表改用 Vela 互動 K 線（試行，載入失敗退返 PNG）
 - [ ] 美股 Cowork prompt 改用 `DESIGN-quantimes.md`（等 Ben 改）
+
+## S2 pull back 候選（2026-11-25 起取代舊 Pullback 候選）
+- 程式：scripts/s2_pullback.py（由 us_screener.py 調用），結果喺 modules/us-screener/latest.json 嘅 "s2"
+- 週線形態：跌 ≥30%、最低位 ≥8 週前、橫行 ≥10 週、收市價區間頂突破（16 週內、量 ≥1.3x）、收復跌幅 ≤65%、
+  回測框頂 −5%~+8% 或貼 10 週線、30 週線向上、橫行 U/D>1、回調縮量；有盈利 + EPS/收入 YoY>0
+- 行業轉強只做參考（🔥 排前）；差一個條件嘅放「觀察名單」
+- 單隻檢查：python3 scripts/s2_pullback.py TICKER
