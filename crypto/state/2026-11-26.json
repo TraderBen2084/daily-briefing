@@ -1,0 +1,55 @@
+{
+ "date": "2026-11-26",
+ "generated": "2026-11-26 20:06",
+ "risk": {
+  "label": "Risk-off",
+  "sum": -4,
+  "votes": {
+   "nasdaq_trend": -1,
+   "dxy": -1,
+   "real_yield": 0,
+   "stablecoin_mcap": -1,
+   "btc_etf_flow": -1
+  },
+  "coverage": "覆蓋 5/5"
+ },
+ "alt": {
+  "label": "BTC 主導",
+  "sum": -2,
+  "votes": {
+   "btc_dominance": 0,
+   "eth_btc": -1,
+   "alt_vs_btc_mcap": -1,
+   "breadth": -1,
+   "alt_volume_share": 1
+  },
+  "coverage": "覆蓋 5/5"
+ },
+ "btc": {
+  "label": "熊市",
+  "fundamental_avg": 34.8,
+  "factors": {
+   "valuation": 89.9,
+   "holder": 7.2,
+   "liquidity": 42.2,
+   "flows": 0.0
+  },
+  "trend": 25.0,
+  "coverage": "覆蓋 5/5"
+ },
+ "coins": {
+  "ETH": {
+   "direction": "做空",
+   "dir_score": -2.75,
+   "trend_score": -3.0,
+   "crowd_score": 0.25,
+   "setup": "回調至 4H EMA21",
+   "quality": 74
+  }
+ },
+ "coverage_pct": 100.0,
+ "warnings": [
+  "跨市場風險偏好 = Risk-off：唔開新全倉，只做已有倉位管理。",
+  "24 小時內有事件（Deribit 月尾期權結算 2026-11-27 04:00）：唔開全倉新倉。"
+ ]
+}
